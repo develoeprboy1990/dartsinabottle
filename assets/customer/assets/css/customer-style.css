@@ -1,0 +1,5 @@
+.give_border_color{
+
+	border:2px solid red
+}
+.ui-widget.ui-widget-content { z-index: 1000 !important; }
