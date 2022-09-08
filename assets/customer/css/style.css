@@ -1498,6 +1498,10 @@ figcaption.manage-height {
     .login-col {
         max-width: 90%;
     }
+    .footer_email{
+        font-size: 14px !important;
+    }
+
 }
 
 @media (max-width:560px) {
@@ -1612,9 +1616,6 @@ figcaption.manage-height {
     }
     ul.deals {
         padding: 22px 18px;
-    }
-    .validate_next {
-        margin-top: 50px;
     }
     .social_icons {
     text-align: left;
@@ -1850,6 +1851,9 @@ figcaption.manage-height {
 @media only screen and (max-width: 990px) {
     .single-price {
         margin-bottom: 30px;
+    }
+    .validate_next {
+        margin-top: 50px;
     }
 }
 
@@ -2210,4 +2214,13 @@ figcaption.manage-height {
     border-bottom-style: solid;
     border-bottom-width: 1px; */
     width: fit-content;
+}
+.mobile-current-darts-price {
+  display: none;
+}
+@media (max-width: 420px) {
+  .mobile-current-darts-price {
+    display: block;
+    /* Add other properties here */
+  }
 }

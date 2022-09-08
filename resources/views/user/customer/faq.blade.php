@@ -117,7 +117,7 @@
                             Annfield Plain<br>
                             DH9 7UT<br>
                         </li>
-                        <p>
+                        <p class="li-text">
                             <b> Please note we do not send out a pre-paid envelope for sending in additional sets. You must pay the postage and packaging costs yourself.</b> However, if a user purchases your barrels you do not need to pay any more postage and packaging costs, as they are already in the hands of whoever wants them! 
                         </p>
                     </ul>

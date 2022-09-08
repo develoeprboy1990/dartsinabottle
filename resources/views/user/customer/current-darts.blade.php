@@ -61,6 +61,7 @@
                         $total  = number_format((float)$price + $amount, 2, '.', '');
                       }
                   @endphp
+                  <br class="mobile-current-darts-price" />
                   Darts £{{$price}}<br>
                   Finder’s Fee £{{$amount}}<br>
                   Total £{{$total}}<br>

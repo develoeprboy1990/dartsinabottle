@@ -69,10 +69,11 @@
                     <label>
                       <input type="radio" name="product_price_type" value="for_sale" {{@$test_checked}} id="for_sale" data-id="{{$product->id}}"> Set Price
                     </label>
-                    <table id="set_darts_price_{{$product->id}}" <?php if($test_checked ==''){ ?> style="display:none" <?php } ?> >
-                      <tr><td>Price (£):</td><td><input class="form-control req_class" type="text" name="product_price" id="product_price" value="{{$product->product_price}}" ></td></tr>
+                    <div id="set_darts_price_{{$product->id}}" <?php if($test_checked ==''){ ?> style="display:none;" <?php } ?> >
+                      <label><b>Price (£):</b></label>
+                      <span><input class="form-control req_class" type="text" name="product_price" id="product_price" value="{{$product->product_price}}" ></span>
                       <input type="hidden" name="paypal_email" class="paypal_email" id="paypal_email" value="{{@$user_boot->paypal_email}}"> 
-                    </table>
+                    </div>
                   </div>
                   
                   <div class="ln_solid" style="margin:10px 0;"></div>

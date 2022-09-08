@@ -146,7 +146,7 @@
                             <option value="" >Select Weight Range</option>
                             <option value="Light">Light (12-18g)</option>
                             <option value="Medium">Medium (19-22g)</option>
-                            <option value="Heavy">Heavy (22g or more)</option>
+                            <option value="Heavy">Heavy (23g or more)</option>
                         </select>
                       </div>
 
@@ -217,7 +217,7 @@
                           <option value="" >Select Weight Range</option>
                           <option value="Light">Light (12-18g)</option>
                           <option value="Medium">Medium (19-22g)</option>
-                          <option value="Heavy">Heavy (22g or more)</option>
+                          <option value="Heavy">Heavy (23g or more)</option>
                         </select>
                       </div>
                       <div class="form-group">

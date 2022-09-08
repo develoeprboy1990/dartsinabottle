@@ -29,7 +29,7 @@ a:hover {
 <div class="container">
     <div class="row contact-content">
         <div class="col-xs-12" >
-            <h1> <b>Privay Policy</b> </h1>
+            <h1> <b>Privacy Policy</b> </h1>
             <hr>
 <p style="text-align:justify;">This Privacy Policy elaborates our policies on collecting, using, and disclosing your information when you use our services. It informs you on your entitled privacy rights and how the law protects you.</p>
 

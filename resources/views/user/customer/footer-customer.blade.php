@@ -67,7 +67,7 @@ padding: 6px;
                 Annfield Plain<br>
                 DH9 7UT<br><br>
                 <ul>
-                <li> <span>Email: </span> <a href="mailto:customerservice@dartsinabottle.com">customerservice@dartsinabottle.com</a></li>
+                <li> <span>Email: </span> <a class="footer_email" href="mailto:customerservice@dartsinabottle.com">customerservice@dartsinabottle.com</a></li>
                 </ul>
             </div>
         </div>
