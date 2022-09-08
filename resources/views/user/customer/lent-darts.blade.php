@@ -34,9 +34,9 @@
             <thead>
               <tr>
                 <th>Title</th>
+                <th>Price</th>
                 <th>Weight</th>                              
                 <th>Weight Range</th>
-                <th>Price</th>
                 <th>Status</th>
                 <th>Description</th>
                 <th>Image</th>
@@ -46,8 +46,6 @@
              @foreach($products as $product)
               <tr>
                 <td>{{$product->product_name}}</td>
-                <td>{{$product->product_weight}}</td>
-                <td>{{$product->product_weight_range}}</td>
                 <td style="width:300px">     
                 @if($product->active_status == '1')            
                 <form id="form_{{$product->id}}" class="form-label-left confirm-price-set" method="post" action="{{url('choose-product-price-type-process')}}" data-id="{{$product->id}}">
@@ -101,6 +99,8 @@
                   {{$product_price_type}}
                 @endif
                 </td>
+                <td>{{$product->product_weight}}</td>
+                <td>{{$product->product_weight_range}}</td>
                 <td> 
                 @php
                 $product_status = '';

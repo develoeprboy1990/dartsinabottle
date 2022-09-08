@@ -34,9 +34,9 @@
             <thead>
               <tr>
                 <th>Title</th>
+                <th>Price</th>
                 <th>Weight</th>                              
                 <th>Weight Range</th>
-                <th>Price</th>
                 <th>Description</th>
                 <th>Image</th>
               </tr>
@@ -45,8 +45,6 @@
               @if($product != null)
               <tr>
                 <td>{{$product->getProduct->product_name}}</td>
-                <td>{{$product->getProduct->product_weight}}</td>
-                <td>{{$product->getProduct->product_weight_range}}</td>
                 <td style="width:300px">
                   @if($product->getProduct->product_price_type == "for_sale")
                   @php
@@ -72,6 +70,8 @@
                   Not For Sale
                   @endif
                 </td>
+                <td>{{$product->getProduct->product_weight}}</td>
+                <td>{{$product->getProduct->product_weight_range}}</td>
                 <td>{!! $product->getProduct->product_description !!}</td>
 
 
