@@ -28,7 +28,7 @@
                     <div class="navbar-brand">
                         <span class="navbar-logo">
                             <a href="#">
-                                <img src="{{asset('assets/website/images/4d-803x142.png')}}" alt="Dartsinabottle" style="height:4rem;width: 13.6rem;">
+                                <img src="{{asset('assets/website/images/4d-803x142.png')}}" alt="Dartsinabottle">
                             </a>
                         </span>                
                     </div>

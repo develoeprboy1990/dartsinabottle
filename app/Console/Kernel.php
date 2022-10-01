@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('checkSubscribeBilling:daily')->twiceDaily(11, 16);
+        $schedule->command('checkSubscribeBilling:daily')->dailyAt('01:01'); 
     }
 
     /**

@@ -35,6 +35,9 @@ class CheckUsersCheckUsers extends Command
         $today = Carbon::parse($date)->format('Y-m-d H:i:s');
 
         $order_details=Subscription::where(['status'=>2])->orderBy('id','DESC')->get();
+         /*$order_details=Subscription::where(['id'=>1])->first();
+         $order_details->sort_1 = 'Mutahir';
+         $order_details->save();*/
         foreach($order_details as $order_detail)
         {
             $billing=SubscriptionBilling::where('subscription_id',$order_detail->id)->orderBy('id','DESC')->first();
@@ -49,7 +52,7 @@ class CheckUsersCheckUsers extends Command
                 $data = array(
                 'firstname'       => $order_detail->getUser->first_name,
                 'lastname'        => $order_detail->getUser->last_name,
-                'email'           => 'mr.elahi.ehsan@gmail.com',
+                'email'           => 'sales@dartsinabottle.com',
                 'message_body'         => $message_body
                 );
 

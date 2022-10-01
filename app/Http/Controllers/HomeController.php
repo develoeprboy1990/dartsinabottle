@@ -561,12 +561,19 @@ class HomeController extends Controller
   {
     $states = State::where('country_id', 230)->orderBy('name', 'ASC')->get();
     $user = User::where('id', Auth::user()->id)->first();
-    return view('user.customer.add-shipping-detail', ['states' => $states, 'user' => $user]);
+
+    $shipping_detail =  ShippingDetail::where('user_id', Auth::user()->id)->first();
+
+    return view('user.customer.add-shipping-detail', ['states' => $states, 'user' => $user,'shipping_detail'=>$shipping_detail]);
   }
 
   public function addShippingDetailProcess(Request $request)
   {
+    $shipping_detail =  ShippingDetail::where('user_id', Auth::user()->id)->first();
+
+    if(!$shipping_detail)
     $shipping_detail = new ShippingDetail;
+
     $shipping_detail->user_id = Auth::user()->id;
     $shipping_detail->first_name = Auth::user()->first_name;
     $shipping_detail->last_name = Auth::user()->last_name;
@@ -1496,6 +1503,9 @@ class HomeController extends Controller
     $order_number        = strtotime(date('H:i:s')) . mt_rand(999, 999999);
     $payment_type_detail = PaymentType::where('id', $request['payment_type_id'])->first();
     $package             = Package::where('id', $request['package_id'])->first();
+    $website_setting     = HomePageUrl::where('id', 1)->first();
+
+    $oneTimeFee = $website_setting->deposit_cost+$package->stripe_fee;
 
     // Cart
     $carts = Cart::where(['user_cookie' => $_COOKIE['user_cookie']])->get();
@@ -1540,12 +1550,13 @@ class HomeController extends Controller
                     ]
                     );*/
           $order_detail  = $user->newSubscription($payment_mode, $app_id)->create($paymentMethod, ['email' => $user->email]);
-          if ($package->id == 1) {
-            $depositFee =  4098; //£40+£0.98= 40.98
+          /* if ($package->id == 1) {
+           $depositFee =  4199; //£40+£1.99= 41.99
 
           } else {
-            $depositFee = 4112; //£40+£1.12 = 41.12
-          }
+            $depositFee = 4249; //£40+£2.49 = 42.49
+          }*/
+          $depositFee = 0;
           $oneTime = $user->invoiceFor('Deposit Fee', $depositFee);
           /* FOR MULTIPLE PRICES REPLACE ABOVE CODE WITH BELOW.
                       $order_detail  = $user->newSubscription('default', [
@@ -1593,10 +1604,6 @@ class HomeController extends Controller
           "plan_id" => $plan_id,
           "start_time" => date("Y-m-d") . "T23:20:50.52Z",
           "quantity" => "1",
-          "shipping_amount" => array(
-            "currency_code" => "GBP",
-            "value" => $package->price
-          ),
           "subscriber" => array(
             "name" => array(
               "given_name" => $shipping_detail->first_name,
@@ -1731,6 +1738,7 @@ class HomeController extends Controller
       'state_tax' => $request['state_tax'],
       'original_total'  => $request['sub_total'],
       'discounted_total' => $request['discounted_total'],
+      'oneTimeFee'       => $oneTimeFee,
       'coupon_discount' => $request['coupon_discount'],
       /*'coupon_code' => $request['coupon_code'],*/
       'final_total_with_shipping_cost' => $request['amount'],
@@ -1895,6 +1903,10 @@ class HomeController extends Controller
         'product_discounted_total' => $order_product->s_i_d_t
       );
 
+      $package             = Package::where('id', $order_product->getPackage->id)->first();
+      $website_setting     = HomePageUrl::where('id', 1)->first();
+      $oneTimeFee = $website_setting->deposit_cost+$package->paypal_fee;
+
 
       $billing_detail = BillingDetail::where('order_details_id', $subscription->id)->first();
 
@@ -1906,7 +1918,6 @@ class HomeController extends Controller
         'sort_1'               => $subscription->sort_1,
         'sort_2'               => $subscription->sort_2,
         'sort_3'               => $subscription->sort_3,
-
         'shipping_city'        => $subscription->getShippingDetail->city_id,
         'shipping_email'       => $subscription->getShippingDetail->email,
         'shipping_address'     => $subscription->getShippingDetail->address,
@@ -1918,6 +1929,7 @@ class HomeController extends Controller
         'state_tax'            => $subscription->state_tax,
         'original_total'       => $subscription->sub_total,
         'discounted_total'     => $subscription->discounted_total,
+        'oneTimeFee'           => $oneTimeFee,
         'coupon_discount'      => $subscription->coupon_discount,
         /*'coupon_code' => $subscription->coupon_code,*/
         'final_total_with_shipping_cost' => $subscription->amount,

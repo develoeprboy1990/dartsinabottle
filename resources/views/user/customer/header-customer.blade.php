@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4 logo hidden-xs">
-                <a href="{{url($home_page_url_boot->url)}}"><img src="{{url('public/uploads/logo_main.png')}}"
-                        alt="logo" class="img-responsive" style="height: 45px;"></a>
+                <a href="{{url($home_page_url_boot->url)}}"><img src="{{asset('assets/website/images/4d-803x142.png')}}"
+                        alt="logo" class="img-responsive" ></a>
             </div>
             <div class="col-sm-8">
                 <nav class="navbar">

@@ -1,6 +1,6 @@
 <?php
 return [
-    'mode'    => env('PAYPAL_MODE', 'sandbox'),
+    'mode'    => env('PAYPAL_MODE', 'LIVE'),
 
     'sandbox' => [
         'client_id'         => env('PAYPAL_SANDBOX_CLIENT_ID', 'AZp22rGSpvsorKZv4aVvGNZjEHTMuxaqod0Wp1KoiVyOCFQ0-GPlftbfHANEBVGzRPaRHp4wp-6RoE3r'),
@@ -9,8 +9,8 @@ return [
     ],
 
     'live' => [
-        'client_id'         => env('PAYPAL_LIVE_CLIENT_ID', ''),
-        'client_secret'     => env('PAYPAL_LIVE_CLIENT_SECRET', ''),
+        'client_id'         => env('PAYPAL_LIVE_CLIENT_ID', 'ATISy9Q7g7Jmo-CoNhvV1Kny5cWtlO68_FCtD01v3w7GVkqqrb_y07g4wAlvXh2G9Smn30ihhD0WmQdZ'),
+        'client_secret'     => env('PAYPAL_LIVE_CLIENT_SECRET', 'EErn2W6Dg2ztF6dF2RkXBMAIX1FVdZUQp1U_jLjH1W8XDmwmqw4x5nLNXQCUMeaNYH54w2VSktUYFuIf'),
         'app_id'            => '',
     ],
 

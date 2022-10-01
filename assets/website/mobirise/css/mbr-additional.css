@@ -1136,7 +1136,7 @@ section.lazy-placeholder:after {
   .cid-sBTUWbBvMs {
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 50vh;
   }
   html, body {
     width: 100%;
@@ -1314,6 +1314,7 @@ section.lazy-placeholder:after {
 @media (max-width: 767px) {
   .cid-sBTUWbBvMs svg {
     width: 800px;
+    top: 0px;
   }
 }
 @keyframes svg {
@@ -1493,6 +1494,7 @@ section.lazy-placeholder:after {
   .cid-sBTUWbBvMs {
     padding-top: 0rem;
     padding-bottom: 0rem;
+    height: 50vh;
   }
 }
 .cid-sBUfR1pTVP .svg-top {

@@ -58,30 +58,28 @@
 			         <!-- <span id="shipping_cities_div" style="display: none;"></span> -->
                   <div class="col-sm-12 col-xs-12 form-group">
                     <label>Address Line 1*</label> 
-                    <input type="text" name="shipping_address" id="shipping_address" class="form-control" value="" required="true">
+                    <input type="text" name="shipping_address" id="shipping_address" class="form-control" value="{{@$shipping_detail->address}}" required="true">
                   </div>
 
                   <div class="col-sm-12 col-xs-12 form-group">
                     <label>Address Line 2</label> 
-                    <input type="text" name="shipping_address_2" id="shipping_address_2" class="form-control" value="" >
+                    <input type="text" name="shipping_address_2" id="shipping_address_2" class="form-control" value="{{@$shipping_detail->address_2}}" >
                   </div>
 
                   <div class="col-sm-12 col-xs-12 form-group">
                     <label>Town/City*</label> 
-                    <input type="text" name="city_id" id="city_id" class="form-control" value="" required="true">
+                    <input type="text" name="city_id" id="city_id" class="form-control" value="{{@$shipping_detail->city_id}}" required="true">
                   </div>
 
                   <div class="col-sm-12 col-xs-12 form-group">
                     <label>Postcode*</label> 
-                    <input type="text" name="shipping_zip" id="shipping_zip" class="form-control" value="" required="true">
+                    <input type="text" name="shipping_zip" id="shipping_zip" class="form-control" value="{{@$shipping_detail->zip}}" required="true">
                   </div>
                   <div class="col-sm-12 col-xs-12 form-group">
                     <label>Phone*</label> 
-                    <input type="text" name="shipping_phone" id="shipping_phone" class="form-control" value="" required="true">
+                    <input type="text" name="shipping_phone" id="shipping_phone" class="form-control" value="{{@$shipping_detail->phone}}" required="true">
                   </div>  
-                </div>
-
-                  
+                </div>                  
               </div>
               <div class="clearfix"></div>
               <div class="row checkout-btn-row">

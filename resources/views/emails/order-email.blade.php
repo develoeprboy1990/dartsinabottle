@@ -49,8 +49,6 @@
 
 	<h3>Your Bill</h3>
 	<p><strong>Sub Total:</strong> £{{number_format($discounted_total,2)}}</p>
-	{{--<p><strong>Shipping Cost:</strong> £{{number_format($total_ship_cost,2)}}</p>
-	<p><strong>State tax:</strong> £{{number_format($state_tax,2)}}</p>
-	<p><strong>Original Total:</strong> £{{$original_total}}</p> 
-	<p><strong>Total with Shipping Cost: </strong> £{{number_format($final_total_with_shipping_cost,2)}}</p>--}}
+	<p><strong>Deposit + Handling Fee:</strong> £{{number_format($oneTimeFee,2)}}</p>
+	<p><strong>Total:</strong> £{{number_format($discounted_total+$oneTimeFee,2)}}</p>
 @endsection
