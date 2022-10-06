@@ -52,7 +52,7 @@ class CheckUsersCheckUsers extends Command
                 $data = array(
                 'firstname'       => $order_detail->getUser->first_name,
                 'lastname'        => $order_detail->getUser->last_name,
-                'email'           => 'sales@dartsinabottle.com',
+                'email'           => 'customerservice@dartsinabottle.com',
                 'message_body'         => $message_body
                 );
 

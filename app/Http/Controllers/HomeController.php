@@ -1550,13 +1550,12 @@ class HomeController extends Controller
                     ]
                     );*/
           $order_detail  = $user->newSubscription($payment_mode, $app_id)->create($paymentMethod, ['email' => $user->email]);
-          /* if ($package->id == 1) {
+           if ($package->id == 1) {
            $depositFee =  4199; //£40+£1.99= 41.99
 
           } else {
             $depositFee = 4249; //£40+£2.49 = 42.49
-          }*/
-          $depositFee = 0;
+          }
           $oneTime = $user->invoiceFor('Deposit Fee', $depositFee);
           /* FOR MULTIPLE PRICES REPLACE ABOVE CODE WITH BELOW.
                       $order_detail  = $user->newSubscription('default', [
@@ -1604,6 +1603,10 @@ class HomeController extends Controller
           "plan_id" => $plan_id,
           "start_time" => date("Y-m-d") . "T23:20:50.52Z",
           "quantity" => "1",
+          "shipping_amount" => array(
+          "currency_code" => "GBP",
+          "value" => "0"
+          ),
           "subscriber" => array(
             "name" => array(
               "given_name" => $shipping_detail->first_name,
@@ -1638,6 +1641,7 @@ class HomeController extends Controller
         );
         $payThroughPaypal = true;
         $response = $this->paypalSend($arrayObj);
+        //dd($response);
 
         $order_detail  = Subscription::create(['stripe_id' => $response->id, 'stripe_status' => "$response->status", 'payment_status' => '0', 'status' => '0', 'quantity' => 1]);
         $order_product = SubscriptionItem::create(['subscription_id' => $order_detail->id, 'stripe_id' => "$response->id", 'stripe_plan' => "$response->id", 'quantity' => 1]);
@@ -2150,7 +2154,7 @@ class HomeController extends Controller
       Mail::send('emails.email-to-seller',  $data_seller, function ($message) use ($data_seller) {
         $message->to($data_seller['email'])
         ->cc(['sales@dartsinabottle.com', 'elahi.ehsan@ymail.com'])
-          ->subject('dartsinabottle Sell Information');
+          ->subject("You've sold some darts");
       });
       //==================================================================================
 
@@ -2446,7 +2450,7 @@ class HomeController extends Controller
 
     Mail::send('emails.unsubscribe-order-email',  $data, function ($message) use ($data) {
       $message->to($data['email'])
-        ->cc(['sales@dartsinabottle.com', 'customerservice@dartsinabottle.com'])
+        ->cc(['customerservice@dartsinabottle.com'])
         ->subject('dartsinabottle Unsubscribe Information');
     });
 
