@@ -291,10 +291,10 @@
                         <p class="mbr-text mbr-fonts-style mb-3 display-7">Follow us on the social media platforms below. We love hearing what you received and how you played with them!</p>
                     </div>
                     <div class="icons d-flex align-items-center justify-content-center col-12 col-md-12 mt-md-0 mt-2 flex-wrap">
-                        <a href="https://twitter.com/mobirise" target="_blank">
+                        <a href="https://twitter.com/dartsinabottle" target="_blank">
                             <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
                         </a>
-                        <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
+                        <a href="https://www.facebook.com/profile.php?id=100086388136148" target="_blank">
                             <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
                         </a>
                         <a href="https://www.youtube.com/c/mobirise" target="_blank">

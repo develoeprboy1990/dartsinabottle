@@ -44,12 +44,12 @@ padding: 6px;
                     <h3>Quick Links</h3>		
                     <ul>
                         <li class="page_item page-item-6 current_page_item">
-                            <a href="https://twitter.com/" target="_blank">
+                            <a href="https://twitter.com/dartsinabottle" target="_blank">
                                 <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
                             </a>
                         </li>
                         <li class="page_item page-item-6 current_page_item">
-                            <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
+                            <a href="https://www.facebook.com/profile.php?id=100086388136148" target="_blank">
                                 <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
                             </a>
                         </li>
