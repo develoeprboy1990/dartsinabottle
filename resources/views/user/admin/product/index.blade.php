@@ -152,7 +152,7 @@
 
                       <div class="form-group">
                         <label for="price">Weight:</label>
-                        <input type="number" class="form-control" id="product_weight" placeholder="Enter Weight" name="product_weight" required="true">
+                        <input type="text" class="form-control" id="product_weight" placeholder="Enter Weight" name="product_weight" required="true">
                       </div>
 
                       <div class="form-group">
@@ -222,7 +222,7 @@
                       </div>
                       <div class="form-group">
                         <label for="price">Weight:</label>
-                        <input type="number" class="form-control" id="e_weight" placeholder="Edit Weight" name="e_weight" required="true">
+                        <input type="text" class="form-control" id="e_weight" placeholder="Edit Weight" name="e_weight" required="true">
                       </div>
                       <div class="form-group">
                         <label for="price">Price Type:</label>
@@ -255,8 +255,7 @@
   </div>  
 
 <script type="text/javascript">
-   function isNumber(evt)
-       {
+  function isNumber(evt){
           var charCode = (evt.which) ? evt.which : evt.keyCode;
           if (charCode != 46 && charCode > 31 
             && (charCode < 48 || charCode > 57 || charCode == 9))
@@ -264,7 +263,7 @@
           return true;
        }
 
-    function validateFileType(){
+  function validateFileType(){
         var fileName = document.getElementById("image").value;
         var idxDot = fileName.lastIndexOf(".") + 1;
         var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
@@ -277,7 +276,7 @@
         }   
     }
 
-      function validateFileType1(){
+  function validateFileType1(){
         var fileName = document.getElementById("e_image").value;
         var idxDot = fileName.lastIndexOf(".") + 1;
         var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
@@ -290,7 +289,7 @@
         }   
     }
 
-    function validateFileType2(){
+  function validateFileType2(){
         var fileName = document.getElementById("transparent_image").value;
         var idxDot = fileName.lastIndexOf(".") + 1;
         var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
