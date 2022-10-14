@@ -22,7 +22,7 @@
           <div class="clearfix"></div>
           @if(Session::has('successmessage'))
               <div class="alert alert-success alert-dismissable">
-               <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+               <a href="javascript:void(0);" class="close" data-dismiss="alert" aria-label="close">×</a>
                {{Session::get('successmessage')}}
               </div>
             @endif
@@ -101,9 +101,9 @@
                                 @endphp
                                 {{$product_status}}
                               </td>
-                              <td><a href="#" class="edit_product" data-product_id="{{$product->id}}"><i class="fa fa-edit"></i></a> 
+                              <td><a href="javascript:void(0);" class="edit_product" data-product_id="{{$product->id}}"><i class="fa fa-edit"></i></a> 
                                 {{Form::open(array('url'=>'admin/delete-product/'.$product->id,'method'=>'POST','id'=>'del_product_form'.$product->id)) }}
-                                    <a href="#" class="delete_product" data-product_id="{{$product->id}}"  title="Delete"><i class="fa fa-trash"></i></a>
+                                    <a href="javascript:void(0);" class="delete_product" data-product_id="{{$product->id}}"  title="Delete"><i class="fa fa-trash"></i></a>
                                 {{Form::close()}}   
                               </td>
                             </tr>
