@@ -1598,7 +1598,6 @@ class HomeController extends Controller
           $email_address = $payment_type_detail->live_email;
           $plan_id = $package->paypal_live_plan_id;
         }
-
         $arrayObj = array(
           "plan_id" => $plan_id,
           "start_time" => date("Y-m-d") . "T23:20:50.52Z",
@@ -1641,8 +1640,6 @@ class HomeController extends Controller
         );
         $payThroughPaypal = true;
         $response = $this->paypalSend($arrayObj);
-        //dd($response);
-
         $order_detail  = Subscription::create(['stripe_id' => $response->id, 'stripe_status' => "$response->status", 'payment_status' => '0', 'status' => '0', 'quantity' => 1]);
         $order_product = SubscriptionItem::create(['subscription_id' => $order_detail->id, 'stripe_id' => "$response->id", 'stripe_plan' => "$response->id", 'quantity' => 1]);
       }
@@ -1814,8 +1811,11 @@ class HomeController extends Controller
     }
     curl_close($curl);
     $lines    = explode("\n", $result);
-    $response = json_decode($lines[16]);
-
+    if (config('paypal.mode') == 'sandbox') {
+      $response = json_decode(end($lines));
+    }else{
+    $response = json_decode(end($lines));
+    }
     return  $response; //['status'=>$response->status,'redirecUrl'=>$response->links[0]->href];
   }
 
