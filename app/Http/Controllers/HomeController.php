@@ -1751,7 +1751,7 @@ class HomeController extends Controller
 
       Mail::send('emails.order-email',  $data, function ($message) use ($data) {
         $message->to($data['email'])
-          ->cc(['sales@dartsinabottle.com', 'elahi.ehsan@ymail.com'])
+          ->cc(['sales@dartsinabottle.com','dartsinabottle.com+1493fc9a1f@invite.trustpilot.com', 'elahi.ehsan@ymail.com'])
           ->subject('dartsinabottle Order Information');
       });
     }
@@ -1949,7 +1949,7 @@ class HomeController extends Controller
 
       Mail::send('emails.order-email',  $data, function ($message) use ($data) {
         $message->to($data['email'])
-          ->cc(['sales@dartsinabottle.com', 'elahi.ehsan@ymail.com'])
+          ->cc(['sales@dartsinabottle.com','dartsinabottle.com+1493fc9a1f@invite.trustpilot.com', 'elahi.ehsan@ymail.com'])
           ->subject('dartsinabottle Order Information');
       });
 

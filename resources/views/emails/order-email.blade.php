@@ -9,7 +9,7 @@
 
 	<p>Your order reference number is <strong>{{$order_number}}</strong> and a confirmation email has been sent to  <strong>{{$firstname}} {{$lastname}}.</strong></p>
 
-	<p>We will now send you a self-addressed stamped envelope. When it arrives please pop your barrels in the bottle and return it to us. Your barrels will then be viewable in the ‘My darts’ section of the website, and your darts in a bottle will be on their way! </p>
+	<p>We will now send you a self-addressed stamped envelope. When it arrives please pop your barrels in the bottle and return it to us. Your barrels will then be viewable in the ‘My Darts’ section of the website, and your darts in a bottle will be on their way! </p>
 
     <p>Details are below.</p>
 

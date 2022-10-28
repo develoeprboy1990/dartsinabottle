@@ -203,7 +203,7 @@
                             <div class="timeline-text-wrapper">
                                 <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-2"><strong>Subscribe & Lend</strong></h4>
                                 <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">
-                                    Join us and we will send you a bottle and a pre-paid envelope. Pop the set of barrels you wish to lend inside the bottle. We will add them to our system and you can view them in your 'lent darts' section.</p>  
+                                    Join us and we will send you a plastic bottle and a pre-paid envelope. Pop the set of barrels you wish to lend inside the bottle. We will add them to our system and you can view them in your 'lent darts' section.</p>  
                             </div>
                         </div>
                     </div>
