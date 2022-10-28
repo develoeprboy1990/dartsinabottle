@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">  
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="assets/website/images/4d-803x142.png" type="image/x-icon">
-    <meta name="description" content="">  
-    <title>Home</title>
+    <meta name="description" content="Dartsinabottle allows you to lend, borrow, buy and sell barrels. We help you purchase sets of barrels, sell your lent barrels, and set a price to sell your barrels. "> 
+    <title>Dartsinabottle | Lend Borrow Darts | Sell & Buy Darts </title>
     <link rel="stylesheet" href="{{asset('assets/website/web/assets/mobirise-icons2/mobirise2.css')}}">
     <link rel="stylesheet" href="{{asset('assets/website/web/assets/mobirise-icons-bold/mobirise-icons-bold.css')}}">
     <link rel="stylesheet" href="{{asset('assets/website/bootstrap/css/bootstrap.min.css')}}">

@@ -1,5 +1,6 @@
 @extends('user.customer.customer-layout')
-@section('title','faq')
+@section('title','FAQ | Lend Borrow Darts & Buy Barrels near Me | Dartsinabottle')
+@section('description','Here you can get answers to the frequently asked questions about our services including selling and buying darts, Lend and Borrow Darts, and much more.')
 @section('content')
 {{-- Header Content --}}
 @include('user.customer.header-customer')
