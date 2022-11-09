@@ -60,7 +60,7 @@ You will have to sign up and register, including your username, email address, a
 
 <p style="text-align:left;">
     <b style="text-decoration: underline;">PAYMENT</b><br> 
-Upon registration, you will choose your subscription plan. The cheapest plan is £14.99 a month (to borrow two sets a month, 30 days), and the most expensive one is £24.99 to borrow four sets a month.<br>
+Upon registration, you will choose your subscription plan. The cheapest plan is £12.99 a month (to borrow two sets a month, 30 days), and the most expensive one is £21.99 to borrow four sets a month.<br>
 The payments shall be made via Paypal or Stripe.<br>
 You will also need to pay a one-off payment of £40, which will be kept as your deposit.<br>
 A handling fee is added to your initial payment. This is used for packaging costs.<br>
