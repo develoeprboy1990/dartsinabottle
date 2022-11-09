@@ -188,7 +188,7 @@ table.center-on-narrow {
   <!-- Email Header : BEGIN -->
   <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;">
     <tr>
-      <td style="padding: 20px 0; text-align: center"><img src="{{ asset('public/uploads/emails/logo.png') }}" width="370" height="81" alt="alt_text" border="0" style="height: auto;line-height: 140%; color: #555555;"></td>
+      <td style="padding: 20px 0; text-align: center"><img src="{{ asset('public/uploads/emails/3d.png') }}" width="370" height="81" alt="alt_text" border="0" style="height: auto;line-height: 140%; color: #555555;"></td>
     </tr>
   </table>
   <!-- Email Header : END -->

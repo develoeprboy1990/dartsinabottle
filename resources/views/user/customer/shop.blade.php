@@ -142,7 +142,7 @@
               <button type="button" class="btn btn-previous pull-left">&laquo; Previous</button>
               <button type="submit" class="btn pull-right">Next &raquo;</button>
           </div>
-            <h1 class="badges-title text-center">Which weights are you most interested in?</h1>
+            <h1 class="badges-title text-center">Which weights would you like?</h1>
             <h3 class="text-center">(Choose in your order of preference.)</h3>
             <!-- <h3 class="text-center">Please choose your preferred weights before clicking next</h3> -->
             <div class="row badges-row">

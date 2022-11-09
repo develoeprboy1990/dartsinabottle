@@ -102,7 +102,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 pb-3 col-lg-9">
-                        <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-1"><strong>'Lend & borrow darts in the U.K.</strong></h3>
+                        <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-1"><strong>Swap darts in the U.K.</strong></h3>
                         <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-2">Find the darts that talk to you! <div><br></div></h5>
                     </div>
                 </div>
