@@ -63,7 +63,7 @@ padding: 6px;
             </div>
             <div class="col-sm-4 col-xs-12 contact-us footer-links">
                 <h3>Contact Us</h3>
-                <p>6 St. Aidans Crescent<br>
+                <p>St. Aidan's Crescent<br>
                 Annfield Plain<br>
                 DH9 7UT<br><br>
                 <ul>
