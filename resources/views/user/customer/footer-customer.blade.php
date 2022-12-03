@@ -54,7 +54,7 @@ padding: 6px;
                             </a>
                         </li>
                         <li class="page_item page-item-6 current_page_item">
-                            <a href="https://www.youtube.com/c/mobirise" target="_blank">
+                            <a href="https://www.youtube.com/channel/UCWi_Ub2ASQzc1IvyESUg6xA" target="_blank">
                                 <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
                             </a>
                         </li>

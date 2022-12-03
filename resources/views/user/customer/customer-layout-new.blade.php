@@ -119,7 +119,7 @@
                 <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
                     <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
                 </a>
-                <a href="https://www.youtube.com/c/mobirise" target="_blank">
+                <a href="https://www.youtube.com/channel/UCWi_Ub2ASQzc1IvyESUg6xA" target="_blank">
                     <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
                 </a>
                 <a href="https://instagram.com/mobirise" target="_blank">
