@@ -1544,13 +1544,17 @@ class AdminManagementController extends Controller
                             'firstname'           => $result->first_name,
                             'lastname'            => $result->last_name,
                             'email'               => $result->email,
-                            'message_body'        => $message_body
+                            'message_body'        => $message_body,
+                            'from_email'          => 'customerservice@dartsinabottle.com',
+                            'from_name'           => 'dartsinabottle'
+
                              
                     ); 
 
        Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail) {
                   $message->to($data['email'])
-                          ->subject($subject_mail);
+                          ->subject($subject_mail)
+                          ->from($from_email, $name);
                       }); 
 
      }
