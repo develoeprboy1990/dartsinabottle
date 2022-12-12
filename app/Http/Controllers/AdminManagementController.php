@@ -1400,14 +1400,15 @@ class AdminManagementController extends Controller
 
     $subject_mail=$request['subject'];
     $message_body=$request['message'];
+    $from_email = 'customerservice@dartsinabottle.com';
+    $from_name = 'dartsinabottle';
 
     $user_emails=explode(',',$request['user_email_arr']);
 
         foreach ($user_emails as $result) {
             
             $user=User::where('email',$result)->first();
-            $from_email = 'customerservice@dartsinabottle.com';
-            $from_name = 'dartsinabottle';
+            
 
 
             $data = array(
@@ -1420,8 +1421,8 @@ class AdminManagementController extends Controller
 
             Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail,$from_email,$from_name) {
                   $message->to($data['email'])
-                          ->subject($subject_mail)
-                          ->from($from_email, $from_name);
+                    ->from($from_email, $from_name)
+                    ->subject($subject_mail);
                       });
 
         }  
@@ -1536,8 +1537,6 @@ class AdminManagementController extends Controller
      }
 
      $users=$users->orderBy('users.id','DESC')->get();
-    $from_email = 'customerservice@dartsinabottle.com';
-    $from_name = 'dartsinabottle';
 
      foreach($users as $result){
 
@@ -1549,14 +1548,12 @@ class AdminManagementController extends Controller
                             'lastname'            => $result->last_name,
                             'email'               => $result->email,
                             'message_body'        => $message_body
-
                              
                     ); 
 
-       Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail,$from_email,$from_name) {
+       Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail) {
                   $message->to($data['email'])
-                          ->subject($subject_mail)
-                          ->from($from_email, $from_name);
+                          ->subject($subject_mail);
                       }); 
 
      }
