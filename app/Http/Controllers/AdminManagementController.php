@@ -1406,19 +1406,19 @@ class AdminManagementController extends Controller
         foreach ($user_emails as $result) {
             
             $user=User::where('email',$result)->first();
+            $from_email = 'customerservice@dartsinabottle.com';
+            $from_name = 'dartsinabottle';
 
-             $data = array(
+
+            $data = array(
                            
                             'firstname'           => $user->first_name,
                             'lastname'            => $user->last_name,
                             'email'               => $result,
-                            'message_body'        => $message_body,
-                            'from_email'          => 'customerservice@dartsinabottle.com',
-                            'from_name'           => 'dartsinabottle'
-                             
+                            'message_body'        => $message_body
                     ); 
 
-            Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail) {
+            Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail,$from_email,$from_name) {
                   $message->to($data['email'])
                           ->subject($subject_mail)
                           ->from($from_email, $from_name);
@@ -1536,7 +1536,8 @@ class AdminManagementController extends Controller
      }
 
      $users=$users->orderBy('users.id','DESC')->get();
-
+    $from_email = 'customerservice@dartsinabottle.com';
+    $from_name = 'dartsinabottle';
 
      foreach($users as $result){
 
@@ -1547,14 +1548,12 @@ class AdminManagementController extends Controller
                             'firstname'           => $result->first_name,
                             'lastname'            => $result->last_name,
                             'email'               => $result->email,
-                            'message_body'        => $message_body,
-                            'from_email'          => 'customerservice@dartsinabottle.com',
-                            'from_name'           => 'dartsinabottle'
+                            'message_body'        => $message_body
 
                              
                     ); 
 
-       Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail) {
+       Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail,$from_email,$from_name) {
                   $message->to($data['email'])
                           ->subject($subject_mail)
                           ->from($from_email, $from_name);
