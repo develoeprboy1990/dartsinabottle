@@ -20,8 +20,8 @@
             <div class="row badges-row">              
               <div class="col-xs-12 badges-sizes text-center">
                  @foreach($products as $product) 
-                <div class="col-md-4 col-sm-12 ">
-                  <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" height="200px" width="200px"></br>
+                <div class="col-md-4 col-sm-12" style="margin-bottom: 30px;">
+                  <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" height="300px" width="300px" ></br>
                   {{$product->product_name}}
                 </div>
                 @endforeach
