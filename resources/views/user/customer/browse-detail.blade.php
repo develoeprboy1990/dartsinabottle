@@ -21,7 +21,7 @@
               <div class="col-xs-12 badges-sizes text-center">
                  @foreach($products as $product) 
                 <div class="col-md-4 col-sm-12 ">
-                  <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" ></br>
+                  <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" height="200px" width="200px"></br>
                   {{$product->product_name}}
                 </div>
                 @endforeach
