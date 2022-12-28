@@ -66,6 +66,7 @@
                         @endif
                         <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                             <!-- <li class="nav-item"><a class="nav-link link text-white display-7" href="{{ url('/')}}">Home</a></li> -->
+                            <li class="nav-item"><a class="nav-link link text-white display-7" href="{{ url('about-us')}}">About Us</a></li>
                             <li class="nav-item"><a class="nav-link link text-white display-7" href="{{ url('faq')}}">F.A.Q</a></li>
                             @if(Auth::check()) 
                             <li class="nav-item"><a class="nav-link link text-white display-7" href="{{ url('logout')}}">Logout</a></li>

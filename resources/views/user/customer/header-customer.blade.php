@@ -18,6 +18,8 @@
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul id="main-menu" class="nav navbar-nav text-right pull-right">
+
+                            <li id="menu-item-48" class=""><a href="{{ url('/about-us')}}">About Us</a></li>
                             <li id="menu-item-48" class=""><a href="{{ url('/faq')}}">F.A.Q</a></li>
                             @if(Auth::check())
                             <li id="menu-item-48" class=""><a href="{{ url('logout')}}">Logout</a></li>
