@@ -2065,6 +2065,24 @@ figcaption.manage-height {
     background: #CD7F32;
 }
 
+.light-choice {
+    border: 2px solid #1b78be;
+    padding: 1.5em;
+    background: #1a449a;
+}
+
+.medium-choice {
+    border: 2px solid #1b78be;
+    padding: 1.5em;
+    background: #1a449a;
+}
+
+.heavy-choice {
+    border: 2px solid #1b78be;
+    padding: 1.5em;
+    background: #1a449a;
+}
+
 .validate_next {
     vertical-align: middle;
     line-height: 30px;

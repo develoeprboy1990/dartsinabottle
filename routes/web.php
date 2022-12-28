@@ -192,6 +192,10 @@ Route::get('filter-state', 'CountryStateCity@filterState');
 
 Route::get('shop', 'HomeController@shop');
 
+Route::get('browse', 'HomeController@browse');
+
+Route::get('browse/detail/{type?}','HomeController@browseDetail');
+
 Route::get('faq', 'HomeController@getFaq');
 
 Route::get('about-us', 'HomeController@AboutUs');
