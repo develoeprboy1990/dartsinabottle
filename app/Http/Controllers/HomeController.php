@@ -395,7 +395,13 @@ class HomeController extends Controller
   public function browse()
   {
     $packages = Package::all();
-    return view('user.customer.browse', ['packages' => $packages]);
+    $light_products = Product::where('product_weight_range','Light')->where('active_status','1')->count();
+
+    $medium_products = Product::where('product_weight_range','Medium')->where('active_status','1')->count();
+
+    $heavy_products = Product::where('product_weight_range','Heavy')->where('active_status','1')->count();
+    
+    return view('user.customer.browse', ['packages' => $packages,'light_products' => $light_products,'medium_products' => $medium_products,'heavy_products' => $heavy_products]);
   }
 
     public function browseDetail($type=null){      

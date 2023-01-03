@@ -22,7 +22,7 @@
                       <span class="amount" >Light</span> <span class="month">12-18g</span>
                     </div>
                   </div>
-                  <ul class="deals"><li><h3 class="title">6 SETS</h3></li></ul>
+                  <ul class="deals"><li><h3 class="title">{{$light_products}} SETS</h3></li></ul>
                 </div>
                 </div>
                 </a>
@@ -36,7 +36,7 @@
                       <span class="amount">Medium</span> <span class="month">19-22g</span>
                     </div>
                   </div>
-                  <ul class="deals"><li><h3 class="title">7 SETS</h3></li></ul>
+                  <ul class="deals"><li><h3 class="title">{{$medium_products}} SETS</h3></li></ul>
                 </div>
                 </div>
                 </a>
@@ -50,7 +50,7 @@
                       <span class="amount">Heavy</span> <span class="month">23g+</span>
                     </div>
                   </div>
-                  <ul class="deals"><li><h3 class="title">6 SETS</h3></li></ul>
+                  <ul class="deals"><li><h3 class="title">{{$heavy_products}} SETS</h3></li></ul>
                 </div>
                 </div>
                 </a> 

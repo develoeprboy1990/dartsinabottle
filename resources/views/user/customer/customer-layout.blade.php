@@ -23,6 +23,7 @@
 <link href="{{asset('assets/js/datatables/fixedHeader.bootstrap.min.css ')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('assets/js/datatables/responsive.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('assets/js/datatables/scroller.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/css/fancybox.min.css')}}" rel="stylesheet" type="text/css" />
 {{-- Datatables end --}}
 <style type="text/css">
 .preloader {
@@ -71,6 +72,8 @@
 <script src="{{asset('assets/js/datatables/responsive.bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/datatables/dataTables.scroller.min.js')}}"></script>
 {{-- Datatable jquery end --}}
+
+<script src="{{asset('assets/js/jquery.fancybox.min.js')}}"></script>
 
 
 @yield('javascript')

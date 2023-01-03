@@ -7,11 +7,11 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 about-page">
-            <h1> <b>About Us</b> </h1>
+            <h1> <b>About Us</b> </h1><BR>
 
             I'm Robert, the creator of this website. I live and work in Beijing, having moved here in 2016. I'm the captain of a local pub team called Plan B, which plays in the Beijing International Darts League. About a year ago, I came up with the idea of darts in a bottle.<br><br>
 
-I was spending a lot of time looking at darts online (they are even more overpriced in China!) and finding the 'right' set was becoming a bit of an obsession. I would spend hours looking for darts, add them to my 'favourites', buy them, and then soon realise they were not be for me! The most vivid experience I remember is a set of Target Swiss points. I was sure they would suit me well, but within a few throws, I'd realised they were too grippy and the points were too fragile. That was about 70 pounds down the drain. Luckily, I managed to sell them to my friend Russ who works as a designer (he actually designed this homepage) just because he liked the packaging!<br><br>
+I was spending a lot of time looking at darts online (they are even more overpriced in China!) and finding the 'right' set was becoming a bit of an obsession. I would spend hours looking for darts, add them to my 'favourites', buy them, and then soon realise they were not for me! The most vivid experience I remember is a set of Target Swiss points. I was sure they would suit me well, but within a few throws, I'd realised they were too grippy and the points were too fragile. That was about 70 pounds down the drain. Luckily, I managed to sell them to my friend Russ who works as a designer (he actually designed this homepage) just because he liked the packaging!<br><br>
 
 One day I came up with the idea of a 'lovefilm' kind of website, but for darts. I had about 10 sets of darts at that point, and I decided I would be happy to share a set if it meant I could try others for a small monthly fee. I hope you agree it is a good way of not letting barrels go to waste, and for roughly a fiver a month you get to try another set (£21.99 for 4 sets a month) However, I knew from experience that choosing my own sets was not an especially successful tactic, so I concluded that receiving sets based purely on a weight range might be best.<br><br>
 
@@ -32,13 +32,13 @@ Favourite darting memory?<br>
 Taylor beating MvG in 2013.
         </div>
         <div class="col-md-6 img-left">
-            <img src="{{url('public/uploads/dob-pic.jpg')}}" alt="selected badge" class="owner-img img-responsive">
+            <img src="{{url('public/uploads/dob-pic.jpg')}}" alt="selected badge" class="img-responsive">
             <h3 class="img-text">
                 A darts themed birthday
             </h3>
         </div>
         <div class="col-md-6 img-right">
-            <img src="{{url('public/uploads/best-pose.jpg')}}" alt="selected badge" class="owner-img img-responsive">
+            <img src="{{url('public/uploads/best-pose.jpg')}}" alt="selected badge" class="img-responsive">
             <h3 class="img-text">
                 My best checkout, but not my best pose!
             </h3>
