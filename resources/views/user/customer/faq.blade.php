@@ -16,23 +16,23 @@
         <hr>
         <div class="accordion">
             <div class="contentBx">
-                <div class="lable">How it works</div>
+                <div class="lable">How it Works</div>
                 <div class="content">
                     dartsinabottle is a unique service that shares our own barrels and our user’s barrels around, based purely on weight preference.<br>
                     To join our community of darts-sharing fans, you need to:
                     <ul>
                         <li class="li-text">
-                            have a set of tungsten barrels you are willing to share
+                            Have a set of tungsten barrels you are willing to share.
                         </li>
                         <li class="li-text">
-                            pay a deposit (which is returned when you end your subscription)
+                            Pay a deposit (which is returned when you end your subscription).
                         </li>
                         
                     </ul>
                 </div>
             </div>
             <div class="contentBx">
-                <div class="lable">Quality of barrels</div>
+                <div class="lable">Quality of Barrels</div>
                 <div class="content">
                     All the barrels we share on dartsinabottle are tungsten. This is to ensure that we offer a quality service. The barrels we have from our own stock are tungsten, and we ask that our users send the same. If you send a set made of another material, we will not start your subscription until we receive a tungsten set.
                 </div>
@@ -51,13 +51,12 @@
             <div class="contentBx">
                 <div class="lable">Subscription</div>
                 <div class="content">
-                During the signing up process you need to do the following:<br>
+                During the signing-up process you need to do the following:<br>
                 <ul>
-                <li class="li-text">select two sets or four sets every month</li>
-                <li class="li-text">Choose your weight preference in order (between light, medium and heavy)</li>
+                <li class="li-text">Select two sets or four sets every month.</li>
+                <li class="li-text">Choose your weight preference in order (between light, medium and heavy).</li>
                 </ul>
-                We will do our best to ensure that your choice is met. For example, if you choose light, medium, heavy, we will send you a set of light barrels, unless you have already been sent all of the available light sets. In that instance, you would be sent a medium set as it is your 2nd choice of weight.
-
+                We will do our best to ensure that your choice is met. For example, if you choose light, medium, heavy, we will send you a set of light barrels, unless you have already been sent all available light sets. In that instance, you would be sent a medium set as it is your 2nd choice of weight.
                 </div>
             </div>
             <div class="contentBx">
