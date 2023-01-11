@@ -23,14 +23,13 @@
                 <div class="col-md-4 col-sm-12" style="margin-bottom: 30px;">
                   <a href="{{url('public/uploads/darts_img/'.$product->product_image)}}"  data-fancybox="images" data-caption="{{@$product->product_name}}">
                     <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" height="300px" width="300px" ></a></br>
-                  <b>{{@$product->product_name}}</b><br>
                   {!!@ $product->product_description!!}<br>
                   {{@$product->product_weight}} g<br>
-                  
                 </div>
                 @endforeach
               </div>
             </div>
+            <h1 class="badges-title text-center">+ many more</h1>
         
       </form>
     </div>

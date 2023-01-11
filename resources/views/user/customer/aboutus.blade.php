@@ -22,9 +22,6 @@ I strived to create a website where people are relaxed about sending a set of ba
 What's your best checkout<br> 
 A 156 against a Chinese friend in a best of 3 legs game. It was for the match!<br> <br>
 
-What sets do you use?<br>
-Target Vapor 8 24g and occasionally Unicorn James Wade 20.5g.<br> <br>
-
 Is the Beijing International Darts League any good?<br>
 Not really! There are a few good teams and several decent players, but for the most part it's an average level. <br> <br>
 
