@@ -1,0 +1,11 @@
+
+31-01-2020
+
+1-First update the package discription from local database
+
+2-ALTER TABLE `home_page_urls` ADD `lend_deposit_cost` VARCHAR(255) NULL DEFAULT NULL AFTER `url`;
+
+3-ALTER TABLE `carts` ADD `choice` VARCHAR(255) NULL DEFAULT NULL AFTER `darts_interval`;
+
+4-in home_page_urls update the value of lend_deposit_cost.
+

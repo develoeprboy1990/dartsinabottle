@@ -142,52 +142,44 @@
               <button type="button" class="btn btn-previous pull-left">&laquo; Previous</button>
               <button type="submit" class="btn pull-right">Next &raquo;</button>
           </div>
-            <h1 class="badges-title text-center">Which weights would you like?</h1>
-            <h3 class="text-center">(Choose in your order of preference.)</h3>
-            <!-- <h3 class="text-center">Please choose your preferred weights before clicking next</h3> -->
+            <h1 class="badges-title text-center">How will you secure your account?</h1>
+            <!-- <h3 class="text-center">(Choose in your order of preference.)</h3> -->
             <div class="row badges-row">
-              <div class="col-md-8 col-sm-8 col-xs-7 badges-color">
+              <div class="col-md-8 col-sm-8 col-xs-7 badges-sizes text-center">
 
-                <div class="col-md-4 col-sm-12 weight" data-weight_id="Light">
+                <div class="col-md-6 col-sm-12 choice" data-choice_id="Lend">
                   <div class="single-weight">
                   <div class="price-header"><h3 class="title"></h3></div>
                   <div class="price-value">
                     <div class="value">
-                      <span class="amount" >Light</span> <span class="month">12-18g</span>
+                      <span class="amount" >Lend &<br> deposit </span>
                     </div>
                   </div>
-                  <ul class="deals"></ul>
+                  <ul class="deals">
+                    <li>Share a set of barrels</li>
+                    <li>£20.00 deposit</li>
+                    <li>Both returned when you close your account</li>
+                  </ul>
                 </div>
                 </div>
-                <div class="col-md-4 col-sm-12 weight" data-weight_id="Medium">
+                <div class="col-md-6 col-sm-12 choice" data-choice_id="Deposit">
                   <div class="single-weight">
                   <div class="price-header"><h3 class="title"></h3></div>
                   <div class="price-value">
                     <div class="value">
-                      <span class="amount">Medium</span> <span class="month">19-22g</span>
+                      <span class="amount">Deposit<br> only</span>
                     </div>
                   </div>
-                  <ul class="deals"></ul>
-                </div>
-                </div>
-                <div class="col-md-4 col-sm-12 weight" data-weight_id="Heavy">
-                  <div class="single-weight">
-                  <div class="price-header"><h3 class="title"></h3></div>
-                  <div class="price-value">
-                    <div class="value">
-                      <span class="amount">Heavy</span> <span class="month">23g+</span>
-                    </div>
-                  </div>
-                  <ul class="deals"></ul>
+                  <ul class="deals">
+                    <li>£40.00 deposit</li>
+                    <li>Returned when you close your account</li>
+                  </ul>
                 </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
             <div class="form-btn-group text-center text-center">
-               <div class="col-md-3 col-sm-3">
-            <button type="button" class="btn btn-choose_againg pull-left ">Choose Again</button>
-          </div>
-             <div class="col-md-9 col-sm-9">
-            <h4 class="text-center validate_next" style="text-align:left;">Please choose your preferred weights before clicking next.</h4>
+             <div class="col-md-12 col-sm-12">
+            <h4 class="text-center validate_next" style="text-align:left;">Choose to lend a set of barrels and pay a reduced deposit or pay a deposit only.</h4>
           </div>
           </div>
         </div>
@@ -216,9 +208,7 @@
             
               </div>
             
-              <input type="hidden" name="sort_1" id="sort_1" value=""> 
-              <input type="hidden" name="sort_2"  id="sort_2" value="">
-              <input type="hidden" name="sort_3" id="sort_3" value=""> 
+              <input type="hidden" name="choice_id" id="choice_id" value=""> 
             </div>
             <div class="form-btn-group text-center text-center">
               <button type="button" class="btn btn-previous pull-left">&laquo; previous</button>

@@ -1553,6 +1553,16 @@ figcaption.manage-height {
         margin-top: 10px;
         margin: 6px 1%;
     }
+
+     .single-weight .deals ul {
+        display: block;
+        padding: 5px 15px;
+    }
+    .single-weight .deals li {
+        max-width: 90%; 
+        margin-top: 10px;
+        margin: 6px 1%;
+    }
     #fieldset-1 .selected-col,
     #fieldset-1 .qty-col {
         margin: 0px 10px;
@@ -1848,6 +1858,21 @@ figcaption.manage-height {
     margin: 0 auto;
 }
 
+.single-weight .deals {
+    padding: 70px 0 0 0;
+    margin-bottom: 20px;
+    list-style: none;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+}
+.single-weight .deals li {
+    padding: 7px 0;
+    font-size: 16px;
+    color: #808080;
+    position: relative;
+    margin: 0 auto;
+}
+
 @media only screen and (max-width: 990px) {
     .single-price {
         margin-bottom: 30px;
@@ -1873,6 +1898,11 @@ figcaption.manage-height {
 }
 
 .package .active-img {
+    border: 2px solid #1b78be;
+    padding: 1.5em;
+}
+
+.choice .active-img {
     border: 2px solid #1b78be;
     padding: 1.5em;
 }
@@ -1987,9 +2017,9 @@ figcaption.manage-height {
 
 .single-weight .amount {
     display: inline-block;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 600;
-    line-height: 65px;
+    line-height: 40px;
 }
 
 .single-weight .amount span {
@@ -2006,20 +2036,6 @@ figcaption.manage-height {
     line-height: 0;
 }
 
-.single-weight .deals {
-    padding: 70px 0 0 0;
-    margin-bottom: 20px;
-    list-style: none;
-    text-align: center;
-    transition: all 0.3s ease 0s;
-}
-
-.single-weight .deals li {
-    padding: 7px 0;
-    font-size: 16px;
-    color: #808080;
-    position: relative;
-}
 
 @media only screen and (max-width: 990px) {
     .single-weight {

@@ -96,19 +96,6 @@
                             </tr>
 
                             <tr>
-                               <th>1st Weight:</th>
-                               <td>{{$result['sort_1']}}</td>
-                            </tr>
-                            <tr>
-                               <th>2nd Weight:</th>
-                               <td>{{$result['sort_2']}}</td>
-                            </tr>
-                            <tr>
-                               <th>3rd Weight:</th>
-                               <td>{{$result['sort_3']}}</td>
-                            </tr>
-
-                            <tr>
                               <th>Subtotal:</th>
                               <td>£{{number_format($result['subtotal'],2)}}</td>
                             </tr>

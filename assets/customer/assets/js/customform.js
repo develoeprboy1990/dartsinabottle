@@ -78,7 +78,7 @@ $(document).ready(function () {
 
     // submit
     $('.badges-form').on('submit', function (e) {
-        $(this).find('input[type="text"],input[type="email"],input[type="tel"],select,input[name=sort_1],input[name=sort_2],input[name=sort_3]').each(function () {
+        $(this).find('input[type="text"],input[type="email"],input[type="tel"],select,input[name=choice_id]').each(function () {
 
             if ($(this).val() == "") {
                 e.preventDefault();
@@ -276,6 +276,7 @@ $(document).ready(function () {
 
   $('.package').click(function(){
     $('.single-price').removeClass('active-img');
+
     $(this).find('.single-price').addClass('active-img');
     var package_id=$(this).data('package_id');
     $("#package_id").val(package_id);
@@ -300,6 +301,17 @@ $(document).ready(function () {
 
     
   });
+
+  $('.choice').click(function(){
+    $('.price-header h3').html('');
+    $('.single-weight').removeClass('active-img');
+    $(this).find('.single-weight').addClass('active-img');
+     $(this).find('.price-header h3').html('You Choose');
+    var choice_id=$(this).data('choice_id');
+    $("#choice_id").val(choice_id);
+    
+  });
+
 
   $('.weight').click(function(){
 

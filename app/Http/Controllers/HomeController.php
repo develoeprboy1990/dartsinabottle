@@ -507,17 +507,15 @@ class HomeController extends Controller
     $cart->user_cookie = $user_cookie;
     // $cart->user_id = $user->id;
     $cart->package_id = $request['package_id'];
-    $cart->sort_1 = $request['sort_1'];
-    $cart->sort_2 = $request['sort_2'];
-    $cart->sort_3 = $request['sort_3'];
+    $cart->choice = $request['choice_id'];
     $cart->price = $package->price;
     $cart->darts_set = $package->darts_set;
     $cart->darts_interval = $package->darts_interval;
     $cart->total_qty = 1;
+    if($request['choice_id'] == 'Lend')
+    $cart->deposit_cost = $website_setting->lend_deposit_cost;
+    else
     $cart->deposit_cost = $website_setting->deposit_cost;
-
-
-
 
     $cart->save();
     return redirect('cart');
