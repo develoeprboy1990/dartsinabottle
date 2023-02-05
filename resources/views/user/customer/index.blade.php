@@ -125,7 +125,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 pb-3 col-lg-9">
-                        <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-1"><strong>Swap darts in the U.K.</strong></h3>
+                        <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-1"><strong>Rent darts in the U.K.</strong></h3>
                         <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-2">Find the darts that talk to you! <div><br></div></h5>
                     </div>
                 </div>
@@ -224,9 +224,9 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="timeline-text-wrapper">
-                                <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-2"><strong>Subscribe & Lend</strong></h4>
+                                <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-2"><strong>Subscribe</strong></h4>
                                 <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">
-                                    Join us and we will send you a plastic bottle and a pre-paid envelope. Pop the set of barrels you wish to lend inside the bottle. We will add them to our system and you can view them in your 'lent darts' section.</p>  
+                                    Choose 2 or 4 sets a month. Select to pay a full deposit only or lend us a set of barrels (we pay the postage) to pay a reduced deposit. These will be returned when you close your account. If you lend a set, your barrels will be added to our ‘Browse’ page and shared with our other users.</p>  
                             </div>
                         </div>
                     </div>
@@ -238,8 +238,8 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="timeline-text-wrapper">
-                                <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-2"><strong>Play and Return</strong></h4>
-                                <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">We then send your first set of barrels to try, based on the weight preferences you chose when subscribing. If you don't like what you feel, return them and recieve your next set. Easy! </p>  
+                                <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-2"><strong>Play</strong></h4>
+                                <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">Choose your first set of barrels to receive from our ‘Browse’ page. Our stock comprises our own barrels and our users' shared barrels. If you don’t like what you feel, return them and choose your next set.</p>  
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -261,8 +261,9 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="timeline-text-wrapper">
-                                <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-2"><strong>Buy & Sell</strong></h4>
-                                <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">You can set a price to sell your barrels for. If someone else likes them, they can purchase the barrels. It is just as easy to buy the sets you like - go to the 'current darts' section, make the purchase and keep them permanently!<br>Have lots of sets to sell? You can send in additional 'lent darts' and increase your chances of making a sale!</p>
+                                <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-2"><strong>Trade</strong></h4>
+                                <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">If you receive a set that is for sale, you can purchase them instantly. You can also send us extra sets of barrels and set a price to sell them for. Our commission is less than eBay and you don’t need to worry about posting them! 
+</p>
                             </div>
                         </div>
                     </div>
@@ -284,11 +285,10 @@
                         
                         <div class="mbr-text mbr-fonts-style display-7">
                             <ul>
-                                <li>Never get the same set twice - we always send barrels you have not received previously</li>
-                                <li>All postage costs covered by subscription (excluding additional barrels sent in)</li>
-                                <li>Choose your preference based on weight. Light (12g-18g). Medium (19g-22g). Heavy (23g-36g)</li>
-                                <li>Try barrels you may never have considered - they could be the darts that talk to you!</li>
-                                <li>For every 50 new subscribers, we add a BRAND NEW set of barrels. You never know what you will receive on dartsinabottle.com!</li>
+                                <li>Try different barrels on a regular basis</li>
+                                <li>Choose from over 40 sets</li>
+                                <li>We add two BRAND NEW sets every month</li>
+                                <li>All postage covered by the subscription (excluding additional lent sets)</li>
                             </ul>
                         </div>
                     </div>
