@@ -48,6 +48,7 @@ $(document).ready(function () {
         var parent_fieldset = $('.checkout-field-row');
         var error = false;
 
+        //Paypal
         if (payment_type_id == 4) {
             parent_fieldset.find('.req_class,#billing_state,#billing_city,#state,#city').each(function () {
                 if ($(this).val() == "") {
@@ -72,8 +73,7 @@ $(document).ready(function () {
             // END FOR EACH
         }
         else {
-
-
+            //Stripe
             parent_fieldset.find('.req_class,.req_class_stripe, #billing_state, #billing_city, #state, #city,#cardNumber,#ccv,#exp-month,#exp-year').each(function () {
                 if ($(this).val() == "") {
                     if ($(this).data("selector_type") == "select") {

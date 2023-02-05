@@ -416,7 +416,7 @@ class AdminManagementController extends Controller
                 ); 
                 Mail::send('emails.send-message-customer',  $data, function ($message) use ($data) {
                 $message->to($data['email'])
-                ->subject('Your dartsinabottle are on their way');
+                ->subject('Your dartsinabottle will be posted soon.');
                 });
                 return response()->json([
                 "error"=>'success'
@@ -453,6 +453,19 @@ class AdminManagementController extends Controller
 
             $order_detail->status=2;   //2 means order is in Pending Ship
             $order_detail->save();
+
+                $user=User::where('id',$order_detail->user_id)->first();
+                $data = array(
+                'firstname'      => $user->first_name,
+                'lastname'       => $user->last_name,
+                'email'          => $user->email,
+                'message_body'   => 'Thank you for returning your current darts. Click <a href="'.url('login').'" target="_blank" style="text-decoration:underline;">here</a> or visit our ‘Browse’ page to request your next set.',
+
+                ); 
+                Mail::send('emails.send-message-customer',  $data, function ($message) use ($data) {
+                $message->to($data['email'])
+                ->subject('Your dartsinabottle will be returnd soon.');
+                });
 
               return response()->json([
                 "error"=>$error

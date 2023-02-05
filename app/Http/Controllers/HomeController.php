@@ -404,16 +404,152 @@ class HomeController extends Controller
     return view('user.customer.browse', ['packages' => $packages,'light_products' => $light_products,'medium_products' => $medium_products,'heavy_products' => $heavy_products]);
   }
 
-    public function browseDetail($type=null){      
-  
+  public function browseDetail($type=null,$sortby=null){      
 
-      $products = Product::where('product_weight_range',$type)->where('active_status','1')->get();
-      
-        return view('user.customer.browse-detail',['products'=>$products,'type'=>$type]);
+    if($sortby == '')
+    { $sortby = 'ASC'; }
+    else{
+     $sorting =  explode('_',$sortby);
+     $sortby = $sorting[1];
+    }
+
+    $products = Product::where('product_weight_range',$type)->where('active_status','1')->orderBy('product_weight', $sortby)->get();
+
+     $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>2])->orderBy('id', 'DESC')->first();
+
+    return view('user.customer.browse-detail',['products'=>$products,'type'=>$type,'sortby'=>$sortby,'order_details' => $order_details]);
         
 
 
     }
+
+  public function verifyCustomerChoice(Request $request){
+    $user = User::where('id', Auth::user()->id)->first();
+
+    $subscription = Subscription::where('user_id', $user->id)->whereIn('status', [1, 2])->first();
+
+    if($subscription)
+    {
+      if($subscription->choice =='Lend'){
+      $lent_darts = Product::where('user_id',$user->id)->first();
+
+        if($lent_darts)
+        {
+            return response()->json([
+            'error' => false,
+            'title' => 'Request barrels',
+            'text' => 'Are you sure you want these?',
+            'error_type' => 0
+          ]);
+
+        }else{
+             return response()->json([
+            'error' => true,
+            'title' => 'Error!',
+            'text' => 'Your Lend Darts still not Arrived to Us.',
+            'error_type' => 1
+          ]);
+        }
+      } 
+      
+      else if($subscription->choice =='Deposit'){
+        return response()->json([
+            'error' => false,
+            'title' => 'Request barrels',
+            'text' => 'Are you sure you want these?',
+            'error_type' => 0
+          ]);
+    }
+    }
+    else{
+      return response()->json([
+      'error' => true,
+      'title' => 'Error!',
+      'text' => 'Supscription not found.',
+      'error_type' => 2
+      ]);
+    }
+  }
+
+  public function shipOrderWhosePaymentIsDone(Request $request){
+        $error=false;
+        //1= Shipped, 2=Pending Shipped 
+
+        $user = User::where('id', Auth::user()->id)->first();
+        $order_detail=Subscription::where('user_id', $user->id)->whereIn('status', [1, 2])->first();
+        if($order_detail){
+            
+            //cheking of how many darts send in last 30 days...
+            //$invoice = $order_detail->getUser->subscription('default')->upcomingInvoice();
+            //dd($invoice);
+
+            $per_month_limit = $order_detail->getProductDetail->getPackage->darts_set;
+
+            $subscription_billing=SubscriptionBilling::where('subscription_id',$order_detail->id)->orderBy('id','DESC')->first();
+
+            $current_month_count = ProductToCustomer::where('user_id',$order_detail->user_id)->where('subscription_billing_id',$subscription_billing->id)->whereIn('status',['Shipped','Returned','Sold'])->count();
+
+            if($current_month_count < $per_month_limit)
+            {    
+
+                $user_id = $order_detail->user_id;
+
+                $product_to_customer=new ProductToCustomer;
+                $product_to_customer->subscription_id=$order_detail->id;
+                $product_to_customer->user_id=$order_detail->user_id;
+                $product_to_customer->product_id=$request['product_id'];
+                $product_to_customer->subscription_billing_id=$subscription_billing->id;
+                $product_to_customer->status='Shipped';
+                $product_to_customer->save();
+
+                $product=Product::where('id',$request['product_id'])->first();
+                $product->active_status = 2; //2 means product is now reserved
+                $product->save();
+
+                $order_detail->status=1;   //1 means order is now shipped
+                $order_detail->save();
+
+                $lent_darts = Product::where('user_id',$user_id)->where('active_status','!=',3)->get();
+                $need_to_set = false;
+                foreach($lent_darts as $lent_dart)
+                {
+                    if($lent_dart->product_price_type == 'not_for_sale')
+                    {
+                        $need_to_set = true;
+                    }
+                }
+                if($need_to_set)
+                {
+                    $set_price = "<br><br>If you wish to purchase the barrels, please check your ‘Current Darts’ section to see if they are for sale.<br>If you don’t like them, or wish to request the next set in your subscription, please return them in the included bottle and prepaid envelope. (Please use the bottle for returns, as it will protect the barrels in transit.)";
+                }else{
+                    $set_price = "";
+                }
+
+
+                $user=User::where('id',$user_id)->first();
+                $data = array(
+                'firstname'      => $user->first_name,
+                'lastname'       => $user->last_name,
+                'email'          => $user->email,
+                'message_body'   => 'Your dartsinabottle will be posted in the next 24 hours. <br> We hope you enjoy playing with them.'.$set_price,
+
+                ); 
+                Mail::send('emails.send-message-customer',  $data, function ($message) use ($data) {
+                $message->to($data['email'])
+                ->subject('Your dartsinabottle will be posted soon.');
+                });
+                return response()->json([
+                "error"=>'success'
+                ]);
+            }
+            return response()->json([
+                "error"=>'limit reached'
+                ]);
+        }
+        return response()->json([
+                "error"=>'no subscribtion'
+                ]);
+  }
 
 
   public function shop()
@@ -950,7 +1086,7 @@ class HomeController extends Controller
             $get_result_array = $this->getBill($_COOKIE["user_cookie"]);
 
 
-            $ordered_items = Cart::select('package_id', 'price', 'darts_set', 'darts_interval', 'sort_1', 'sort_2', 'sort_3', 'total_qty')->where('user_cookie', $_COOKIE["user_cookie"])->first();
+            $ordered_items = Cart::select('package_id', 'price', 'darts_set', 'darts_interval', 'sort_1', 'sort_2', 'sort_3','choice', 'total_qty')->where('user_cookie', $_COOKIE["user_cookie"])->first();
 
             $payment_types = PaymentType::where('id', '<>', 2)->get();
             $customer_custom_payment_types = CustomerCustomPaymentType::where('user_id', Auth::user()->id)->where('payment_type_id', '<>', 2)->get();
@@ -1671,6 +1807,7 @@ class HomeController extends Controller
       $order_detail->sort_1           = $request['sort_1'];
       $order_detail->sort_2           = $request['sort_2'];
       $order_detail->sort_3           = $request['sort_3'];
+      $order_detail->choice           = $request['choice'];
       $order_detail->shipping_id      = $get_shipping_id;
       $order_detail->ship_cost        = $request['shipping_cost'];
       $order_detail->state_tax        = $request['state_tax'];
@@ -1684,7 +1821,9 @@ class HomeController extends Controller
       $order_detail->customer_internal_reference_no = $request['customer_internal_reference_no'];
       $order_detail->order_note       = $request['order_note'];
       if ($request['payment_type_id'] == 5) {
-        $order_detail->status           = 2;  //means that the order will go directly to pending shipment
+        //Stripe
+        $order_detail->status           = 2;  
+        //means that the order will go directly to pending shipment
       }
 
       $order_detail->save();
@@ -1748,6 +1887,7 @@ class HomeController extends Controller
       'sort_1'          => $request['sort_1'],
       'sort_2'          => $request['sort_2'],
       'sort_3'          => $request['sort_3'],
+      'choice'          => $request['choice'],
       'shipping_country' => $s_country->name,
       'shipping_city'   => $ship_data->city_id,
       'shipping_email'  => $ship_data->email,
@@ -1904,7 +2044,12 @@ class HomeController extends Controller
       if ($request['from_checkout'] == 'yes') {
         $content = Content::where('title', 'Thank You Page')->first();
         $subscription = Subscription::where('user_id', Auth::user()->id)->whereIn('status', [1, 2])->orderBy('id', 'DESC')->first();
+        if($subscription->choice == 'Lend'){
         return view('user.customer.order-thankyou-page', ['content' => $content, 'subscription' => $subscription]);
+        }else{
+          return view('user.customer.thankyou-page', ['content' => $content, 'subscription' => $subscription]);
+
+        }
       } else {
         return redirect()->back();
       }
@@ -1944,6 +2089,7 @@ class HomeController extends Controller
         'sort_1'               => $subscription->sort_1,
         'sort_2'               => $subscription->sort_2,
         'sort_3'               => $subscription->sort_3,
+        'choice'               => $subscription->choice,
         'shipping_city'        => $subscription->getShippingDetail->city_id,
         'shipping_email'       => $subscription->getShippingDetail->email,
         'shipping_address'     => $subscription->getShippingDetail->address,
@@ -2148,7 +2294,8 @@ class HomeController extends Controller
       $product_price = $product->product_price;
       $product_picture = asset('public/uploads/darts_img/'.$product->product_image);
       $product->save();
-
+      //Paypal 
+      //payment_type_id = 4
       $order_detail->status = 2;   //2 means order is in Pending Ship
       $order_detail->save();
      //==================================================================================

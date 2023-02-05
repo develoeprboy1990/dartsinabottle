@@ -7,9 +7,17 @@
 
 	<p>You have successfully subscribed to dartsinabottle.com</p>
 
-	<p>Your order reference number is <strong>{{$order_number}}</strong> and a confirmation email has been sent to  <strong>{{$firstname}} {{$lastname}}.</strong></p>
+	<p>Your order reference number is <strong>{{$order_number}}</strong></p>
 
-	<p>We will now send you a self-addressed stamped envelope. When it arrives please pop your barrels in the bottle and return it to us. Your barrels will then be viewable in the ‘My Darts’ section of the website, and your darts in a bottle will be on their way! </p>
+	@if($choice =='Lend')
+	<p>We will now send you a plastic bottle with a cork and a pre-paid envelope. When it arrives, please insert the points of your barrels into the cork and place it securely into the bottle. Return the envelope with your dartsinabottle at your earliest convenience.</p>
+
+	<p>Once we receive your barrels you will be notified by email. Your barrels will then be viewable in the ‘My Darts/Lent barrels’ section of the website.</p>
+
+	<p>You may then choose your first dartsinabottle from the ‘Browse’ page.</p> 
+	@else
+	<p>Choose your first set of barrels from the ‘Browse’ page or by clicking <a href="{{url('login')}}" target="_blank" style="text-decoration:underline;">here</a>. We hope you enjoy using our service.</p>
+	@endif
 
     <p>Details are below.</p>
 

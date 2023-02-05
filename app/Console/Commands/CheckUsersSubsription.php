@@ -8,14 +8,14 @@ use App\SubscriptionBilling;
 use Carbon\Carbon;
 use Mail;
 
-class CheckUsersCheckUsers extends Command
+class CheckUsersSubsription extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'checkSubscribeBilling:daily';
+    protected $signature = 'checkUserSubscribe:daily';
 
     /**
      * The console command description.
@@ -45,19 +45,21 @@ class CheckUsersCheckUsers extends Command
             if($today > $billing_end_date)
             {
 
-                $message_body = 'You may choose your next set now.<br><br>';
+                $message_body = '<p> Subscription ID: '.$order_detail->id.'
+                <br>Billing ID:'.$billing->id.'
+                <br>Subscriber Email: '.$order_detail->getUser->email;
 
                 $data = array(
                 'firstname'       => $order_detail->getUser->first_name,
                 'lastname'        => $order_detail->getUser->last_name,
-                'email'           => $order_detail->getUser->email,
+                'email'           => 'customerservice@dartsinabottle.com',
                 'message_body'         => $message_body
                 );
 
 
                 Mail::send('emails.unsubscribe-order-email',  $data, function ($message) use ($data) {
                 $message->to($data['email'])
-                ->subject('Choose your next dartsinabottle now!');
+                ->subject('dartsinabottle Subscribtion Period Over Information');
                 });
 
                 $subscription_billing                     = new SubscriptionBilling;

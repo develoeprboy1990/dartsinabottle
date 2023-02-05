@@ -18,9 +18,7 @@
 	</table></p>
 
 
-<p>If you have any sets remaining in your current billing cycle, we will send your next dartsinabottle right away.<br><br>
-
-If this set was the last set of your current billing cycle, please wait until your next one begins.<br><br>
+<p>Choose your next set by clicking <a href="{{url('login')}}" target="_blank" style="text-decoration:underline;">here</a> or going to our ‘Browse’ page.<br><br>
 
 <b>Please use the returns envelope you currently have to return your next set. </b></p>
 @endsection

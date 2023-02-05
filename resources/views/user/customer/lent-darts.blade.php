@@ -47,57 +47,65 @@
               <tr>
                 <td>{{$product->product_name}}</td>
                 <td style="width:300px">     
-                @if($product->active_status == '1')            
-                <form id="form_{{$product->id}}" class="form-label-left confirm-price-set" method="post" action="{{url('choose-product-price-type-process')}}" data-id="{{$product->id}}">
-                  {{csrf_field()}}
-                  <input type="hidden" name="product_id" value="{{$product->id}}">
-                  @php
-                  $test_checked = '';
-                  $live_checked = '';
-                  if($product->product_price_type == "for_sale")
-                  {
-                    $test_checked="checked";
-                  } 
-                  elseif ($product->product_price_type == "not_for_sale") 
-                  {
-                    $live_checked="checked";
-                  } 
-                  @endphp
+                 
+                  @if ($loop->last)
                   <div class="radio">
-                    <label>
-                      <input type="radio" name="product_price_type" value="for_sale" {{@$test_checked}} id="for_sale" data-id="{{$product->id}}"> Set Price
-                    </label>
-                    <div id="set_darts_price_{{$product->id}}" <?php if($test_checked ==''){ ?> style="display:none;" <?php } ?> >
-                      <label><b>Price (£):</b></label>
-                      <span><input class="form-control req_class" type="text" name="product_price" id="product_price" value="{{$product->product_price}}" ></span>
-                      <input type="hidden" name="paypal_email" class="paypal_email" id="paypal_email" value="{{@$user_boot->paypal_email}}"> 
+                      <label>
+                        <input type="radio" checked > Not For Sale
+                      </label>
                     </div>
-                  </div>
-                  
-                  <div class="ln_solid" style="margin:10px 0;"></div>
-                  
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="product_price_type" value="not_for_sale" {{@$live_checked}} id="not_for_sale" data-id="{{$product->id}}"> Not For Sale
-                    </label>
-                  </div> <br>
+                  @elseif($product->active_status == '1')            
+                  <form id="form_{{$product->id}}" class="form-label-left confirm-price-set" method="post" action="{{url('choose-product-price-type-process')}}" data-id="{{$product->id}}">
+                    {{csrf_field()}}
+                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                    @php
+                    $test_checked = '';
+                    $live_checked = '';
+                    if($product->product_price_type == "for_sale")
+                    {
+                      $test_checked="checked";
+                    } 
+                    elseif ($product->product_price_type == "not_for_sale") 
+                    {
+                      $live_checked="checked";
+                    } 
+                    @endphp
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="product_price_type" value="for_sale" {{@$test_checked}} id="for_sale" data-id="{{$product->id}}"> Set Price
+                      </label>
+                      <div id="set_darts_price_{{$product->id}}" <?php if($test_checked ==''){ ?> style="display:none;" <?php } ?> >
+                        <label><b>Price (£):</b></label>
+                        <span><input class="form-control req_class" type="text" name="product_price" id="product_price" value="{{$product->product_price}}" ></span>
+                        <input type="hidden" name="paypal_email" class="paypal_email" id="paypal_email" value="{{@$user_boot->paypal_email}}"> 
+                      </div>
+                    </div>
+                    
+                    <div class="ln_solid" style="margin:10px 0;"></div>
+                    
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="product_price_type" value="not_for_sale" {{@$live_checked}} id="not_for_sale" data-id="{{$product->id}}"> Not For Sale
+                      </label>
+                    </div> <br>
 
-                  <div class="form-group pull-right">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
-                       <input type="submit" class="btn btn-success" value="Submit">
+                    <div class="form-group pull-right">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+                         <input type="submit" class="btn btn-success" value="Submit">
+                      </div>
                     </div>
-                  </div>
-                </form>
-                @else
-                  @php
-                  $product_price_type = '';
-                  if($product->product_price_type == 'not_for_sale')
-                  { $product_price_type = 'not_for_sale'; }
-                  elseif($product->product_price_type == 'for_sale')
-                  { $product_price_type = '£'.$product->product_price;  }
-                  @endphp
-                  {{$product_price_type}}
-                @endif
+                  </form>
+                  @else
+                    @php
+                    $product_price_type = '';
+                    if($product->product_price_type == 'not_for_sale')
+                    { $product_price_type = 'not_for_sale'; }
+                    elseif($product->product_price_type == 'for_sale')
+                    { $product_price_type = '£'.$product->product_price;  }
+                    @endphp
+                    {{$product_price_type}}
+                  @endif
+
                 </td>
                 <td>{{$product->product_weight}}</td>
                 <td>{{$product->product_weight_range}}</td>

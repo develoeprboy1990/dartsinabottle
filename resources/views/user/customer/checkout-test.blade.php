@@ -255,10 +255,10 @@
                   <div class="well">
                       <table class="table">
                         <tbody>
-                          <tr>
+                          <!-- <tr>
                             <th>Weight Order:</th>
                             <td class="kcartShipTotal">{{$ordered_items->sort_1}} | {{$ordered_items->sort_2}} | {{$ordered_items->sort_3}}</td>
-                          </tr>
+                          </tr> -->
                           <tr class="total">
                             <th>Sub Total:</th>
                             <td class="kcartGrandTotal">£<span id="discounted_total_td">{{ number_format($get_result_array['get_total_values']['total_discounted_total'] , 2) }}</span></td>
@@ -302,7 +302,8 @@
               <input type="hidden" name="sort_1" class="sort_1" value="{{$ordered_items->sort_1}}">
               <input type="hidden" name="sort_2" class="sort_2" value="{{$ordered_items->sort_2}}">
               <input type="hidden" name="sort_3" class="sort_3" value="{{$ordered_items->sort_3}}">
-              <input type="hidden" name="shipping_id" class="shipping_id" value="{{$shipping_detail[0]->id}}">
+              <input type="hidden" name="choice" class="choice" value="{{$ordered_items->choice}}">
+              <input type="hidden" name="shipping_id" class="shipping_id" value="{{$shipping_detail[0]->id}}">              
               <input type="hidden" name="total_products" id="total_products" value="{{$get_result_array['get_total_values']['total_items']}}">
               <input type="hidden" name="sub_total" id="sub_total" value="{{$get_result_array['get_total_values']['total_sub_total']}}">
               <input type="hidden" name="deposit_cost" id="deposit_cost" value="{{$get_result_array['get_total_values']['deposit_cost']}}">

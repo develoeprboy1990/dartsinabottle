@@ -44,7 +44,7 @@
             <tbody>
               @if($product != null)
               <tr>
-                <td>{{$product->getProduct->product_name}}</td>
+                <td>{{@$product->getProduct->product_name}}</td>
                 <td style="width:300px">
                   @if($product->getProduct->product_price_type == "for_sale")
                   @php

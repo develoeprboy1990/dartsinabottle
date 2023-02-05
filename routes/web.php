@@ -194,7 +194,7 @@ Route::get('shop', 'HomeController@shop');
 
 Route::get('browse', 'HomeController@browse');
 
-Route::get('browse/detail/{type?}','HomeController@browseDetail');
+Route::get('browse/detail/{type?}/{sortby?}','HomeController@browseDetail');
 
 Route::get('faq', 'HomeController@getFaq');
 
@@ -217,6 +217,10 @@ Route::get('checkout', 'HomeController@checkout');
 Route::get('lent-darts','HomeController@getLentDarts');
 
 Route::get('new-lent-darts','HomeController@getNewLentDarts');
+
+Route::post('verify-customer-choice','HomeController@verifyCustomerChoice');
+Route::post('ship-order-whose-payment-is-done','HomeController@shipOrderWhosePaymentIsDone');
+
 
 Route::post('choose-product-price-type-process','HomeController@choosePriceProductTypeProcess');
 Route::post('revert-product-price-type-process','HomeController@revertPriceProductTypeProcess');

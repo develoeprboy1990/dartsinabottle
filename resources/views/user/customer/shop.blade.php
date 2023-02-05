@@ -173,6 +173,7 @@
                   <ul class="deals">
                     <li>£40.00 deposit</li>
                     <li>Returned when you close your account</li>
+                    <li>&nbsp;&nbsp;&nbsp;</li>
                   </ul>
                 </div>
                 </div>
