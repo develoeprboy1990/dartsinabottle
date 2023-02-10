@@ -17,7 +17,6 @@
 		</tr>
 	</table>
 	</p>
-	<br><br>
 	<p>Please allow 24 hours for the funds to be transferred via PayPal.</p>
-
+	<p>Remember, you can send additional sets to us at any time. They will be shared with our users and you can set a price to sell them for.</p>
 @endsection

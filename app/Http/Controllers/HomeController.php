@@ -414,8 +414,15 @@ class HomeController extends Controller
     }
 
     $products = Product::where('product_weight_range',$type)->where('active_status','1')->orderBy('product_weight', $sortby)->get();
-
+     if(Auth::check())
+     {
      $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>2])->orderBy('id', 'DESC')->first();
+      }else{
+        $order_details = array();
+      }
+//dd($order_details);
+
+
 
     return view('user.customer.browse-detail',['products'=>$products,'type'=>$type,'sortby'=>$sortby,'order_details' => $order_details]);
         
@@ -520,7 +527,7 @@ class HomeController extends Controller
                 }
                 if($need_to_set)
                 {
-                    $set_price = "<br><br>If you wish to purchase the barrels, please check your ‘Current Darts’ section to see if they are for sale.<br>If you don’t like them, or wish to request the next set in your subscription, please return them in the included bottle and prepaid envelope. (Please use the bottle for returns, as it will protect the barrels in transit.)";
+                    $set_price = "<br><br>If you wish to purchase the barrels, please check your ‘Current Darts’ section to see if they are for sale.<br><br>If you don’t like them, or wish to request the next set in your subscription, please return them in the included bottle and prepaid envelope. (Please use the bottle for returns, as it will protect the barrels in transit.)";
                 }else{
                     $set_price = "";
                 }
@@ -598,8 +605,8 @@ class HomeController extends Controller
             </div>
                 <div class="price-value">
               <div class="value">
-                <span class="currency">£</span> <span class="amount">
-                  ' . $array[0] . '.<span>' . $array[1] . '</span></span> <span class="month">/month</span>
+                <span class="currency">£'.$array[0].'.'.$array[1].'</span>
+                <span class="month">/month</span>
               </div>
             </div>
                 <ul class="deals">' . $package->description . '</ul>';

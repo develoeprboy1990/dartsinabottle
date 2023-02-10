@@ -37,14 +37,14 @@
                     <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" height="300px" width="300px" ></a></br>
                   {!!@ $product->product_description!!}<br>
                   {{@$product->product_weight}} g<br>
-
-                  {{--  @if(@$order_detail->status == 2) --}}
+                  
+                    @if(@$order_details->status == 2)
                       @if($product->active_status == '1')
                         <button type="button" class="btn confirm-send" data-product_id="{{@$product->id}}" >Send</button>
                       @else
                         <button type="button" class="btn confirm-inuse" disabled>In Use</button>
                       @endif
-                  {{--    @endif --}}
+                    @endif
                     <!-- 
                     On clicking send button first check if he is lend user or deposit user
                     
@@ -56,7 +56,7 @@
                 @endforeach
               </div>
             </div>
-            <h1 class="badges-title text-center">+ many more</h1>
+            <!-- <h1 class="badges-title text-center">+ many more</h1> -->
         
       </form>
     </div>

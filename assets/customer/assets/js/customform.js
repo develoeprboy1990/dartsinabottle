@@ -306,7 +306,7 @@ $(document).ready(function () {
     $('.price-header h3').html('');
     $('.single-weight').removeClass('active-img');
     $(this).find('.single-weight').addClass('active-img');
-     $(this).find('.price-header h3').html('You Choose');
+     $(this).find('.price-header h3').html('You Chose');
     var choice_id=$(this).data('choice_id');
     $("#choice_id").val(choice_id);
     

@@ -5,6 +5,14 @@
 {{-- Header Content --}}
 @include('user.customer.header-customer')
 {{-- Header Content End  --}}
+<style type="text/css">
+  .single-weight .price-header{
+    padding:0px 0px 86px;
+  }
+  .single-weight .value{
+    padding: 32px 0px 0px 0px;
+  }
+</style>
 <div class="container" style="margin-top:20px;margin-bottom:20px;">
   <div class="row">
     <div class="col-xs-12 badges-form-col">

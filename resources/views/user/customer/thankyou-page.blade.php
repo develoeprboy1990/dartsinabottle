@@ -25,12 +25,12 @@ To choose future sets, access the ‘Browse’ page when you are logged in. <br>
 
 If you would like to lend a set of barrels please send them to:<br><br>
 
-37 Howieshill Road
-Cambuslang
+37 Howieshill Road<br>
+Cambuslang<br>
+South Lanarkshire<br>
 G72 8PW<br><br>
 
-Once received, you can set a price to sell them for under My Darts/Lent darts
-Your barrels will be shared with our other users.</p>
+Once we receive them, you can set a price to sell them for under ‘My Darts/Lent Darts’. Your barrels would be shared with our other users and they would have the option to purchase them.</p>
             </div> 
             
 

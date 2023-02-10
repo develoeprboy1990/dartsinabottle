@@ -464,7 +464,7 @@ class AdminManagementController extends Controller
                 ); 
                 Mail::send('emails.send-message-customer',  $data, function ($message) use ($data) {
                 $message->to($data['email'])
-                ->subject('Your dartsinabottle will be returnd soon.');
+                ->subject('We have received your dartsinabottle');
                 });
 
               return response()->json([

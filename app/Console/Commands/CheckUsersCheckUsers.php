@@ -55,10 +55,10 @@ class CheckUsersCheckUsers extends Command
                 );
 
 
-                Mail::send('emails.unsubscribe-order-email',  $data, function ($message) use ($data) {
+                /*Mail::send('emails.unsubscribe-order-email',  $data, function ($message) use ($data) {
                 $message->to($data['email'])
                 ->subject('Choose your next dartsinabottle now!');
-                });
+                });*/
 
                 $subscription_billing                     = new SubscriptionBilling;
                 $subscription_billing->subscription_id    = $order_detail->id;

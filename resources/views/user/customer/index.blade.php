@@ -60,9 +60,7 @@
                         </div>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">.
-                        @if(Auth::check())
                         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="{{ url('browse')}}">BROWSE</a></div>
-                        @endif
                         <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                             <!-- <li class="nav-item"><a class="nav-link link text-white display-7" href="{{ url('/')}}">Home</a></li> -->
                             <li class="nav-item"><a class="nav-link link text-white display-7" href="{{ url('about-us')}}">About Us</a></li>
