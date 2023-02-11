@@ -41,14 +41,18 @@
                     @if(@$order_details->status == 2)
                       @if($product->active_status == '1')
                         <button type="button" class="btn confirm-send" data-product_id="{{@$product->id}}" >Send</button>
+                      @elseif($product->active_status == '3')
+                        <button type="button" class="btn" disabled>Sold</button>
                       @else
-                        <button type="button" class="btn" disabled>In Use</button>
+                      <button type="button" class="btn" disabled>In Use</button>
                       @endif
                     @else
                       @if($product->active_status == '1')
-                        <button type="button" class="btn" >In Stock</button>
+                      <a href="{{ url('shop')}}"><button type="button" class="btn" >In Stock</button></a>
+                      @elseif($product->active_status == '3')
+                      <button type="button" class="btn" disabled>Sold</button>
                       @else
-                        <button type="button" class="btn" disabled>In Use</button>
+                      <button type="button" class="btn" disabled>In Use</button>
                       @endif
                     @endif
                     <!-- 
