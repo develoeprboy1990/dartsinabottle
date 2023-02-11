@@ -42,7 +42,13 @@
                       @if($product->active_status == '1')
                         <button type="button" class="btn confirm-send" data-product_id="{{@$product->id}}" >Send</button>
                       @else
-                        <button type="button" class="btn confirm-inuse" disabled>In Use</button>
+                        <button type="button" class="btn" disabled>In Use</button>
+                      @endif
+                    @else
+                      @if($product->active_status == '1')
+                        <button type="button" class="btn" >In Stock</button>
+                      @else
+                        <button type="button" class="btn" disabled>In Use</button>
                       @endif
                     @endif
                     <!-- 
