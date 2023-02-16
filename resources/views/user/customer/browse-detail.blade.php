@@ -21,7 +21,7 @@
               <label class="col-md-4 col-md-4 col-sm-4 pull-left" style="text-align:right;padding: 11px 0px;">Sort by:</label>
                <div class="col-md-8 col-md-8 col-sm-8 pull-right">
                   <select name="sorting" id="sorting" class="form-control form-control-sm">
-                     <option value="ASC" @if($sortby == 'ASC') selected @endif>Weight: light to haevy</option>
+                     <option value="ASC" @if($sortby == 'ASC') selected @endif>Weight: light to heavy</option>
                      <option value="DESC" @if($sortby == 'DESC') selected @endif>Weight: heavy to light</option>
                   </select>
                </div>

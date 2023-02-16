@@ -63,17 +63,20 @@ padding: 6px;
             </div>
             <div class="col-sm-4 col-xs-12 contact-us footer-links">
                 <h3>Contact Us</h3>
-                <p>St. Aidan's Crescent<br>
-                Annfield Plain<br>
-                DH9 7UT<br><br>
+                <p>DARTSINABOTTLE LIMITED <br>
+                128 CITY ROAD<br>
+                LONDON<br>
+                EC1V 2NX<br>
+                UNITED KINGDOM<br><br>
                 <ul>
                 <li> <span>Email: </span> <a class="footer_email" href="mailto:customerservice@dartsinabottle.com">customerservice@dartsinabottle.com</a></li>
                 </ul>
+                </p>
             </div>
         </div>
         <hr>
         <div class="col-sm-6 col-xs-12 copyright">
-            <p>© 2022 dartsinabottle. All Rights Reserved.</p>
+            <p>© 2023 dartsinabottle. All Rights Reserved.</p>
         </div>        
         <div class="col-sm-6 col-xs-12 usefull-links text-right">
             <div class="menu-footer-menu-container">
