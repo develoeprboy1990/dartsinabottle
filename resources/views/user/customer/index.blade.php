@@ -22,7 +22,7 @@
 
     <style type="text/css">
         .cid-sBUg8EYY1q{
-            margin-bottom: 50px;
+            padding-bottom: 0px !important;
         }
         .cid-sBUg8EYY1q p{
         text-align: left;
