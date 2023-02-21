@@ -71,7 +71,7 @@
                     @endif
                     <li class="nav-item"><a class="nav-link link text-white display-7" href="#">Contact Us</a></li>
                 </ul>                
-                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="{{ url('shop')}}">GET STARTED</a></div>
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="{{ url('shop')}}">GAME ON</a></div>
             </div>
         </div>
     </nav>

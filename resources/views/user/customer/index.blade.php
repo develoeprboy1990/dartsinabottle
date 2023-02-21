@@ -19,6 +19,73 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,400,500,600,700,800,100i,200i,300i,400i,500i,600i,700i,800i&display=swap"></noscript>
     <link rel="preload" as="style" href="{{asset('assets/website/mobirise/css/mbr-additional.css')}}">
     <link rel="stylesheet" href="{{asset('assets/website/mobirise/css/mbr-additional.css')}}" type="text/css">
+
+    <style type="text/css">
+        .cid-sBUg8EYY1q{
+            margin-bottom: 50px;
+        }
+        .cid-sBUg8EYY1q p{
+        text-align: left;
+        }
+        .footer_email{
+        text-decoration: none;
+        color: #fff;
+        }
+        .footer_about{
+        margin-bottom: 86px;
+        }
+        .footer_about .display-2{
+        font-size: 2.0rem;
+        text-align: left;
+        }
+        .footer_links{
+        margin-bottom: 175px;
+        }
+        .footer_links .display-2{
+        font-size: 2.0rem;
+        }
+        .footer_contact .display-2{
+        font-size: 2.0rem;
+        text-align: left;
+        }
+        .copyright{
+        text-align: left !important;
+        }
+
+    @media (max-width: 768px){
+        .cid-sBUg8EYY1q P{
+        text-align: left !important;
+        }
+        .footer_email{
+        text-decoration: none !important;
+        color: #fff !important;
+        }
+        .footer_about{
+        margin-bottom: 30px !important;
+        }
+        .footer_about .display-2{
+        font-size: 2.0rem !important;
+        text-align: left  !important;
+        }
+        .footer_links{
+        margin-bottom: 30px !important;
+        }
+        .footer_links .display-2{
+        font-size: 2.0rem !important;
+        }
+        .footer_contact .display-2{
+        font-size: 2.0rem  !important;
+        text-align: left !important;
+        }
+    }
+    hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+    opacity:1;
+    }
+    </style>
     <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -59,7 +126,7 @@
                             <span></span>
                         </div>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">.
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="{{ url('browse')}}">BROWSE</a></div>
                         <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
                             <!-- <li class="nav-item"><a class="nav-link link text-white display-7" href="{{ url('/')}}">Home</a></li> -->
@@ -75,7 +142,7 @@
                         @if(Auth::check()) 
                         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="{{ url('dashboard')}}">MY DARTS</a></div>
                         @else
-                        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="{{ url('shop')}}">GET STARTED</a></div>
+                        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="{{ url('shop')}}">GAME ON</a></div>
                         @endif
                     </div>
                 </div>
@@ -134,8 +201,8 @@
                                 <div class="iconfont-wrapper">
                                     <span class="mbr-iconfont mbrib-target"></span>
                                 </div>
-                                <h5 class="card-title mbr-fonts-style display-5"><strong>BORROW</strong></h5>
-                                <p class="card-text mbr-fonts-style display-7">Borrow up to 4 sets a month</p>
+                                <h5 class="card-title mbr-fonts-style display-5"><strong>RENT</strong></h5>
+                                <p class="card-text mbr-fonts-style display-7">Rebnt up to 4 sets a month</p>
                             </div>
                         </div>
                     </div>
@@ -146,7 +213,7 @@
                                     <span class="mbr-iconfont mbrib-target"></span>
                                 </div>
                                 <h5 class="card-title mbr-fonts-style display-5"><strong>BUY</strong></h5>
-                                <p class="card-text mbr-fonts-style display-7">Buy sets of barrels that are for sale</p>
+                                <p class="card-text mbr-fonts-style display-7">Buy sets you receive that are for sale</p>
                             </div>
                         </div>
                     </div>
@@ -217,14 +284,14 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="image-wrapper">
-                                <img class="w-100 md-pb" src="{{asset('assets/website/images/-1.fw-1024x896.png')}}" alt="">
+                                <!-- <img class="w-100 md-pb" src="{{asset('assets/website/images/-1.fw-1024x896.png')}}" alt=""> -->
+                                <img class="w-100 md-pb" alt="Subscribe" src="{{asset('assets/website/images/dartsinabottle1.png')}}" alt="">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="timeline-text-wrapper">
                                 <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-2"><strong>Subscribe</strong></h4>
-                                <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">
-                                    Choose 2 or 4 sets a month. Select to pay a full deposit only or lend us a set of barrels (we pay the postage) to pay a reduced deposit. These will be returned when you close your account. If you lend a set, your barrels will be added to our ‘Browse’ page and shared with our other users.</p>  
+                                <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">First, choose between 2 or 4 sets a month. Then, secure your account with a deposit. There are two options. You can pay a full deposit to request barrels immediately. Or, you can lend us a set in order to pay a reduced deposit. Once we have your barrels, they will be added to our system and shared with our other users.</p>  
                             </div>
                         </div>
                     </div>
@@ -237,12 +304,12 @@
                         <div class="col-12 col-md-6">
                             <div class="timeline-text-wrapper">
                                 <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-2"><strong>Play</strong></h4>
-                                <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">Choose your first set of barrels to receive from our ‘Browse’ page. Our stock comprises our own barrels and our users' shared barrels. If you don’t like what you feel, return them and choose your next set.</p>  
+                                <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">Choose your first dartsinabottle from our ‘Browse’ page. Our stock comprises our own barrels and our users’ shared barrels. Play with them for as long as you like, or send them back to choose your next set.</p>  
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="image-wrapper">
-                                <img class="w-100 md-pb" src="{{asset('assets/website/images/-1.fw.fw-1024x896.png')}}" alt="">
+                                <img class="w-100 md-pb" src="{{asset('assets/website/images/dartsinabottle2.png')}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -254,14 +321,13 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="image-wrapper">
-                                <img class="w-100 md-pb" src="{{asset('assets/website/images/-1.fw.fww.fw-1024x896.png')}}" alt="">
+                                <img class="w-100 md-pb" src="{{asset('assets/website/images/dartsinabottle3.png')}}" alt="">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="timeline-text-wrapper">
                                 <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-2"><strong>Trade</strong></h4>
-                                <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">If you receive a set that is for sale, you can purchase them instantly. You can also send us extra sets of barrels and set a price to sell them for. Our commission is less than eBay and you don’t need to worry about posting them! 
-</p>
+                                <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">If you receive a set that is for sale, you can purchase them instantly. You can also send us extra sets of barrels and set a price to sell them for. Our commission is less than eBay and you don’t need to worry about posting them! </p>
                             </div>
                         </div>
                     </div>
@@ -283,10 +349,11 @@
                         
                         <div class="mbr-text mbr-fonts-style display-7">
                             <ul>
-                                <li>Try different barrels on a regular basis</li>
-                                <li>Choose from over 40 sets</li>
-                                <li>We add two BRAND NEW sets every month</li>
-                                <li>All postage covered by the subscription (excluding additional lent sets)</li>
+                                <li>Try different barrels to find the best weight, shape, grip and dimensions for your throw</li>
+                                <li>Over 50 sets to choose from ranging from 12g-48g</li>
+                                <li>All postage is covered by subscription and sent 1st class (excluding additional lent sets)</li>
+                                <li>Set a price for your lent barrels easily – there are no listing fees</li>
+                                <li>No more ‘buyers regret’ – if you don’t like what you feel, send them back! </li>
                             </ul>
                         </div>
                     </div>
@@ -305,13 +372,17 @@
 
             <div class="container">
                 <div class="row align-items-center justify-content-center">
-                    <div class="text-content col-12 col-md-12 col-lg-12">
-                        <h2 class="mbr-section-title mbr-fonts-style mb-3 display-2">
-                            <strong>Follow Us</strong>
+                    <div class="text-content col-12 col-md-4 col-lg-4 footer_about" >
+                        <h2 class="mbr-section-title mbr-fonts-style mb-3 display-2" >
+                            <strong>About dartsinabottle</strong>
                         </h2>
-                        <p class="mbr-text mbr-fonts-style mb-3 display-7">Follow us on the social media platforms below. We love hearing what you received and how you played with them!</p>
+                        <p class="mbr-text mbr-fonts-style mb-3 display-7">dartsinabottle allow you to rent, lend, buy and sell barrels. It’s the easiest, most convenient way to try different barrels on a regular basis.</p>
                     </div>
-                    <div class="icons d-flex align-items-center justify-content-center col-12 col-md-12 mt-md-0 mt-2 flex-wrap">
+                    <div class="text-content col-12 col-md-4 col-lg-4 footer_links" >
+                        <h2 class="mbr-section-title mbr-fonts-style mb-3 display-2"  >
+                            <strong>Quick Links</strong>
+                        </h2>
+                        <div class="icons d-flex align-items-center justify-content-center col-12 col-md-12 mt-md-0 mt-2 flex-wrap">
                         <a href="https://twitter.com/dartsinabottle" target="_blank">
                             <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
                         </a>
@@ -322,6 +393,25 @@
                             <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
                         </a>
                     </div>
+                    </div>
+                    <div class="text-content col-12 col-md-4 col-lg-4 footer_contact">
+                        <h2 class="mbr-section-title mbr-fonts-style mb-3 display-2"  >
+                            <strong>Contact Us</strong>
+                        </h2>
+                        <p class="mbr-text mbr-fonts-style mb-3 display-7" >
+                            DARTSINABOTTLE LIMITED <br>
+                            128 CITY ROAD<br>
+                            LONDON<br>
+                            EC1V 2NX<br>
+                            UNITED KINGDOM<br><br>
+                            <span>Email: </span>
+                            <a class="footer_email" href="mailto:customerservice@dartsinabottle.com"> customerservice@dartsinabottle.com</a>                           
+                            </p>
+                    </div>
+                    <hr>
+                     <div class="text-content col-12 col-xs-12 copyright">
+                        <p>© 2023 dartsinabottle. All Rights Reserved.</p>
+                    </div>        
                 </div>
             </div>
         </section>

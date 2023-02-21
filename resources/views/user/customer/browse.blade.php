@@ -1,5 +1,5 @@
 @extends('user.customer.customer-layout')
-@section('title','Get Started | Set Of Darts & Sell and Buy Darts | Dartsinabottle')
+@section('title','Browse | Set Of Darts & Sell and Buy Darts | Dartsinabottle')
 @section('description','Dartsinabottle offers to buy the best set of darts at reasonable prices and time duration. Here you can choose your required set of darts.')
 @section('content')
 {{-- Header Content --}}

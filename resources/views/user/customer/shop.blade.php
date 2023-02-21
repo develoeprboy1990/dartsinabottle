@@ -1,10 +1,42 @@
 @extends('user.customer.customer-layout')
-@section('title','Get Started | Set Of Darts & Sell and Buy Darts | Dartsinabottle')
+@section('title','GAME ON | Set Of Darts & Sell and Buy Darts | Dartsinabottle')
 @section('description','Dartsinabottle offers to buy the best set of darts at reasonable prices and time duration. Here you can choose your required set of darts.')
 @section('content')
 {{-- Header Content --}}
 @include('user.customer.header-customer')
 {{-- Header Content End  --}}
+<link rel="stylesheet" href="{{asset('assets/website/socicon/css/styles.css')}}">
+<style type="text/css">
+.mbr-iconfont-social {
+  margin: 0.5rem;
+  font-size: 32px;
+  display: flex;
+  border-radius: 50%;
+  text-align: center;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  justify-content: center;
+  align-content: center;
+  transition: all 0.3s;
+  float: left;
+padding: 6px;
+}
+.mbr-iconfont-social:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+[class^="socicon-"], [class*=" socicon-"] {
+  font-family: 'Socicon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>
 <div class="container" style="margin-top:20px;margin-bottom:20px;">
   <div class="row">
     <div class="col-xs-12 badges-form-col">
@@ -227,4 +259,5 @@
 @endsection
 @section('javascript')
  <script src="{{asset('assets/customer/assets/js/customform.js')}}"></script>
+
 @endsection

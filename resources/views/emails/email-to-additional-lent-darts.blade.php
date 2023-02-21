@@ -18,6 +18,4 @@
 <p>You can set a price to sell them for in your ‘My Darts’ page.<br><br>
 
 Thank you for supporting dartsinabottle with extra tungsten!<br><br>
-
-<a href="{{url('terms-and-condition')}}" target="_blank" style="text-decoration:underline;">*Terms and Conditions</a> apply. </p>
 @endsection

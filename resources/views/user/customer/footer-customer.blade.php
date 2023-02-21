@@ -35,7 +35,7 @@ padding: 6px;
         <div class="row">
             <div class="col-sm-4 col-xs-12">
             <div id="text-2" class="widget widget_text"><h3>About dartsinabottle</h3>			
-                <div class="textwidget"><p>dartsinabottle allows you to lend, borrow, buy and sell barrels. It’s the easy, convenient way to try new barrels. </p>
+                <div class="textwidget"><p>dartsinabottle allow you to rent, lend, buy and sell barrels. It’s the easiest, most convenient way to try different barrels on a regular basis.</p>
                 </div>
             </div>
         </div>

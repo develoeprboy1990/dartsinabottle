@@ -19,6 +19,4 @@
 <p>You can view them in the My Darts / Lent Darts section of our website.<br><br>
 
 You may now choose your first dartsinabottle. Please log in to the site and go to the ‘Browse’ page or click <a href="{{url('login')}}" target="_blank" style="text-decoration:underline;">here</a>.<br><br>
-
-<a href="{{url('terms-and-condition')}}" target="_blank" style="text-decoration:underline;">*Terms and Conditions</a> apply. </p>
 @endsection
