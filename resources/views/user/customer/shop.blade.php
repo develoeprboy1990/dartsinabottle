@@ -189,7 +189,7 @@ padding: 6px;
                   </div>
                   <ul class="deals">
                     <li>Share a set of barrels</li>
-                    <li>£20.00 deposit</li>
+                    <li>£40.00 deposit</li>
                     <li>Both returned when you close your account</li>
                   </ul>
                 </div>
@@ -203,7 +203,7 @@ padding: 6px;
                     </div>
                   </div>
                   <ul class="deals">
-                    <li>£40.00 deposit</li>
+                    <li>£50.00 deposit</li>
                     <li>Returned when you close your account</li>
                     <li>&nbsp;&nbsp;&nbsp;</li>
                   </ul>

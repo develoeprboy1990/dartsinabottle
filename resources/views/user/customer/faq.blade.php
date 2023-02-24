@@ -23,10 +23,10 @@
                     To join our community, you need to pay a monthly subscription, and do one of the following two things:
                     <ul>
                         <li class="li-text">
-                            Pay a deposit only of £49.99
+                            Pay a deposit only of £50
                         </li>
                         <li class="li-text">
-                            Pay a reduced deposit of £29.99 and lend us a set of barrels to be shared around
+                            Pay a reduced deposit of £40 and lend us a set of barrels to be shared around
                         </li>
                         
                     </ul>
