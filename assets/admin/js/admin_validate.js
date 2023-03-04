@@ -2191,7 +2191,7 @@ $(document).ready(function(){
               type: "success" 
               },
               function(){
-                window.location.href=full_path+"admin/orders/pending-shipment";
+                window.location.href=full_path+"admin/orders/pending";
               });
             
             }

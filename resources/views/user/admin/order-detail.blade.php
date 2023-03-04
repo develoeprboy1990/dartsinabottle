@@ -756,7 +756,7 @@ status ->
             text: "Message!",
             type: "success"
             }, function() {
-            window.location = $('#site_url').val()+'/admin/orders/cancelled';
+            window.location = $('#site_url').val()+'/admin/orders/pending';
             });
           }, 1000);   
           
