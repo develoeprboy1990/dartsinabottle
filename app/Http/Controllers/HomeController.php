@@ -1715,11 +1715,22 @@ class HomeController extends Controller
                     ]
                     );*/
           $order_detail  = $user->newSubscription($payment_mode, $app_id)->create($paymentMethod, ['email' => $user->email]);
-           if ($package->id == 1) {
-           $depositFee =  4199; //£40+£1.99= 41.99
+          if($request['choice'] == 'Lend')
+          {
+            if ($package->id == 1) {
+             $depositFee =  4199; //£40+£1.99= 41.99
 
-          } else {
-            $depositFee = 4249; //£40+£2.49 = 42.49
+            } else {
+              $depositFee = 4249; //£40+£2.49 = 42.49
+            }
+          }
+          else{
+            if ($package->id == 1) {
+             $depositFee =  5199; //£50+£1.99= 41.99
+
+            } else {
+              $depositFee = 5249; //£50+£2.49 = 42.49
+            }
           }
           $oneTime = $user->invoiceFor('Deposit Fee', $depositFee);
           /* FOR MULTIPLE PRICES REPLACE ABOVE CODE WITH BELOW.
