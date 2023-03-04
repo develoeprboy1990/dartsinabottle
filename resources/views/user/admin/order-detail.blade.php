@@ -19,16 +19,17 @@ status ->
         <div class="input-group">
            <div class="dropdown">
               <a style="cursor: pointer;" class="btn btn-success" data-toggle="modal" data-target="#notes-modal">Notes</a>
-              @if($order_detail->status == 4 && $order_detail->lent_darts($order_detail->user_id))
+             <!--  @if($order_detail->status == 4 && $order_detail->lent_darts($order_detail->user_id))
               <a style="cursor: pointer;" class="btn btn-primary" data-toggle="modal" data-target="#ship_darts_order_whose_payment_is_done">Ship Darts</a>
-               @endif
+               @endif -->
 
               @if($order_detail->status == 2 && $order_detail->isunsubscribe ==1)
               <a style="cursor: pointer;" class="btn cancel-order btn-primary" data-order_id="{{$order_detail->id}}">Cancel Order</a>
               @endif
 
-               @if($order_detail->status == 2 && $order_detail->lent_darts($order_detail->user_id))
+               @if($order_detail->status == 2)
                <a style="cursor: pointer;" class="btn dart-posted btn-primary" data-order_id="{{$order_detail->id}}">Posted</a>
+               @endif
             </div>           
         </div>
       </div>
