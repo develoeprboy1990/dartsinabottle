@@ -30,6 +30,8 @@ Route::get('admin/logout', 'AdminManagementController@logout');
 
 Route::get('admin/dashboard', 'AdminManagementController@dashboard');
 
+Route::get('admin/orders/pending','AdminManagementController@pending');
+
 Route::get('admin/orders/pending-shipment','AdminManagementController@pendingShip');
 
 Route::get('admin/orders/shipped','AdminManagementController@shippedOrders');
@@ -141,6 +143,8 @@ Route::get('admin/filter-product', 'AdminManagementController@filterProduct');
 Route::get('admin/confirm-return-darts','AdminManagementController@confirmReturnDarts');
 
 Route::get('admin/cancel-order','AdminManagementController@cancelOrder');
+
+Route::get('admin/posted-order','AdminManagementController@postedOrder');
 
 Route::resource('admin/customer-groups','CustomerGroupController');
 

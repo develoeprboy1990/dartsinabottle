@@ -19,12 +19,16 @@ status ->
         <div class="input-group">
            <div class="dropdown">
               <a style="cursor: pointer;" class="btn btn-success" data-toggle="modal" data-target="#notes-modal">Notes</a>
-              @if($order_detail->status == 2 && $order_detail->lent_darts($order_detail->user_id))
+              @if($order_detail->status == 4 && $order_detail->lent_darts($order_detail->user_id))
               <a style="cursor: pointer;" class="btn btn-primary" data-toggle="modal" data-target="#ship_darts_order_whose_payment_is_done">Ship Darts</a>
                @endif
+
               @if($order_detail->status == 2 && $order_detail->isunsubscribe ==1)
               <a style="cursor: pointer;" class="btn cancel-order btn-primary" data-order_id="{{$order_detail->id}}">Cancel Order</a>
               @endif
+
+               @if($order_detail->status == 2 && $order_detail->lent_darts($order_detail->user_id))
+               <a style="cursor: pointer;" class="btn dart-posted btn-primary" data-order_id="{{$order_detail->id}}">Posted</a>
             </div>           
         </div>
       </div>
@@ -687,6 +691,56 @@ status ->
     $.ajax({
       
       url:"{{url('admin/cancel-order')}}",
+      method:"get",
+      dataType:"json",
+      data:{order_id:order_id},
+      success:function(data){
+        swal.close();
+        $("#loader_modal").modal('show');
+        if(data=="ok"){  
+        setTimeout(function() {
+          $("#loader_modal").modal('hide');
+          swal({
+            title: "Done!",
+            text: "Message!",
+            type: "success"
+            }, function() {
+            window.location = $('#site_url').val()+'/admin/orders/cancelled';
+            });
+          }, 1000);   
+          
+
+        }
+        else
+        {
+          alert("something went wrong");
+        }
+      },
+      error:function(){
+        alert("Error");
+      }
+
+
+    }); //ajax
+   });
+ });
+
+    $(document).on('click','.dart-posted',function(e){
+     var order_id=$(this).data("order_id");
+     
+     swal({
+      title: "Dart Posted?",
+      text: "Order will be posted!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-primary",
+      confirmButtonText: "Yes, posted it!",
+      closeOnConfirm: false
+    },
+    function(){
+    $.ajax({
+      
+      url:"{{url('admin/posted-order')}}",
       method:"get",
       dataType:"json",
       data:{order_id:order_id},

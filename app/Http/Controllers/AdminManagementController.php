@@ -178,6 +178,11 @@ class AdminManagementController extends Controller
 
     }
 
+    public function pending(){
+       $order_details=Subscription::where(['status'=>4])->orderBy('id','DESC')->get();   
+       return view('user.admin.pending-ship',['order_details'=>$order_details]);
+    } 
+    
     public function pendingShip(){
        $order_details=Subscription::where(['status'=>2])->orderBy('id','DESC')->get();   
        return view('user.admin.pending-ship',['order_details'=>$order_details]);
@@ -240,6 +245,64 @@ class AdminManagementController extends Controller
           ]
           );
     }
+
+    public function postedOrder(){
+
+      if(isset($_GET['order_id'])){  
+      $order_id=$_GET['order_id'];
+      }
+
+        $order_detail=Subscription::where('id',$order_id)->first();
+
+        $user_id = $order_detail->user_id;
+
+        $order_detail->status=1;   //1 means order is now shipped
+        $order_detail->save();
+
+
+        $lent_darts = Product::where('user_id',$user_id)->where('active_status','!=',3)->get();
+        $need_to_set = false;
+        foreach($lent_darts as $lent_dart)
+        {
+            if($lent_dart->product_price_type == 'not_for_sale')
+            {
+            $need_to_set = true;
+            }
+        }
+        
+        if($need_to_set)
+        {
+            $set_price = "<br><br>Don’t forget, you can set a price for your lent darts in the ‘My Darts’ section of our website.";
+        }else{
+            $set_price = "";
+        }
+
+
+
+
+        $user=User::where('id',$user_id)->first();
+        $data = array(
+        'firstname'      => $user->first_name,
+        'lastname'       => $user->last_name,
+        'email'          => $user->email,
+        'message_body'   => 'Your dartsinabottle are on their way. <br> They should arrive in 2-4 working days.'.$set_price,
+
+        ); 
+        Mail::send('emails.send-message-customer',  $data, function ($message) use ($data) {
+        $message->to($data['email'])
+        ->subject('Your dartsinabottle have been posted.');
+        });
+
+
+
+      return response()->json(
+          [
+          "ok",
+          ]
+          );
+    }
+    
+
 
     public function addSystemUser(){
 
@@ -386,7 +449,7 @@ class AdminManagementController extends Controller
                 $product->active_status = 2; //2 means product is now reserved
                 $product->save();
 
-                $order_detail->status=1;   //1 means order is now shipped
+                $order_detail->status=2;   //1 means order is now shipped
                 $order_detail->save();
 
                 $lent_darts = Product::where('user_id',$user_id)->where('active_status','!=',3)->get();
@@ -451,7 +514,7 @@ class AdminManagementController extends Controller
             $product->active_status = 1; //1 means product is now active
             $product->save();
 
-            $order_detail->status=2;   //2 means order is in Pending Ship
+            $order_detail->status=4;   //2 means order is in Pending Ship
             $order_detail->save();
 
                 $user=User::where('id',$order_detail->user_id)->first();

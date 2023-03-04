@@ -127,6 +127,7 @@
 
                 <li><a><i class="fa fa-bar-chart-o"></i> Subscriptions <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
+                    <li><a href="{{url('admin/orders/pending')}}">Pending</a></li>
                     <li><a href="{{url('admin/orders/pending-shipment')}}">Pending Shipment</a></li>
                     <li><a href="{{url('admin/orders/shipped')}}">Shipped</a></li>
                     <li><a href="{{url('admin/orders/cancelled')}}">Cancelled</a></li>

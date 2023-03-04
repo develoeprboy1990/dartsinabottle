@@ -38,7 +38,7 @@
                   {!!@ $product->product_description!!}<br>
                   {{@$product->product_weight}} g<br>
                   
-                    @if(@$order_details->status == 2)
+                    @if(@$order_details->status == 4)
                       @if($product->active_status == '1')
                         <button type="button" class="btn confirm-send" data-product_id="{{@$product->id}}" >Send</button>
                       @elseif($product->active_status == '3')

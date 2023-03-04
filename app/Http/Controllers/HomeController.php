@@ -295,7 +295,7 @@ class HomeController extends Controller
               return redirect('add-shipping-detail');
             } else {
 
-              $subscription = Subscription::where('user_id', $user->id)->whereIn('status', [1, 2])->first();
+              $subscription = Subscription::where('user_id', $user->id)->whereIn('status', [1, 2, 4])->first();
               if ($subscription) {
                 return redirect('dashboard');
               } else if (isset($_COOKIE['user_cookie'])) {
@@ -416,7 +416,7 @@ class HomeController extends Controller
     $products = Product::where('product_weight_range',$type)->orderBy('product_weight', $sortby)->get();
      if(Auth::check())
      {
-     $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>2])->orderBy('id', 'DESC')->first();
+     $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>4])->orderBy('id', 'DESC')->first();
       }else{
         $order_details = array();
       }
@@ -433,7 +433,7 @@ class HomeController extends Controller
   public function verifyCustomerChoice(Request $request){
     $user = User::where('id', Auth::user()->id)->first();
 
-    $subscription = Subscription::where('user_id', $user->id)->whereIn('status', [1, 2])->first();
+    $subscription = Subscription::where('user_id', $user->id)->whereIn('status', [4])->first();
 
     if($subscription)
     {
@@ -480,10 +480,10 @@ class HomeController extends Controller
 
   public function shipOrderWhosePaymentIsDone(Request $request){
         $error=false;
-        //1= Shipped, 2=Pending Shipped 
+        //1= Shipped, 2=Pending Shipped , 3=Cancelled ,4=Pending
 
         $user = User::where('id', Auth::user()->id)->first();
-        $order_detail=Subscription::where('user_id', $user->id)->whereIn('status', [1, 2])->first();
+        $order_detail=Subscription::where('user_id', $user->id)->whereIn('status', [4])->first();
         if($order_detail){
             
             //cheking of how many darts send in last 30 days...
@@ -513,7 +513,7 @@ class HomeController extends Controller
                 $product->active_status = 2; //2 means product is now reserved
                 $product->save();
 
-                $order_detail->status=1;   //1 means order is now shipped
+                $order_detail->status=2;   //2 means order is now pending shipped
                 $order_detail->save();
 
                 $lent_darts = Product::where('user_id',$user_id)->where('active_status','!=',3)->get();
@@ -1648,7 +1648,7 @@ class HomeController extends Controller
   public function checkOrder()
   {
     $user                = User::where('id', Auth::user()->id)->first();
-    $subscription = Subscription::where('user_id', $user->id)->whereIn('status', [1, 2])->first();
+    $subscription = Subscription::where('user_id', $user->id)->whereIn('status', [1, 2, 4])->first();
     if ($subscription) {
       return response()->json([
         'error' => true,
@@ -1829,8 +1829,8 @@ class HomeController extends Controller
       $order_detail->order_note       = $request['order_note'];
       if ($request['payment_type_id'] == 5) {
         //Stripe
-        $order_detail->status           = 2;  
-        //means that the order will go directly to pending shipment
+        $order_detail->status           = 4;  
+        //means that the order will go directly to pending 
       }
 
       $order_detail->save();
@@ -2050,7 +2050,7 @@ class HomeController extends Controller
     } else {
       if ($request['from_checkout'] == 'yes') {
         $content = Content::where('title', 'Thank You Page')->first();
-        $subscription = Subscription::where('user_id', Auth::user()->id)->whereIn('status', [1, 2])->orderBy('id', 'DESC')->first();
+        $subscription = Subscription::where('user_id', Auth::user()->id)->whereIn('status', [4])->orderBy('id', 'DESC')->first();
         if($subscription->choice == 'Lend'){
         return view('user.customer.order-thankyou-page', ['content' => $content, 'subscription' => $subscription]);
         }else{
@@ -2117,7 +2117,7 @@ class HomeController extends Controller
       );
 
       if (!empty($subscription)) {
-        $subscription->status = 2;
+        $subscription->status = 4;
         $subscription->payment_status = 1;
         $subscription->save();
       }
@@ -2303,7 +2303,7 @@ class HomeController extends Controller
       $product->save();
       //Paypal 
       //payment_type_id = 4
-      $order_detail->status = 2;   //2 means order is in Pending Ship
+      $order_detail->status = 4;   //2 means order is in Pending Ship
       $order_detail->save();
      //==================================================================================
 
