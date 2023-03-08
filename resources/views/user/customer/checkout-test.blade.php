@@ -215,7 +215,7 @@
                   </div>  
 
                   <div id="paypal_payment_div" style="max-height:350px;">
-                    <img src="{{url('public/uploads/emails/banner.jpg')}}" alt="logo" class="img-responsive">
+                    <img src="{{url('public/uploads/emails/dartinabottle.png')}}" alt="logo" class="img-responsive">
                      <!-- <div class="row">
                       <div class="col-xs-12">
                         <div class="panel panel-info">
