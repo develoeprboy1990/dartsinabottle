@@ -413,7 +413,7 @@ class HomeController extends Controller
      $sortby = $sorting[1];
     }
 
-    $products = Product::where('product_weight_range',$type)where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+    $products = Product::where('product_weight_range',$type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
      if(Auth::check())
      {
      $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>4])->orderBy('id', 'DESC')->first();
