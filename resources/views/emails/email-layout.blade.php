@@ -198,7 +198,7 @@ table.center-on-narrow {
 
     <!-- Hero Image, Flush : BEGIN -->
     <tr>
-      <td bgcolor="#ffffff" align="center"><img src="{{ asset('public/uploads/emails/banner.jpg') }}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555; margin: auto;" class="g-img"></td>
+      <td bgcolor="#ffffff" align="center"><img src="{{ asset('public/uploads/emails/dartinabottle.png') }}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 140%; color: #555555; margin: auto;" class="g-img"></td>
     </tr>
     <!-- Hero Image, Flush : END -->
     <!-- 1 Column Text + Button : BEGIN -->

@@ -453,7 +453,7 @@ class HomeController extends Controller
              return response()->json([
             'error' => true,
             'title' => 'Error!',
-            'text' => 'Your Lend Darts still not Arrived to Us.',
+            'text' => 'We have not received your lent darts yet. Please await confirmation via email.',
             'error_type' => 1
           ]);
         }

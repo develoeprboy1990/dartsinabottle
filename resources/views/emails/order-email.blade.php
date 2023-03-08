@@ -44,9 +44,11 @@
 	<hr>
 	@foreach($email_products_array as $result)
 	<p><strong>Package:</strong> {{$result['package_id']}}</p>
-	<p><strong>1st Weight:</strong> {{$sort_1}}</p>
-	<p><strong>2nd Weight:</strong> {{$sort_2}}</p>
-	<p><strong>3rd Weight:</strong> {{$sort_3}}</p>
+	@if( $choice == 'Lend')
+		<p><strong>You Chose:</strong>Lend + Deposit</p>
+	@else
+		<p><strong>You Chose:</strong>Deposit Only</p>
+	@endif
 	{{--<p><strong>Original Total:</strong> £{{number_format($result['product_original_total'],2)}}</p>
 	<p><strong>Discounted Total:</strong> £{{number_format($result['product_discounted_total'],2)}}</p>--}}
 	<hr>

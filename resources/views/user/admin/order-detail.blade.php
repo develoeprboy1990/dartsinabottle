@@ -12,7 +12,10 @@ status ->
   <!-- page content -->
   <div class="page-title">
     <div class="title_left">
-      <h3>Subscription Detail / Pending Shipment</h3>
+      <h3>Subscription Detail / Pending 
+        @if($order_detail->status == 2)
+        {{ Shipment }}
+        @endif</h3>
     </div>
     <div class="title_right">
       <div class="pull-right top_search">
