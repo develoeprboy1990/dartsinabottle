@@ -14,7 +14,7 @@ status ->
     <div class="title_left">
       <h3>Subscription Detail / Pending 
         @if($order_detail->status == 2)
-        {{ Shipment }}
+        Shipment
         @endif</h3>
     </div>
     <div class="title_right">
