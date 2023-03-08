@@ -179,13 +179,15 @@ class AdminManagementController extends Controller
     }
 
     public function pending(){
-       $order_details=Subscription::where(['status'=>4])->orderBy('id','DESC')->get();   
-       return view('user.admin.pending-ship',['order_details'=>$order_details]);
+       $order_details=Subscription::where(['status'=>4])->orderBy('id','DESC')->get(); 
+       $status = 'Pending';  
+       return view('user.admin.pending-ship',['order_details'=>$order_details,'status'=>$status]);
     } 
     
     public function pendingShip(){
-       $order_details=Subscription::where(['status'=>2])->orderBy('id','DESC')->get();   
-       return view('user.admin.pending-ship',['order_details'=>$order_details]);
+       $order_details=Subscription::where(['status'=>2])->orderBy('id','DESC')->get(); 
+       $status = 'Pending Shipment';  
+       return view('user.admin.pending-ship',['order_details'=>$order_details,'status'=>$status]);
     } 
 
     public function shippedOrders(){
