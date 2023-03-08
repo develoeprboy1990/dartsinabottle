@@ -287,7 +287,7 @@ class AdminManagementController extends Controller
         'firstname'      => $user->first_name,
         'lastname'       => $user->last_name,
         'email'          => $user->email,
-        'message_body'   => 'Your dartsinabottle are on their way. <br> They should arrive in 2-4 working days.'.$set_price,
+        'message_body'   => 'Your dartsinabottle are on their way. <br> They should arrive in 1-2 working days.'.$set_price,
 
         ); 
         Mail::send('emails.send-message-customer',  $data, function ($message) use ($data) {

@@ -733,12 +733,11 @@ status ->
      var order_id=$(this).data("order_id");
      
      swal({
-      title: "Dart Posted?",
-      text: "Order will be posted!",
+      title: "Darts posted?",
       type: "warning",
       showCancelButton: true,
       confirmButtonClass: "btn-primary",
-      confirmButtonText: "Yes, posted it!",
+      confirmButtonText: "Posted",
       closeOnConfirm: false
     },
     function(){
