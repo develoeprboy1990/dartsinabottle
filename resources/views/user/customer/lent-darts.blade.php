@@ -48,13 +48,7 @@
                 <td>{{$product->product_name}}</td>
                 <td style="width:300px">     
                  
-                  @if ($loop->last)
-                  <div class="radio">
-                      <label>
-                        <input type="radio" checked > Not For Sale
-                      </label>
-                    </div>
-                  @elseif($product->active_status == '1')            
+                  @if($product->active_status == '1')            
                   <form id="form_{{$product->id}}" class="form-label-left confirm-price-set" method="post" action="{{url('choose-product-price-type-process')}}" data-id="{{$product->id}}">
                     {{csrf_field()}}
                     <input type="hidden" name="product_id" value="{{$product->id}}">
@@ -105,7 +99,6 @@
                     @endphp
                     {{$product_price_type}}
                   @endif
-
                 </td>
                 <td>{{$product->product_weight}}</td>
                 <td>{{$product->product_weight_range}}</td>
