@@ -102,6 +102,32 @@ info: false,
 jQuery(function(){
    jQuery('#myTable tbody tr td:first').click();
 });
+  /* formats a VALID postcode nicely: AB120XY -> AB1 0XY */ 
+
+$("#shipping_zip,#billing_zip_code").blur(function() 
+{
+ var p = $("#shipping_zip").val();
+
+ if (isValidPostcode(p)) { 
+        var postcodeRegEx = /(^[A-Z]{1,2}[0-9]{1,2})([0-9][A-Z]{2}$)/i; 
+        return p.replace(postcodeRegEx,"$1 $2"); 
+    } else {
+          swal({
+          title: "Error!",
+          text: "Worng PostCode!!!",
+          type: "error",
+          closeOnClickOutside: false
+          });
+        $(this).val('');
+        return p;
+    }
+});
+
+/* tests to see if string is in correct UK style postcode: AL1 1AB, BM1 5YZ etc. */ 
+function isValidPostcode(p) { 
+  var postcodeRegEx = /[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}/i; 
+  return postcodeRegEx.test(p); 
+}
 </script>
 <script async defer type="text/javascript" id="cookieinfo" src="//cookieinfoscript.com/js/cookieinfo.min.js" data-bg="#0072BB" data-fg="#FFFFFF" data-link="#FFFFFF" data-cookie="CarishTCforCookies" data-text-align="left" data-close-text="GOT IT" data-divlinkbg="#67B500" data-linkmsg="Find out more" data-moreinfo="http://dartsinabottle.com/darts_demo/privacy-policy" data-message="This site uses cookies to ensure the best browsing experience on our website. By continuing to browse the site, you are agreeing to our use of cookies."></script>
 @if($footer_code)

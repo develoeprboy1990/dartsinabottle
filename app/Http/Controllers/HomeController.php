@@ -413,11 +413,13 @@ class HomeController extends Controller
      $sortby = $sorting[1];
     }
 
-    $products = Product::where('product_weight_range',$type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+    
      if(Auth::check())
      {
+      $products = Product::where('product_weight_range',$type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
      $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>4])->orderBy('id', 'DESC')->first();
       }else{
+        $products = Product::where('product_weight_range',$type)->orderBy('product_weight', $sortby)->get();
         $order_details = array();
       }
 //dd($order_details);
@@ -734,6 +736,18 @@ class HomeController extends Controller
 
   public function addShippingDetailProcess(Request $request)
   {
+    $postcode = $request['shipping_zip'];
+
+    $postcode = strtoupper(str_replace(' ','',$postcode));
+    if(preg_match("/(^[A-Z]{1,2}[0-9R][0-9A-Z]?[\s]?[0-9][ABD-HJLNP-UW-Z]{2}$)/i",$postcode) || preg_match("/(^[A-Z]{1,2}[0-9R][0-9A-Z]$)/i",$postcode))
+    {    
+        //return true;
+    }
+    else
+    {
+      return back()->withInput($request->input())->with('errormessage', 'Please enter a valid zipcode!');
+    }
+
     $shipping_detail =  ShippingDetail::where('user_id', Auth::user()->id)->first();
 
     if(!$shipping_detail)
@@ -1670,7 +1684,7 @@ class HomeController extends Controller
     $package             = Package::where('id', $request['package_id'])->first();
     $website_setting     = HomePageUrl::where('id', 1)->first();
 
-    $oneTimeFee = $website_setting->deposit_cost+$package->stripe_fee;
+    
 
     // Cart
     $carts = Cart::where(['user_cookie' => $_COOKIE['user_cookie']])->get();
@@ -1719,17 +1733,21 @@ class HomeController extends Controller
           {
             if ($package->id == 1) {
              $depositFee =  4199; //£40+£1.99= 41.99
+             $oneTimeFee = 41.99;
 
             } else {
               $depositFee = 4249; //£40+£2.49 = 42.49
+              $oneTimeFee = 42.49;
             }
           }
           else{
             if ($package->id == 1) {
              $depositFee =  5199; //£50+£1.99= 41.99
+             $oneTimeFee = 51.99;
 
             } else {
               $depositFee = 5249; //£50+£2.49 = 42.49
+              $oneTimeFee = 52.49;
             }
           }
           $oneTime = $user->invoiceFor('Deposit Fee', $depositFee);
@@ -1767,12 +1785,53 @@ class HomeController extends Controller
 
         if ($payment_type_detail->active_account == 'test') {
           $payment_mode = 'test';
+          
+
+          if($request['choice'] == 'Lend')
+          {
+            if ($package->id == 1) {
+             $plan_id = $package->paypal_test_plan_id;
+
+            } else {
+              $plan_id = $package->paypal_test_plan_id;
+            }
+          }
+          else{
+            if ($package->id == 1) {
+             $plan_id = "PROD-4N425584YW1006331";
+
+            } else {
+             $plan_id = "P-79E335870W187463FMPT6BSQ";
+            }
+          }
+
+
+
           $email_address = $payment_type_detail->test_email;
-          $plan_id = $package->paypal_test_plan_id;
+
+          
         } elseif ($payment_type_detail->active_account == 'live') {
           $payment_mode = 'live';
+          
+          if($request['choice'] == 'Lend')
+          {
+            if ($package->id == 1) {
+             $plan_id = $package->paypal_live_plan_id;
+
+            } else {
+              $plan_id = $package->paypal_live_plan_id;
+            }
+          }
+          else{
+            if ($package->id == 1) {
+             $plan_id = "PROD-5VW259311F4711419";
+
+            } else {
+             $plan_id = "PROD-7BC72928DP025612G";
+            }
+          }
+
           $email_address = $payment_type_detail->live_email;
-          $plan_id = $package->paypal_live_plan_id;
         }
         $arrayObj = array(
           "plan_id" => $plan_id,
@@ -2094,10 +2153,30 @@ class HomeController extends Controller
 
       $package             = Package::where('id', $order_product->getPackage->id)->first();
       $website_setting     = HomePageUrl::where('id', 1)->first();
-      $oneTimeFee = $website_setting->deposit_cost+$package->paypal_fee;
+
+      //$oneTimeFee = $website_setting->deposit_cost+$package->paypal_fee;
 
 
       $billing_detail = BillingDetail::where('order_details_id', $subscription->id)->first();
+
+
+       if($subscription->choice == 'Lend')
+          {
+            if ($package->id == 1) {
+             $oneTimeFee = 41.99;
+
+            } else {
+              $oneTimeFee = 42.49;
+            }
+          }
+          else{
+            if ($package->id == 1) {
+             $oneTimeFee = 51.99;
+
+            } else {
+              $oneTimeFee = 52.49;
+            }
+          }
 
       $data = array(
         'firstname'            => $subscription->getUser->first_name,

@@ -12,10 +12,16 @@
   <div class="container">
    
     @if(Session::has('successmessage'))
-
     <div class="alert alert-success alert-dismissable">
      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
      {{Session::get('successmessage')}}
+   </div>
+   @endif
+
+    @if(Session::has('errormessage'))
+    <div class="alert alert-danger alert-dismissable">
+     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+     {{Session::get('errormessage')}}
    </div>
    @endif
 
@@ -26,11 +32,8 @@
           {{csrf_field()}}  
           
           <div class="row checkout-field-row">
-          
+        
             <fieldset class="col-xs-12 checkout-fields-col">
-            
-          
-            
             
             <h1 class="badges-title text-center"><em class="fa fa-user"></em>Shipping Details</h1>
               <div class="well">
@@ -58,26 +61,49 @@
 			         <!-- <span id="shipping_cities_div" style="display: none;"></span> -->
                   <div class="col-sm-12 col-xs-12 form-group">
                     <label>Address Line 1*</label> 
+                    @if(@$shipping_detail->address != '' )
                     <input type="text" name="shipping_address" id="shipping_address" class="form-control" value="{{@$shipping_detail->address}}" required="true">
+                    @else
+                    <input type="text" name="shipping_address" id="shipping_address" class="form-control" value="{{ old('shipping_address') }}" required="true">
+                    @endif
+                    
                   </div>
 
                   <div class="col-sm-12 col-xs-12 form-group">
                     <label>Address Line 2</label> 
+                     @if(@$shipping_detail->address_2 != '' )
                     <input type="text" name="shipping_address_2" id="shipping_address_2" class="form-control" value="{{@$shipping_detail->address_2}}" >
+                     @else
+                     <input type="text" name="shipping_address_2" id="shipping_address_2" class="form-control" value="{{ old('shipping_address_2') }}" >
+                     @endif
+
                   </div>
 
                   <div class="col-sm-12 col-xs-12 form-group">
-                    <label>Town/City*</label> 
+                    <label>Town/City*</label>
+                     @if(@$shipping_detail->city_id != '' )
                     <input type="text" name="city_id" id="city_id" class="form-control" value="{{@$shipping_detail->city_id}}" required="true">
+                    @else
+                    <input type="text" name="city_id" id="city_id" class="form-control" value="{{ old('city_id') }}" required="true">
+                    @endif
                   </div>
 
                   <div class="col-sm-12 col-xs-12 form-group">
                     <label>Postcode*</label> 
-                    <input type="text" name="shipping_zip" id="shipping_zip" class="form-control" value="{{@$shipping_detail->zip}}" required="true">
+                  @if(@$shipping_detail->city_id != '' )
+                  <input type="text" name="shipping_zip" id="shipping_zip" class="form-control" value="{{@$shipping_detail->zip}}" required="true">
+                  @else
+                  <input type="text" name="shipping_zip" id="shipping_zip" class="form-control" value="{{ old('shipping_zip') }}" required="true" >
+                  @endif
+
                   </div>
                   <div class="col-sm-12 col-xs-12 form-group">
                     <label>Phone*</label> 
+                    @if(@$shipping_detail->phone != '' )
                     <input type="text" name="shipping_phone" id="shipping_phone" class="form-control" value="{{@$shipping_detail->phone}}" required="true">
+                    @else
+                  <input type="text" name="shipping_phone" id="shipping_phone" class="form-control" value="{{ old('shipping_phone') }}" required="true" >
+                  @endif
                   </div>  
                 </div>                  
               </div>
@@ -88,10 +114,6 @@
                 </div>
               </div>
             </fieldset>
-            
-        
-            
-            
             
           </div>
         </form>
