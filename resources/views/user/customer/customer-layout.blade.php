@@ -114,7 +114,7 @@ $("#shipping_zip,#billing_zip_code").blur(function()
     } else {
           swal({
           title: "Error!",
-          text: "Worng PostCode!!!",
+          text: "Please enter a valid UK postcode.",
           type: "error",
           closeOnClickOutside: false
           });

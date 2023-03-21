@@ -335,6 +335,70 @@ class AdminManagementController extends Controller
 
     }
 
+    public function viewSubscribeBilling(){
+        $data =[];
+
+        $date = Carbon::now();
+        $today = Carbon::parse($date)->format('Y-m-d H:i:s');
+        echo 'Today Date: '.$today.'<br>';
+        echo '-------------------------------------------<br><br>';
+
+        $order_details=Subscription::whereIn('status', [2, 4])->orderBy('id','DESC')->get();
+
+        foreach($order_details as $order_detail)
+        {
+            $billing=SubscriptionBilling::where('subscription_id',$order_detail->id)->orderBy('id','DESC')->first();
+            $billing_start_date = Carbon::parse($billing->period_start)->format('Y-m-d H:i:s');
+            $billing_end_date = Carbon::parse($billing->period_end)->format('Y-m-d H:i:s');
+
+            echo 'Subscription ID:'.$order_detail->id.'<br>';
+            echo 'Name:'.$order_detail->getUser->first_name.' '.$order_detail->getUser->last_name.'<br>';
+            echo 'Billing Start Date:'.$billing_start_date.'<bR>';
+            echo 'Billing End Date.'.$billing_end_date.'<bR>';
+            echo '-------------------------------------------<br><br>';
+            if($today > $billing_end_date)
+            {
+
+                $message_body = 'You may choose your next set now.<br><br>';
+
+                $data = array(
+                'firstname'       => $order_detail->getUser->first_name,
+                'lastname'        => $order_detail->getUser->last_name,
+                'email'           => $order_detail->getUser->email,
+                'message_body'         => $message_body
+                );
+
+
+                /*Mail::send('emails.unsubscribe-order-email',  $data, function ($message) use ($data) {
+                $message->to($data['email'])
+                ->subject('Choose your next dartsinabottle now!');
+                });*/
+
+                /*$subscription_billing                     = new SubscriptionBilling;
+                $subscription_billing->subscription_id    = $order_detail->id;
+                $subscription_billing->plan_created       = $billing->plan_created;
+                $subscription_billing->period_start       = date("Y-m-d H:i:s");
+                $subscription_billing->period_end         = date('Y-m-d H:i:s', strtotime("+30 days"));
+                $subscription_billing->status             = '1';
+                $subscription_billing->save();*/
+            }
+        }  
+        dd($data);
+
+
+        $status = "billing";
+
+        $users=User::where(['status'=>1,'user_role_id'=>4,'user_status'=>1])->orderBy('id','DESC')->get();    
+        
+        
+        
+        $customer_groups=CustomerGroup::orderBy('id','DESC')->get();
+        $countries=Country::get();
+        return view('user.admin.customers',['users'=>$users,'status'=>$status,'customer_groups'=>$customer_groups,'countries'=>$countries]);
+
+}
+
+
     public function viewCustomerDetail($user_id){
 
     $user_detail=User::where(['id'=>$user_id])->first();  

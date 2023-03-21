@@ -1,5 +1,5 @@
 @extends('user.admin.admin-layout')
-@section('title','Pending Shipment')
+@section('title',$status)
 @section('content')
  	<div class="right_col" role="main">
       <!-- page content -->

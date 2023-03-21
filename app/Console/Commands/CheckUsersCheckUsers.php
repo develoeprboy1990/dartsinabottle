@@ -34,7 +34,7 @@ class CheckUsersCheckUsers extends Command
         $date = Carbon::now();
         $today = Carbon::parse($date)->format('Y-m-d H:i:s');
 
-        $order_details=Subscription::where(['status'=>2])->orderBy('id','DESC')->get();
+        $order_details=Subscription::whereIn('status', [2, 4])->orderBy('id','DESC')->get();
          /*$order_details=Subscription::where(['id'=>1])->first();
          $order_details->sort_1 = 'Mutahir';
          $order_details->save();*/

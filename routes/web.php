@@ -60,6 +60,8 @@ Route::resource('admin/system-user', 'SystemUser');
 
 Route::get('admin/customers/{status?}','AdminManagementController@viewCustomers');
 
+Route::get('admin/checkSubscribeBilling','AdminManagementController@viewSubscribeBilling');
+
 Route::get('admin/customer/{user_id}/detail','AdminManagementController@viewCustomerDetail');
 
 Route::get('admin/customer/{user_id}/suspend-account','AdminManagementController@suspendedAccount');
