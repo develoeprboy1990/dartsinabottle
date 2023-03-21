@@ -202,7 +202,7 @@
                                     <span class="mbr-iconfont mbrib-target"></span>
                                 </div>
                                 <h5 class="card-title mbr-fonts-style display-5"><strong>RENT</strong></h5>
-                                <p class="card-text mbr-fonts-style display-7">Rebnt up to 4 sets a month</p>
+                                <p class="card-text mbr-fonts-style display-7">Rent up to 4 sets a month</p>
                             </div>
                         </div>
                     </div>
@@ -285,7 +285,7 @@
                         <div class="col-12 col-md-6">
                             <div class="image-wrapper">
                                 <!-- <img class="w-100 md-pb" src="{{asset('assets/website/images/-1.fw-1024x896.png')}}" alt=""> -->
-                                <img class="w-100 md-pb" alt="Subscribe" src="{{asset('assets/website/images/dartsinabottle1.png')}}" alt="">
+                                <img class="w-100 md-pb" alt="Subscribe" src="{{asset('assets/website/images/dartsinabottle1.jpg')}}" alt="">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -309,7 +309,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="image-wrapper">
-                                <img class="w-100 md-pb" src="{{asset('assets/website/images/dartsinabottle2.png')}}" alt="">
+                                <img class="w-100 md-pb" src="{{asset('assets/website/images/dartsinabottle2.jpg')}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -321,7 +321,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="image-wrapper">
-                                <img class="w-100 md-pb" src="{{asset('assets/website/images/dartsinabottle3.png')}}" alt="">
+                                <img class="w-100 md-pb" src="{{asset('assets/website/images/dartsinabottle3.jpg')}}" alt="">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
