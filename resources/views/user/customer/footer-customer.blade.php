@@ -76,7 +76,7 @@ padding: 6px;
         </div>
         <hr>
         <div class="col-sm-6 col-xs-12 copyright">
-            <p>© 2023 dartsinabottle. All Rights Reserved.</p>
+            <p>©2023 dartsinabottle. All Rights Reserved.</p>
         </div>        
         <div class="col-sm-6 col-xs-12 usefull-links text-right">
             <div class="menu-footer-menu-container">
