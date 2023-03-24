@@ -1357,7 +1357,10 @@ figcaption.manage-height {
         padding: 0px 0px 10px;
         /* margin: 0; */
         text-align: left;
-        float: none !important;
+        float: left !important;
+    }
+    .navbar .my-darts-nav {
+        margin-top: 14px;
     }
     .navbar-nav>li+li {
         margin: 0px;
@@ -1541,9 +1544,12 @@ figcaption.manage-height {
         max-width: 96%;
         padding: 15px;
     }
+    .custom-label {
+        display: none;
+    }
 }
 
-@media (max-width:420px) {
+@media (max-width: 420px) {
     .single-price .deals ul {
         display: block;
         padding: 5px 15px;
@@ -1554,7 +1560,7 @@ figcaption.manage-height {
         margin: 6px 1%;
     }
 
-     .single-weight .deals ul {
+    .single-weight .deals ul {
         display: block;
         padding: 5px 15px;
     }
