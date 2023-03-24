@@ -11,23 +11,22 @@
       <form class="badges-form" action="{{ url('cart')}}" method="post">
         <!-- fieldset 1 start from here -->          
       
-
             <div class="form-btn-group text-center text-center">
-              <div class="col-md-5 col-md-5 col-sm-5 pull-left">
-              <a href="{{ url('browse')}}"><button type="button" class="btn btn-previous pull-left">&laquo; Previous</button></a>
+              <div class="col-md-5 col-md-5 col-sm-5 pull-left" style="width:30%; padding-left:0; margin-left:0;">
+                <a href="{{ url('browse')}}"><button type="button" class="btn btn-previous pull-left">&laquo; Previous</button></a>
+              </div>
+
+              <div class="col-md-5 col-md-5 col-sm-5 pull-right" style="width:70%; padding-right:0; margin-right:-14px;">
+                <label class="col-md-4 col-md-4 col-sm-4 custom-label" style="text-align:right;padding: 11px 0px;">Sort by:</label>
+                <div class="col-md-8 col-md-8 col-sm-8 pull-right">
+                    <select name="sorting" id="sorting" class="form-control form-control-sm">
+                      <option value="ASC" @if($sortby == 'ASC') selected @endif>Weight: light to heavy</option>
+                      <option value="DESC" @if($sortby == 'DESC') selected @endif>Weight: heavy to light</option>
+                    </select>
+                </div>
+              </div>
             </div>
 
-            <div class="col-md-5 col-md-5 col-sm-5 pull-right">
-              <label class="col-md-4 col-md-4 col-sm-4 pull-left" style="text-align:right;padding: 11px 0px;">Sort by:</label>
-               <div class="col-md-8 col-md-8 col-sm-8 pull-right">
-                  <select name="sorting" id="sorting" class="form-control form-control-sm">
-                     <option value="ASC" @if($sortby == 'ASC') selected @endif>Weight: light to heavy</option>
-                     <option value="DESC" @if($sortby == 'DESC') selected @endif>Weight: heavy to light</option>
-                  </select>
-               </div>
-            </div>
-      
-            </div>
             <h1 class="badges-title text-center">{{$type}}</h1>
             <div class="row badges-row">              
               <div class="col-xs-12 badges-sizes text-center">
