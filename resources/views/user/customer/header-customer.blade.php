@@ -34,7 +34,7 @@ color: #614f00 !important;
                                 src="{{url('public/uploads/logo_main.png')}}" alt="logo" class="img-responsive" style="height: 45px;width:300px"></a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul id="main-menu" class="nav navbar-nav text-right pull-right">
+                        <ul class="my-darts-nav">
                             @if(Auth::check())
                             <li id="menu-item-48" class="my-darts-btn-bg">
                             @if(str_contains(url()->current(), 'browse'))
@@ -44,6 +44,8 @@ color: #614f00 !important;
                             @endif
                             </li>
                             @endif
+                        </ul>
+                        <ul id="main-menu" class="nav navbar-nav text-right pull-right">
 
                             <li id="menu-item-48" class=""><a href="{{ url('/about-us')}}">About Us</a></li>
                             <li id="menu-item-48" class=""><a href="{{ url('/faq')}}">F.A.Q</a></li>
