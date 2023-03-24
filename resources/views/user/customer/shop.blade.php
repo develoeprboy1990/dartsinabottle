@@ -177,7 +177,7 @@ padding: 6px;
             <h1 class="badges-title text-center">How will you secure your account?</h1>
             <!-- <h3 class="text-center">(Choose in your order of preference.)</h3> -->
             <div class="row badges-row">
-              <div class="col-md-8 col-sm-8 col-xs-7 badges-sizes text-center">
+              <div class="col-md-6 col-sm-4 col-xs badges-sizes text-center">
 
                 <div class="col-md-6 col-sm-12 choice" data-choice_id="Lend">
                   <div class="single-weight">
