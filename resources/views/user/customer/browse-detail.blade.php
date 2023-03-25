@@ -26,8 +26,8 @@
                 </div>
               </div>
             </div>
-
-            <h1 class="badges-title text-center">{{$type}}</h1>
+          </br>
+          <div class="row form-btn-group"><h1 class="text-center">{{$type}}</h1></div>
             <div class="row badges-row">              
               <div class="col-xs-12 badges-sizes text-center">
                  @foreach($products as $product) 
