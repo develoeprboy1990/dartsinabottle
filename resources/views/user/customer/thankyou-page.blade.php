@@ -14,6 +14,8 @@
               <div class="btn-group" style="margin-top:50px;">
                 <a href="{{ url('browse')}}" class=" btn-lg btn-warning">BROWSE</a>
                 <a href="{{url('dashboard')}}" class=" btn-lg btn-primary">My Darts</a>
+              </div>
+              <div class="btn-group" style="margin-top:50px;">
                 <a href="{{url('/')}}" class=" btn-lg btn-default">Return to Homepage</a>
             </div>
           </center>

@@ -2115,17 +2115,16 @@ class HomeController extends Controller
 
   public function orderThankYouPage(Request $request)
   {
-    if (!Auth::check()) {
+   if (!Auth::check()) {
       return redirect('login');
     } else {
+      $content = Content::where('title', 'Thank You Page')->first();
+      $subscription = Subscription::where('user_id', Auth::user()->id)->whereIn('status', [4])->orderBy('id', 'DESC')->first();
       if ($request['from_checkout'] == 'yes') {
-        $content = Content::where('title', 'Thank You Page')->first();
-        $subscription = Subscription::where('user_id', Auth::user()->id)->whereIn('status', [4])->orderBy('id', 'DESC')->first();
         if($subscription->choice == 'Lend'){
         return view('user.customer.order-thankyou-page', ['content' => $content, 'subscription' => $subscription]);
         }else{
           return view('user.customer.thankyou-page', ['content' => $content, 'subscription' => $subscription]);
-
         }
       } else {
         return redirect()->back();
