@@ -1134,7 +1134,7 @@ section.lazy-placeholder:after {
 
 @media (max-width: 425px) {
   .cid-sBTUWbBvMs {
-    background-size: 130% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 50vh;
   }
