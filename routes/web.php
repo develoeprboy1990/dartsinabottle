@@ -323,7 +323,7 @@ Route::post('send-message-to-admin-from-chat-box','HomeController@sendMessageToA
 
 Route::get('fetch-sent-message-content','HomeController@fetchSentMessageContent');
 
-Route::get('order-thankyou-page','HomeController@orderThankYouPage');
+Route::post('order-thankyou-page','HomeController@orderThankYouPage');
 
 Route::get('change-password','HomeController@changePassword');
 
