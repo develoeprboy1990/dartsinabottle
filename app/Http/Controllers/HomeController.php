@@ -1684,6 +1684,23 @@ class HomeController extends Controller
     $package             = Package::where('id', $request['package_id'])->first();
     $website_setting     = HomePageUrl::where('id', 1)->first();
 
+    if($request['choice'] == 'Lend')
+    {
+      if ($package->id == 1) {
+       $oneTimeFee = 41.99;
+      } else {
+        $oneTimeFee = 42.49;
+      }
+    }
+    else{
+      if ($package->id == 1) {
+       $oneTimeFee = 51.99;
+
+      } else {
+        $oneTimeFee = 52.49;
+      }
+    }
+
     
 
     // Cart
@@ -1810,7 +1827,8 @@ class HomeController extends Controller
           $email_address = $payment_type_detail->test_email;
 
           
-        } elseif ($payment_type_detail->active_account == 'live') {
+        } 
+        elseif ($payment_type_detail->active_account == 'live') {
           $payment_mode = 'live';
           
           if($request['choice'] == 'Lend')
