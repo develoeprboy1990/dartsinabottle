@@ -129,7 +129,7 @@ function isValidPostcode(p) {
   return postcodeRegEx.test(p); 
 }
 </script>
-<script async defer type="text/javascript" id="cookieinfo" src="//cookieinfoscript.com/js/cookieinfo.min.js" data-bg="#0072BB" data-fg="#FFFFFF" data-link="#FFFFFF" data-cookie="CarishTCforCookies" data-text-align="left" data-close-text="GOT IT" data-divlinkbg="#67B500" data-linkmsg="Find out more" data-moreinfo="http://dartsinabottle.com/darts_demo/privacy-policy" data-message="This site uses cookies to ensure the best browsing experience on our website. By continuing to browse the site, you are agreeing to our use of cookies."></script>
+<script async defer type="text/javascript" id="cookieinfo" src="//cookieinfoscript.com/js/cookieinfo.min.js" data-bg="#0072BB" data-fg="#FFFFFF" data-link="#FFFFFF" data-cookie="CarishTCforCookies" data-text-align="left" data-close-text="GOT IT" data-divlinkbg="#67B500" data-linkmsg="Find out more" data-moreinfo="http://dartsinabottle.com/privacy-policy" data-message="This site uses cookies to ensure the best browsing experience on our website. By continuing to browse the site, you are agreeing to our use of cookies."></script>
 @if($footer_code)
     {!!$footer_code->content!!}
 @endif

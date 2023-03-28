@@ -1505,6 +1505,9 @@ figcaption.manage-height {
         font-size: 14px !important;
     }
 
+    .navbar-nav > li > a.my-darts-btn{
+        padding: 10px 20px !important;
+    }
 }
 
 @media (max-width:560px) {

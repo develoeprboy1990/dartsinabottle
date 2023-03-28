@@ -34,7 +34,7 @@ color: #614f00 !important;
                                 src="{{url('public/uploads/logo_main.png')}}" alt="logo" class="img-responsive" style="height: 45px;width:300px"></a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="my-darts-nav">
+                     <!--    <ul class="my-darts-nav">
                             @if(Auth::check())
                             <li id="menu-item-48" class="my-darts-btn-bg">
                             @if(str_contains(url()->current(), 'browse'))
@@ -44,9 +44,13 @@ color: #614f00 !important;
                             @endif
                             </li>
                             @endif
-                        </ul>
-                        <ul id="main-menu" class="nav navbar-nav text-right pull-right">
+                        </ul> -->
+                        <ul id="main-menu" class="nav navbar-nav my-darts-nav text-right pull-right">
 
+                            <li id="menu-item-48" class="my-darts-btn-bg">
+                            <a href="{{url('browse')}}" class="btn my-darts-btn pull-right">Browse</a>
+                            </li>
+                        
                             <li id="menu-item-48" class=""><a href="{{ url('/about-us')}}">About Us</a></li>
                             <li id="menu-item-48" class=""><a href="{{ url('/faq')}}">F.A.Q</a></li>
                             @if(Auth::check())
@@ -54,10 +58,21 @@ color: #614f00 !important;
                             @else
                             <li id="menu-item-48" class=""><a href="{{ url('login')}}">Login</a></li>
                             @endif
+
+                            
+                            <li id="menu-item-48" class="my-darts-btn-bg">
+                            @if(Auth::check())
+                            <a href="{{url('dashboard')}}" class="btn my-darts-btn pull-right">MY DARTS</a>
+                            @else
+                            <a href="{{url('shop')}}" class="btn my-darts-btn pull-right">GAME ON</a>
+                            @endif
+                            </li>
+
                            <!--  <li id="menu-item-48" class=""><a href="{{ url('/')}}">Rules</a></li>
                             <li id="menu-item-48" class=""><a href="{{ url('/')}}">Faq</a></li>
                             <li id="menu-item-48" class=""><a href="{{ url('/')}}">Contact Us</a></li> -->
                         </ul>
+
                     </div>
                 </nav>
             </div>
