@@ -47,20 +47,20 @@ color: #614f00 !important;
                         </ul> -->
                         <ul id="main-menu" class="nav navbar-nav my-darts-nav text-right pull-right">
 
-                            <li id="menu-item-48" class="my-darts-btn-bg">
-                            <a href="{{url('browse')}}" class="btn my-darts-btn pull-right">Browse</a>
+                            <li id="menu-item-1" class="my-darts-btn-bg">
+                            <a href="{{url('browse')}}" class="btn my-darts-btn pull-left">Browse</a>
                             </li>
                         
-                            <li id="menu-item-48" class=""><a href="{{ url('/about-us')}}">About Us</a></li>
-                            <li id="menu-item-48" class=""><a href="{{ url('/faq')}}">F.A.Q</a></li>
+                            <li id="menu-item-2" class="" style="position:inherit;"><a href="{{ url('/about-us')}}" >About Us</a></li>
+                            <li id="menu-item-3" class=""><a href="{{ url('/faq')}}">F.A.Q</a></li>
                             @if(Auth::check())
-                            <li id="menu-item-48" class=""><a href="{{ url('logout')}}">Logout</a></li>
+                            <li id="menu-item-4" class=""><a href="{{ url('logout')}}">Logout</a></li>
                             @else
-                            <li id="menu-item-48" class=""><a href="{{ url('login')}}">Login</a></li>
+                            <li id="menu-item-5" class=""><a href="{{ url('login')}}">Login</a></li>
                             @endif
 
                             
-                            <li id="menu-item-48" class="my-darts-btn-bg">
+                            <li id="menu-item-6" class="my-darts-btn-bg">
                             @if(Auth::check())
                             <a href="{{url('dashboard')}}" class="btn my-darts-btn pull-right">MY DARTS</a>
                             @else
