@@ -1822,8 +1822,6 @@ class HomeController extends Controller
             }
           }
 
-
-
           $email_address = $payment_type_detail->test_email;
 
           
@@ -1842,10 +1840,12 @@ class HomeController extends Controller
           }
           else{
             if ($package->id == 1) {
-             $plan_id = "PROD-5VW259311F4711419";
+             //$plan_id = "PROD-5VW259311F4711419";
+             $plan_id = "P-0EN64503J89360240MPT5DMI";
 
             } else {
-             $plan_id = "PROD-7BC72928DP025612G";
+             //$plan_id = "PROD-7BC72928DP025612G";
+             $plan_id = "P-5MS96692BR076842BMPT5HNY";
             }
           }
 
@@ -1892,7 +1892,8 @@ class HomeController extends Controller
           )
         );
         $payThroughPaypal = true;
-        $response = $this->paypalSend($arrayObj);
+        //dd($arrayObj);
+        $response = $this->paypalSend($arrayObj);        
         $order_detail  = Subscription::create(['stripe_id' => $response->id, 'stripe_status' => "$response->status", 'payment_status' => '0', 'status' => '0', 'quantity' => 1]);
         $order_product = SubscriptionItem::create(['subscription_id' => $order_detail->id, 'stripe_id' => "$response->id", 'stripe_plan' => "$response->id", 'quantity' => 1]);
       }
