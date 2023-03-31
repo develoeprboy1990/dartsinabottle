@@ -106,7 +106,7 @@ jQuery(function(){
 
 $("#shipping_zip,#billing_zip_code").blur(function() 
 {
- var p = $("#shipping_zip").val();
+ var p = $(this).val();
 
  if (isValidPostcode(p)) { 
         var postcodeRegEx = /(^[A-Z]{1,2}[0-9]{1,2})([0-9][A-Z]{2}$)/i; 
