@@ -1,6 +1,7 @@
 @extends('user.customer.customer-layout')
-@section('title','Browse | Set Of Darts & Sell and Buy Darts | Dartsinabottle')
-@section('description','Dartsinabottle offers to buy the best set of darts at reasonable prices and time duration. Here you can choose your required set of darts.')
+@section('title','Medium Darts for Rent | Dartsinabottle')
+@section('metatitle','Medium Darts for Rent | Dartsinabottle')
+@section('description','Need medium darts for rent? Dartsinabottle has a variety of medium darts available for rent. Check out our selection today!')
 @section('content')
 {{-- Header Content --}}
 @include('user.customer.header-customer')
@@ -27,13 +28,18 @@
               </div>
             </div>
           </br>
-          <div class="row form-btn-group"><h1 class="text-center">{{$type}}</h1></div>
+          <div class="row form-btn-group">
+            <h1 class="text-center">Medium Darts for Rent</h1>
+          </div>
             <div class="row badges-row">              
               <div class="col-xs-12 badges-sizes text-center">
+                <p class="about-page">
+                   Need medium darts for rent? Dartsinabottle has got you covered! Our medium darts are designed to offer precision and accuracy, making them perfect for any skill level. Our darts are made from high-quality materials and are regularly maintained to ensure optimal performance. Browse our selection of medium darts to find the perfect one for your next game.
+                </p>
                  @foreach($products as $product) 
                 <div class="col-md-4 col-sm-12" style="margin-bottom: 30px;">
                   <a href="{{url('public/uploads/darts_img/'.$product->product_image)}}"  data-fancybox="images" data-caption="{{@$product->product_name}}">
-                    <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" height="300px" width="300px" ></a></br>
+                    <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" height="300px" width="300px" alt="Medium Darts for Rent" ></a></br>
                   {!!@ $product->product_description!!}<br>
                   {{@$product->product_weight}} g<br>
                   

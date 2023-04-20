@@ -301,7 +301,7 @@ class HomeController extends Controller
               } else if (isset($_COOKIE['user_cookie'])) {
                 return redirect('checkout');
               } else {
-                return redirect('shop');
+                return redirect('subscribe');
               }
             }
           } else {
@@ -404,7 +404,7 @@ class HomeController extends Controller
     return view('user.customer.browse', ['packages' => $packages,'light_products' => $light_products,'medium_products' => $medium_products,'heavy_products' => $heavy_products]);
   }
 
-  public function browseDetail($type=null,$sortby=null){      
+/*  public function browseDetail($type=null,$sortby=null){      
 
     if($sortby == '')
     { $sortby = 'ASC'; }
@@ -431,7 +431,91 @@ class HomeController extends Controller
 
 
     }
+*/
 
+  public function browseLight($sortby=null){ 
+    
+    $type = 'Light';     
+
+    if($sortby == '')
+    { $sortby = 'ASC'; }
+    else{
+     $sorting =  explode('_',$sortby);
+     $sortby = $sorting[1];
+    }
+
+    
+     if(Auth::check())
+     {
+      $products = Product::where('product_weight_range',$type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+     $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>4])->orderBy('id', 'DESC')->first();
+      }else{
+        $products = Product::where('product_weight_range',$type)->orderBy('product_weight', $sortby)->get();
+        $order_details = array();
+      }
+//dd($order_details);
+
+
+
+    return view('user.customer.browse-light',['products'=>$products,'type'=>$type,'sortby'=>$sortby,'order_details' => $order_details]);
+        
+
+
+    }
+
+  public function browseMedium($sortby=null){ 
+    
+    $type = 'Medium';     
+
+    if($sortby == '')
+    { $sortby = 'ASC'; }
+    else{
+     $sorting =  explode('_',$sortby);
+     $sortby = $sorting[1];
+    }
+
+    
+     if(Auth::check())
+     {
+      $products = Product::where('product_weight_range',$type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+     $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>4])->orderBy('id', 'DESC')->first();
+      }else{
+        $products = Product::where('product_weight_range',$type)->orderBy('product_weight', $sortby)->get();
+        $order_details = array();
+      }
+    //dd($order_details);
+
+    return view('user.customer.browse-medium',['products'=>$products,'type'=>$type,'sortby'=>$sortby,'order_details' => $order_details]);
+        
+    }
+
+  public function browseHeavy($sortby=null){ 
+    
+    $type = 'Heavy';     
+
+    if($sortby == '')
+    { $sortby = 'ASC'; }
+    else{
+     $sorting =  explode('_',$sortby);
+     $sortby = $sorting[1];
+    }
+
+    
+     if(Auth::check())
+     {
+      $products = Product::where('product_weight_range',$type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+     $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>4])->orderBy('id', 'DESC')->first();
+      }else{
+        $products = Product::where('product_weight_range',$type)->orderBy('product_weight', $sortby)->get();
+        $order_details = array();
+      }
+    //dd($order_details);
+
+    return view('user.customer.browse-heavy',['products'=>$products,'type'=>$type,'sortby'=>$sortby,'order_details' => $order_details]);
+        
+    }
+  
+  
   public function verifyCustomerChoice(Request $request){
     $user = User::where('id', Auth::user()->id)->first();
 
@@ -778,7 +862,7 @@ class HomeController extends Controller
     if (isset($_COOKIE['user_cookie'])) {
       return redirect('checkout') ;
     } else {
-      return redirect('shop');
+      return redirect('subscribe');
     }
   }
 
@@ -1093,7 +1177,7 @@ class HomeController extends Controller
         $check_cart = Cart::where('user_cookie', $_COOKIE['user_cookie'])->count();
         if ($check_cart < 1) {
 
-          return redirect('shop');
+          return redirect('subscribe');
         } else {
 
 

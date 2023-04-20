@@ -1,6 +1,7 @@
 @extends('user.customer.customer-layout')
-@section('title','FAQ | Lend Borrow Darts & Buy Barrels near Me | Dartsinabottle')
-@section('description','Here you can get answers to the frequently asked questions about our services including selling and buying darts, Lend and Borrow Darts, and much more.')
+@section('title','Frequently Asked Questions | Dartsinabottle')
+@section('metatitle','Frequently Asked Questions | Dartsinabottle')
+@section('description','Have questions about renting darts from Dartsinabottle? Check out our FAQ page for answers to commonly asked questions')
 @section('content')
 {{-- Header Content --}}
 @include('user.customer.header-customer')
@@ -66,7 +67,7 @@
             <div class="contentBx">
                 <div class="lable">How do I choose sets?</div>
                 <div class="content">
-                    Choose your sets from the ‘Browse’ page. Our barrels are divided into 3 weight ranges – light, medium and heavy. If a set is listed as ‘available’ you may select it. If a set is listed as ‘in use’, it is currently with another user and not available at the moment. After choosing a set you will be asked to confirm your selection, and you will be notified by email. 
+                    Choose your sets from the ‘Browse’ page. Our barrels are divided into 3 weight ranges – light, medium and heavy. If a set is listed as ‘in stock’ you may select it. If a set is listed as ‘in use’, it is currently with another user and not available at the moment. After choosing a set you will be asked to confirm your selection, and you will be notified by email. 
                 </div>
             </div>
             <div class="contentBx">

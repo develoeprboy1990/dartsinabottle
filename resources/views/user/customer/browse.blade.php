@@ -1,6 +1,7 @@
 @extends('user.customer.customer-layout')
-@section('title','Browse | Set Of Darts & Sell and Buy Darts | Dartsinabottle')
-@section('description','Dartsinabottle offers to buy the best set of darts at reasonable prices and time duration. Here you can choose your required set of darts.')
+@section('title','Darts for Rent - Browse Our Selection | Dartsinabottle')
+@section('metatitle','Darts for Rent - Browse Our Selection | Dartsinabottle')
+@section('description','Browse our selection of darts available for rent at Dartsinabottle. We have a variety of darts to choose from at affordable prices.')
 @section('content')
 {{-- Header Content --}}
 @include('user.customer.header-customer')
@@ -18,10 +19,12 @@
     <div class="col-xs-12 badges-form-col">
       <form class="badges-form" action="{{ url('cart')}}" method="post">
         <!-- fieldset 1 start from here -->          
-            <h1 class="badges-title text-center">Browse</h1>
+            <h1 class="badges-title text-center">Darts for Rent</h1>
+
             <div class="row badges-row">              
               <div class="col-xs-12 badges-sizes text-center">
-                <a href="browse/detail/Light">
+                 <p class="about-page">At Dartsinabottle, we offer a wide selection of darts available for rent. Our darts are made from high-quality materials that ensure durability and accuracy. We have a variety of light, medium, and heavy darts that cater to all skill levels. Browse our website to find the perfect dart/sets for your next game. We are committed to providing quality darts at affordable prices.</p>
+                <a href="browse/Light">
                   <div class="col-md-4 col-sm-12 " data-weight_id="Light" >
                   <div class="single-weight light-choice">
                   <div class="price-header"><h3 class="title"></h3></div>
@@ -35,7 +38,7 @@
                 </div>
                 </a>
 
-                <a href="browse/detail/Medium">
+                <a href="browse/Medium">
                   <div class="col-md-4 col-sm-12 " data-weight_id="Medium">
                   <div class="single-weight medium-choice">
                   <div class="price-header"><h3 class="title"></h3></div>
@@ -49,7 +52,7 @@
                 </div>
                 </a>
 
-                <a href="browse/detail/Heavy">
+                <a href="browse/Heavy">
                 <div class="col-md-4 col-sm-12 " data-weight_id="Heavy">
                   <div class="single-weight heavy-choice">
                   <div class="price-header"><h3 class="title"></h3></div>

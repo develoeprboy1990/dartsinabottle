@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">  
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="assets/website/images/4d-803x142.png" type="image/x-icon">
-    <meta name="description" content="Dartsinabottle allows you to lend, borrow, buy and sell barrels. We help you purchase sets of barrels, sell your lent barrels, and set a price to sell your barrels. "> 
-    <title>Dartsinabottle | Lend Borrow Darts | Sell & Buy Darts </title>
+    <meta name="title" content="Rent Affordable Darts | dartsinabottle"> 
+    <meta name="description" content="Looking for affordable darts rents? Check out Dartsinabottle! We offer a wide selection of darts for rent at affordable prices."> 
+    <title>Rent Affordable Darts | dartsinabottle</title>
     <link rel="stylesheet" href="{{asset('assets/website/web/assets/mobirise-icons2/mobirise2.css')}}">
     <link rel="stylesheet" href="{{asset('assets/website/web/assets/mobirise-icons-bold/mobirise-icons-bold.css')}}">
     <link rel="stylesheet" href="{{asset('assets/website/bootstrap/css/bootstrap.min.css')}}">
@@ -100,7 +101,7 @@
     fbq('track', 'PageView');
     </script>
     <noscript>
-    <img height="1" width="1" 
+    <img height="1" width="1" alt="Affordable Darts to rent" 
     src="https://www.facebook.com/tr?id=823053368865956&ev=PageView
     &noscript=1"/>
     </noscript>
@@ -114,7 +115,7 @@
                     <div class="navbar-brand">
                         <span class="navbar-logo">
                             <a href="#">
-                                <img src="{{asset('assets/website/images/4d-803x142.png')}}" alt="Dartsinabottle">
+                                <img src="{{asset('assets/website/images/4d-803x142.png')}}" alt="Affordable Darts to rent">
                             </a>
                         </span>                
                     </div>
@@ -142,7 +143,7 @@
                         @if(Auth::check()) 
                         <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="{{ url('dashboard')}}">MY DARTS</a></div>
                         @else
-                        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="{{ url('shop')}}">GAME ON</a></div>
+                        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="{{ url('subscribe')}}">GAME ON</a></div>
                         @endif
                     </div>
                 </div>
@@ -168,7 +169,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-12 col-lg-5 m-auto">
                         <div class="image-wrapper md-pb">
-                            <img class="w-100" src="{{asset('assets/website/images/4-1.png')}}" alt="">
+                            <img class="w-100" src="{{asset('assets/website/images/4-1.png')}}" alt="Affordable Darts to rent">
                         </div>
                     </div>
                     <div class="col-12 col-md-12 col-lg m-auto">
@@ -190,7 +191,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 pb-3 col-lg-9">
-                        <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-1"><strong>Rent darts in the U.K.</strong></h3>
+                        <h1 class="mbr-section-title mbr-fonts-style align-center mb-0 display-1"><strong>Rent darts in the U.K.</strong></h1>
                         <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-2">Find the darts that talk to you! <div><br></div></h5>
                     </div>
                 </div>
@@ -243,7 +244,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-12 col-lg-5 image-wrapper m-auto">
-                        <img class="w-100 md-pb" src="{{asset('assets/website/images/3d-1-998x177.png')}}" alt="">
+                        <img class="w-100 md-pb" src="{{asset('assets/website/images/3d-1-998x177.png')}}" alt="Affordable Darts to rent">
                     </div>
                     <div class="col-12 col-md-12 col-lg m-auto">
                         <div class="text-wrapper align-left">
@@ -251,7 +252,7 @@
                             @if(Auth::check()) 
                         <div class="mbr-section-btn mt-3"><a class="btn btn-lg btn-primary-outline display-2" href="{{ url('dashboard')}}">MY DARTS</a></div>
                         @else
-                        <div class="mbr-section-btn mt-3"><a class="btn btn-lg btn-primary-outline display-2" href="{{ url('shop')}}">START</a></div>
+                        <div class="mbr-section-btn mt-3"><a class="btn btn-lg btn-primary-outline display-2" href="{{ url('subscribe')}}">START</a></div>
                         @endif
 
                             
@@ -285,7 +286,7 @@
                         <div class="col-12 col-md-6">
                             <div class="image-wrapper">
                                 <!-- <img class="w-100 md-pb" src="{{asset('assets/website/images/-1.fw-1024x896.png')}}" alt=""> -->
-                                <img class="w-100 md-pb" alt="Subscribe" src="{{asset('assets/website/images/dartsinabottle1.jpg')}}" alt="">
+                                <img class="w-100 md-pb" alt="Subscribe" src="{{asset('assets/website/images/dartsinabottle1.jpg')}}" alt="Affordable Darts to rent">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -309,7 +310,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="image-wrapper">
-                                <img class="w-100 md-pb" src="{{asset('assets/website/images/dartsinabottle2.jpg')}}" alt="">
+                                <img class="w-100 md-pb" src="{{asset('assets/website/images/dartsinabottle2.jpg')}}" alt="Affordable Darts to rent">
                             </div>
                         </div>
                     </div>
@@ -321,7 +322,7 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="image-wrapper">
-                                <img class="w-100 md-pb" src="{{asset('assets/website/images/dartsinabottle3.jpg')}}" alt="">
+                                <img class="w-100 md-pb" src="{{asset('assets/website/images/dartsinabottle3.jpg')}}" alt="Affordable Darts to rent">
                             </div>
                         </div>
                         <div class="col-12 col-md-6">

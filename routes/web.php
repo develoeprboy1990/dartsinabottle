@@ -15,7 +15,7 @@
 //Route::get('send-email', 'HomeController@testEmail')->name('testEmail');
 
 Route::get('/','HomeController@index');
-Route::get('/shop','HomeController@shop');
+Route::get('/subscribe','HomeController@shop');
 Route::get('get-package/{id}','HomeController@getPackage');
 Route::get('/home-products','HomeController@homeProducts');
 Auth::routes();
@@ -196,11 +196,17 @@ Route::get('filter-city', 'CountryStateCity@filterCity');
 
 Route::get('filter-state', 'CountryStateCity@filterState');
 
-Route::get('shop', 'HomeController@shop');
+Route::get('subscribe', 'HomeController@shop');
 
 Route::get('browse', 'HomeController@browse');
 
-Route::get('browse/detail/{type?}/{sortby?}','HomeController@browseDetail');
+//Route::get('browse/detail/{type?}/{sortby?}','HomeController@browseDetail');
+
+Route::get('browse/Light/{sortby?}','HomeController@browseLight');
+
+Route::get('browse/Medium/{sortby?}','HomeController@browseMedium');
+
+Route::get('browse/Heavy/{sortby?}','HomeController@browseHeavy');
 
 Route::get('faq', 'HomeController@getFaq');
 

@@ -283,7 +283,7 @@
                           @endphp
                           <tr class="total">
                             <th>Deposit + Handling Fee:</th>
-                            <td class="kcartGrandTotal">£<span id="amount_td" class="deposit_platform_fee" data-deposit_platform_fee="{{number_format($get_result_array['get_total_values']['deposit_cost'], 2)}}">{{number_format($get_result_array['get_total_values']['deposit_cost'], 2)}}
+                            <td class="kcartGrandTotal">£<span id="amount_td" class="deposit_platform_fee" data-deposit_platform_fee="{{number_format($get_result_array['get_total_values']['deposit_cost'], 2)}}">{{number_format($get_result_array['get_total_values']['deposit_cost'], 2)}} + {{$paypal_fee}} 
                             </span></td>
                           </tr>
                           <tr class="total">

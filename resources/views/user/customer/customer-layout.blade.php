@@ -5,6 +5,7 @@
 <title>@yield('title')</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="title" content="@yield('metatitle')">
 <meta name="description" content="@yield('description')">
 <meta name="author" content="">
 <link href="{{asset('assets/customer/assets/css/bootstrap.min.css')}}" rel="stylesheet"> 

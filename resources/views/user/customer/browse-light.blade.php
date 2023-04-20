@@ -1,6 +1,7 @@
 @extends('user.customer.customer-layout')
-@section('title','Browse | Set Of Darts & Sell and Buy Darts | Dartsinabottle')
-@section('description','Dartsinabottle offers to buy the best set of darts at reasonable prices and time duration. Here you can choose your required set of darts.')
+@section('title','Light Darts for Rent | Dartsinabottle')
+@section('metatitle','Light Darts for Rent | Dartsinabottle')
+@section('description','Looking for light darts to rent? Dartsinabottle has got you covered! Check out our selection of light darts available for rent.')
 @section('content')
 {{-- Header Content --}}
 @include('user.customer.header-customer')
@@ -27,13 +28,18 @@
               </div>
             </div>
           </br>
-          <div class="row form-btn-group"><h1 class="text-center">{{$type}}</h1></div>
+          <div class="row form-btn-group">
+            <h1 class="text-center">Light Darts for Rent</h1>
+          </div>
             <div class="row badges-row">              
               <div class="col-xs-12 badges-sizes text-center">
+                <p class="about-page">
+                   Looking for light darts for rent? Dartsinabottle has a variety of light darts available for rent. Our light darts are made from high-quality materials that ensure durability and accuracy. Whether you’re looking to improve your skills or just have some fun with friends, our light darts are perfect for you. Browse our selection of light darts and pick the one that suits your needs.
+                </p>
                  @foreach($products as $product) 
                 <div class="col-md-4 col-sm-12" style="margin-bottom: 30px;">
                   <a href="{{url('public/uploads/darts_img/'.$product->product_image)}}"  data-fancybox="images" data-caption="{{@$product->product_name}}">
-                    <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" height="300px" width="300px" ></a></br>
+                    <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" height="300px" width="300px" alt="Light Darts for Rent" ></a></br>
                   {!!@ $product->product_description!!}<br>
                   {{@$product->product_weight}} g<br>
                   

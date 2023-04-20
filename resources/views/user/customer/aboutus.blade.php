@@ -1,5 +1,7 @@
 @extends('user.customer.customer-layout')
-@section('title','Shop')
+@section('title','About Us | Dartsinabottle')
+@section('metatitle','About Us | Dartsinabottle')
+@section('description','Learn more about Dartsinabottle and our mission to provide quality darts for rent at affordable prices. Contact us for more information.')
 @section('content')
 {{-- Header Content --}}
 @include('user.customer.header-customer')
@@ -10,11 +12,11 @@
             <h1> <b>About Us</b> </h1>
         </div>
         <div class="col-xs-4 about-page">
-            <img src="{{url('public/uploads/dob-pic.jpg')}}" alt="selected badge" class="img-responsive">
+            <img src="{{url('public/uploads/dob-pic.jpg')}}" alt="About Us" class="img-responsive">
             <h3 class="img-text">
                 A darts themed birthday
             </h3><br>
-            <img src="{{url('public/uploads/best-pose.jpg')}}" alt="selected badge" class="img-responsive">
+            <img src="{{url('public/uploads/best-pose.jpg')}}" alt="About Us" class="img-responsive">
             <h3 class="img-text">
                 My best checkout, but not my best pose!
             </h3>
@@ -34,8 +36,8 @@ I strived to create a website where people are relaxed about sending a set of ba
 What's your best checkout? <br>
 A 156 against a Chinese friend in a best of 3 legs game. It was for the match!<br><br>
 
-What sets do you use?<br>
-Target Vapor 8 24g and occasionally Unicorn James Wade 20.5g.<br><br>
+What darts do you use?<br>
+I play with what I believe are Unicorn James Wade 20.5g darts. I bought them used, as stock for this website; and loved them so much that they are now my barrels of choice. Previously, I was using darts around the 24g-25g range and had always considered 22-23g as too light!<br><br>
 
 Is the Beijing International Darts League any good?<br>
 Not really! There are a few good teams and several decent players, but for the most part it's an average level.<br><br> 

@@ -64,7 +64,7 @@ color: #614f00 !important;
                             @if(Auth::check())
                             <a href="{{url('dashboard')}}" class="btn my-darts-btn pull-right">MY DARTS</a>
                             @else
-                            <a href="{{url('shop')}}" class="btn my-darts-btn pull-right">GAME ON</a>
+                            <a href="{{url('subscribe')}}" class="btn my-darts-btn pull-right">GAME ON</a>
                             @endif
                             </li>
 
