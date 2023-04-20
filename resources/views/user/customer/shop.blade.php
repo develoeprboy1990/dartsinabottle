@@ -1,6 +1,7 @@
 @extends('user.customer.customer-layout')
-@section('title','GAME ON | Set Of Darts & Sell and Buy Darts | Dartsinabottle')
-@section('description','Dartsinabottle offers to buy the best set of darts at reasonable prices and time duration. Here you can choose your required set of darts.')
+@section('title','Dartsinabottle Subscription | Rent, Buy & Sell Monthly Darts Sets')
+@section('metatitle','Dartsinabottle Subscription | Rent, Buy & Sell Monthly Darts Sets')
+@section('description','Subscribe to Dartsinabottle for monthly access to rent, buy, or sell premium dart sets. Choose from 2 or 4 sets a month and enjoy a dynamic darts experience!')
 @section('content')
 {{-- Header Content --}}
 @include('user.customer.header-customer')
@@ -40,6 +41,7 @@ padding: 6px;
 <div class="container" style="margin-top:20px;margin-bottom:20px;">
   <div class="row">
     <div class="col-xs-12 badges-form-col">
+      <h1 class="badges-title text-center">Elevate Your Darts Experience with Our Monthly Subscription Service</h1>
       <form class="badges-form" action="{{ url('cart')}}" method="post">
         <!-- fieldset 1 start from here -->
           <fieldset id="fieldset-1">
@@ -74,7 +76,7 @@ padding: 6px;
                  </div>
             </div>
           
-            <h1 class="badges-title text-center">How many sets would you like a month?</h1>
+            <h2 class="badges-title text-center">How many sets would you like a month?</h2>
             <div class="row badges-row">
               
               <div class="col-xs-12 badges-sizes text-center">
@@ -107,7 +109,7 @@ padding: 6px;
                   for($set = 1;$set <= $package->darts_set; $set ++)
                   {
                   @endphp
-                  <img src="{{url('public/uploads/bottle.png')}}" alt="selected badge" class="bottle-img">
+                  <img src="{{url('public/uploads/bottle.png')}}" alt="selected badge" class="bottle-img" alt="Darts for Rent">
                   @php
                   }
                   @endphp
@@ -174,7 +176,7 @@ padding: 6px;
               <button type="button" class="btn btn-previous pull-left">&laquo; Previous</button>
               <button type="submit" class="btn pull-right">Next &raquo;</button>
           </div>
-            <h1 class="badges-title text-center">How will you secure your account?</h1>
+            <h2 class="badges-title text-center">How will you secure your account?</h2>
             <!-- <h3 class="text-center">(Choose in your order of preference.)</h3> -->
             <div class="row badges-row">
               <div class="col-md-8 col-sm-4 col-xs badges-sizes text-center">
@@ -227,7 +229,7 @@ padding: 6px;
                 <h3 class="title">2 SETS</h3>
                 </div>
                 <div class="col-xs-6">
-                  <img src="{{url('public/uploads/bottle.png')}}" alt="selected badge" class="bottle-img">
+                  <img src="{{url('public/uploads/bottle.png')}}" alt="selected badge" class="bottle-img" alt="Darts for Rent">
                 </div>
               </div>
                   <div class="price-value">
