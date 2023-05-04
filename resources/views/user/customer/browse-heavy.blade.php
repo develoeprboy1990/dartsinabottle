@@ -34,7 +34,7 @@
             <div class="row badges-row">              
               <div class="col-xs-12 badges-sizes text-center">
                 <p class="about-page">
-                   : If you’re looking for heavy darts for rent, Dartsinabottle is the place to be. Our heavy darts are made from high-quality materials that ensure durability and accuracy. Whether you’re a professional or a beginner, our heavy darts are perfect for anyone who wants to improve their dart game. Browse our selection of heavy darts to find the right one for you.
+                  If you’re looking for heavy darts for rent, Dartsinabottle is the place to be. Our heavy darts are made from high-quality materials that ensure durability and accuracy. Whether you’re a professional or a beginner, our heavy darts are perfect for anyone who wants to improve their dart game. Browse our selection of heavy darts to find the right one for you.
                 </p>
                  @foreach($products as $product) 
                 <div class="col-md-4 col-sm-12" style="margin-bottom: 30px;">
