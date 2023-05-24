@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;
+use App\Subscription;
 
 class User extends Authenticatable
 {
@@ -54,6 +55,21 @@ class User extends Authenticatable
       return $this->belongsTo('App\City','city_id','id');
       
     }
+
+    public  function  check_deporit($user_id){
+
+        $user_supcription = Subscription::where('user_id',$user_id)->orderBy('id', 'desc')->first();
+
+        if($user_supcription->choice == 'Lend')
+        {
+            return 40;
+        }else{
+            return 50;
+        }
+      
+    }
+
+    
 
 
 }

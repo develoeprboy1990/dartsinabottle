@@ -235,7 +235,7 @@
                                
                               @endif  
                               <td>{{$user_status}}</td>
-                              <td>£{{@$user->deposit_cost}}</td>
+                              <td>£{{@$user->check_deporit($user->id)}}</td>
                               <td>{{$user->created_at}}</td>
                               
                                
