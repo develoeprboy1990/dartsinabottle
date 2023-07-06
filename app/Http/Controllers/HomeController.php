@@ -1785,9 +1785,6 @@ class HomeController extends Controller
         $oneTimeFee = 52.49;
       }
     }
-
-    
-
     // Cart
     $carts = Cart::where(['user_cookie' => $_COOKIE['user_cookie']])->get();
 
@@ -2118,6 +2115,22 @@ class HomeController extends Controller
     return response()->json([
       'error' => false
     ]);
+  }
+
+
+
+  public function paywithStripe()
+  {
+    return view('user.customer.pay-with-stripe');
+
+  }
+
+  public function postStripe(Request $request)
+  {
+    $user                = auth()->user();
+    Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET')); 
+    $stripeCustomer = $user->createAsStripeCustomer();
+
   }
 
   private function paypalSend($arrayObj)
