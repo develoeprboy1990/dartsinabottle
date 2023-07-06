@@ -1813,9 +1813,10 @@ class HomeController extends Controller
 
         try {
           Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET'));
-          dd($user);
+          
           if (empty($user->stripe_id)) {
-            $stripeCustomer = $user->createAsStripeCustomer();            
+            $stripeCustomer = $user->createAsStripeCustomer();  
+            dd($stripeCustomer);          
           }
           
           \Stripe\Customer::createSource($user->stripe_id, ['source' => $token]);
