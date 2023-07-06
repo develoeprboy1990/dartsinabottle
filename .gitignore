@@ -5,7 +5,7 @@
 /storage/*.key
 /vendor
 /develop
-/bootstrap/cache/config.php
+/bootstrap/cache
 *.class
 *.py[cod]
 *.log
@@ -29,3 +29,5 @@ Thumbs.db
 *.mov
 *.wmv
 .env
+.htaccess
+composer.lock
