@@ -2130,6 +2130,7 @@ class HomeController extends Controller
     $user                = auth()->user();
     Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET')); 
     $stripeCustomer = $user->createAsStripeCustomer();
+    dd($stripeCustomer);
 
   }
 
