@@ -1,6 +1,5 @@
 <?php
-namespace App\Http\Controllers;
-require 'vendor/autoload.php';
+namespace App\Http\Controllers; 
 use net\authorize\api\contract\v1 as AnetAPI;
 use net\authorize\api\controller as AnetController;
 define("AUTHORIZENET_LOG_FILE", "phplog");
@@ -1814,11 +1813,14 @@ class HomeController extends Controller
 
         try {
           Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET'));
-          if (is_null($user->stripe_id)) {
-            $stripeCustomer = $user->createAsStripeCustomer();
+          
+          if (empty($user->stripe_id)) {
+            $stripeCustomer = $user->createAsStripeCustomer();            
           }
+          
           \Stripe\Customer::createSource($user->stripe_id, ['source' => $token]);
 
+       
           /* $stripe = new \Stripe\StripeClient('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
                     $stripe->subscriptions->create(
@@ -1864,9 +1866,6 @@ class HomeController extends Controller
         }
       } // END IF
 
-
-
-
       $shipping_detail = ShippingDetail::where(['user_id' => $user->id])->first();
       if ($shipping_detail) {
         $get_shipping_id             = $shipping_detail->id;
@@ -1875,8 +1874,6 @@ class HomeController extends Controller
       if ($ship_data->count() > 0) {
         $s_country = Country::where('id', $ship_data->country_id)->first();
       }
-
-      
 
 
       $payThroughPaypal = false;

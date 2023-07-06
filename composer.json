@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.0",
+        "php": "^8.0",
         "authorizenet/authorizenet": ">=1.9.3",
         "google/recaptcha": "~1.1",
         "laravel/framework": "^8.0",

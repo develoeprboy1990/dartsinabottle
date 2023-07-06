@@ -78,8 +78,10 @@ $(document).ready(function () {
                 if ($(this).val() == "") {
                     if ($(this).data("selector_type") == "select") {
                         $(".highlight_select").addClass('give_border_color');
+                        $(this).focus();
                     } else {
                         $(this).addClass('input-error');
+                        $(this).focus();
                     }
                     error = true;
                     return false;
@@ -283,7 +285,6 @@ $(document).ready(function () {
 
                     }
                     else if (data.error == true && data.error_type == 3) {
-
                         var msg = data.msg;
                         var response_string = msg;
                         swal({
@@ -311,8 +312,22 @@ $(document).ready(function () {
                     }
                 }, // END SUCCESS
 
-                error: function () {
-                    alert("Error");
+                error: function (xhr, ajaxOptions, thrownError) {
+
+                    const obj = JSON.parse(xhr.responseText); 
+
+                    swal({
+                        title: "Error!",
+                        text: obj.message,
+                        type: "error",
+                        closeOnClickOutside: true
+                    },
+                        function () { 
+
+                $('#place_order_button').prop('disabled', false);
+                return false;
+                        });
+
                 } // END 
 
 

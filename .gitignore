@@ -28,3 +28,5 @@ Thumbs.db
 *.mov
 *.wmv
 .env
+.htaccess
+composer.lock
