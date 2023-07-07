@@ -2131,7 +2131,7 @@ class HomeController extends Controller
     $user                = auth()->user();
     Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET')); 
 
-    $stripeuser = Cashier::findBillable($stripeId);
+    $stripeuser = Cashier::findBillable($user->stripe_id);
     if(empty($user->stripe_id)){
     $stripeCustomer = $user->createAsStripeCustomer();
     }
