@@ -372,7 +372,7 @@
 <!-- <script src="https://www.paypal.com/sdk/js?client-id=AZp22rGSpvsorKZv4aVvGNZjEHTMuxaqod0Wp1KoiVyOCFQ0-GPlftbfHANEBVGzRPaRHp4wp-6RoE3r&vault=true&intent=subscription"></script> -->
 
 <script>
-  Stripe.setPublishableKey("<?php echo config('app.STRIPE_KEY') ?>");
+  Stripe.setPublishableKey("{{env('STRIPE_KEY')}}");
 
 
  /*  paypal.Buttons({
