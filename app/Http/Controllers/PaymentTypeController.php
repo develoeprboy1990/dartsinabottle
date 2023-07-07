@@ -187,7 +187,7 @@ class PaymentTypeController extends Controller
           $STRIPE_KEY    =  $stripe_detail->login_id_live;
           $STRIPE_SECRET = $stripe_detail->transaction_key_live;
         }
-  
+  dd(env('STRIPE_KEY'));
         file_put_contents($path, str_replace(
           'STRIPE_KEY=' . env('STRIPE_KEY'),
           'STRIPE_KEY=' . $STRIPE_KEY,
