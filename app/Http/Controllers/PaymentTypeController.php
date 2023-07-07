@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PaymentType;
 
+use Illuminate\Support\Facades\Artisan;
 class PaymentTypeController extends Controller
 {
     /**
