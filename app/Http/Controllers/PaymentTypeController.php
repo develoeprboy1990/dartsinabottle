@@ -163,8 +163,43 @@ class PaymentTypeController extends Controller
         }
         
         $payment_type->save();
+
+      
+
+        
         return redirect('admin/payment-types')->with('successmessage','Success! Payment Type Edited Successfully');
 
+    }
+
+    private function updateConfigurations()
+    {
+      $stripe_detail = PaymentType::where('id', 5)->where('status', 1)->first();
+    
+      $path = base_path('.env');
+      if (file_exists($path)) {
+        if ($stripe_detail->active_account == 'test') {
+          $STRIPE_KEY    = $stripe_detail->login_id_test;
+          $STRIPE_SECRET = $stripe_detail->transaction_key_test;
+        } elseif ($stripe_detail->active_account == 'developer') {
+          $STRIPE_KEY    =  $stripe_detail->api_key;
+          $STRIPE_SECRET = $stripe_detail->secret_key;
+        } else {
+          $STRIPE_KEY    =  $stripe_detail->login_id_live;
+          $STRIPE_SECRET = $stripe_detail->transaction_key_live;
+        }
+  
+        file_put_contents($path, str_replace(
+          'STRIPE_KEY=' . env('STRIPE_KEY'),
+          'STRIPE_KEY=' . $STRIPE_KEY,
+          file_get_contents($path)
+        ));
+  
+        file_put_contents($path, str_replace(
+          'STRIPE_SECRET=' . env('STRIPE_SECRET'),
+          'STRIPE_SECRET=' . $STRIPE_SECRET,
+          file_get_contents($path)
+        ));
+      }
     }
 
     public function choosePaymentAccountTypeProcess(Request $request){
@@ -174,6 +209,9 @@ class PaymentTypeController extends Controller
       {
         $payment_type->active_account= $request['active_account'];
         $payment_type->save();
+
+
+        $this->updateConfigurations();
       }
      return redirect('admin/payment-types')->with('successmessage','Payment detail edited successfully');
     }

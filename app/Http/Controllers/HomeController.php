@@ -1794,7 +1794,7 @@ class HomeController extends Controller
         $paymentMethod      = $request->paymentMethod;
 
         try {
-          Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET')); 
+          Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET'));
           if (empty($user->stripe_id)) {
             $stripeCustomer = $user->createAsStripeCustomer();
           }
@@ -2084,10 +2084,39 @@ class HomeController extends Controller
     ]);
   }
 
+  private function updateConfigurations()
+  {
+    $stripe_detail = PaymentType::where('id', 5)->where('status', 1)->first();
+    $path = base_path('.env');
+    if (file_exists($path)) {
+      if ($stripe_detail->active_account == 'test') {
+        $STRIPE_KEY    = $stripe_detail->login_id_test;
+        $STRIPE_SECRET = $stripe_detail->transaction_key_test;
+      } elseif ($stripe_detail->active_account == 'developer') {
+        $STRIPE_KEY    =  $stripe_detail->api_key;
+        $STRIPE_SECRET = $stripe_detail->secret_key;
+      } else {
+        $STRIPE_KEY    =  $stripe_detail->login_id_live;
+        $STRIPE_SECRET = $stripe_detail->transaction_key_live;
+      }
 
+      file_put_contents($path, str_replace(
+        'STRIPE_KEY=' . env('STRIPE_KEY'),
+        'STRIPE_KEY=' . $STRIPE_KEY,
+        file_get_contents($path)
+      ));
+
+      file_put_contents($path, str_replace(
+        'STRIPE_SECRET=' . env('STRIPE_SECRET'),
+        'STRIPE_SECRET=' . $STRIPE_SECRET,
+        file_get_contents($path)
+      ));
+    }
+  }
 
   public function paywithStripe()
   {
+    $this->updateConfigurations();
     return view('user.customer.pay-with-stripe');
   }
 
@@ -2097,7 +2126,7 @@ class HomeController extends Controller
     $user                = auth()->user();
     Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET'));
 
-   // $stripeuser = Cashier::findBillable($user->stripe_id);
+    // $stripeuser = Cashier::findBillable($user->stripe_id);
     if (empty($user->stripe_id)) {
       $stripeCustomer = $user->createAsStripeCustomer();
     }
