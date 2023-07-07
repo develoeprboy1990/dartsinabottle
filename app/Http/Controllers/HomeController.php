@@ -2116,7 +2116,9 @@ class HomeController extends Controller
 
   public function paywithStripe()
   {
+    echo config('app.STRIPE_SECRET');
     $this->updateConfigurations();
+    dd(env('STRIPE_KEY'));
     return view('user.customer.pay-with-stripe');
   }
 
