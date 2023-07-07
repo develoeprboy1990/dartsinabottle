@@ -64,7 +64,7 @@ use Stripe;
 use Illuminate\Support\Facades\Redirect;
 use App\SubscriptionBilling;
 use Carbon\Carbon;
-
+use Laravel\Cashier\Cashier;
 
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
@@ -2127,10 +2127,15 @@ class HomeController extends Controller
 
   public function postStripe(Request $request)
   {
+    
     $user                = auth()->user();
     Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET')); 
+
+    $stripeuser = Cashier::findBillable($stripeId);
+    if(empty($user->stripe_id)){
     $stripeCustomer = $user->createAsStripeCustomer();
-    dd($stripeCustomer);
+    }
+    dd($stripeuser);
 
   }
 
