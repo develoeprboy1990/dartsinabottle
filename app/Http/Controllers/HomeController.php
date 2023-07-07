@@ -1,10 +1,14 @@
 <?php
-namespace App\Http\Controllers; 
+
+namespace App\Http\Controllers;
 
 require 'vendor/autoload.php';
+
 use net\authorize\api\contract\v1 as AnetAPI;
 use net\authorize\api\controller as AnetController;
+
 define("AUTHORIZENET_LOG_FILE", "phplog");
+
 use Illuminate\Http\Request;
 use App\User;
 use App\UserDetail;
@@ -396,16 +400,16 @@ class HomeController extends Controller
   public function browse()
   {
     $packages = Package::all();
-    $light_products = Product::where('product_weight_range','Light')->where('active_status','1')->count();
+    $light_products = Product::where('product_weight_range', 'Light')->where('active_status', '1')->count();
 
-    $medium_products = Product::where('product_weight_range','Medium')->where('active_status','1')->count();
+    $medium_products = Product::where('product_weight_range', 'Medium')->where('active_status', '1')->count();
 
-    $heavy_products = Product::where('product_weight_range','Heavy')->where('active_status','1')->count();
-    
-    return view('user.customer.browse', ['packages' => $packages,'light_products' => $light_products,'medium_products' => $medium_products,'heavy_products' => $heavy_products]);
+    $heavy_products = Product::where('product_weight_range', 'Heavy')->where('active_status', '1')->count();
+
+    return view('user.customer.browse', ['packages' => $packages, 'light_products' => $light_products, 'medium_products' => $medium_products, 'heavy_products' => $heavy_products]);
   }
 
-/*  public function browseDetail($type=null,$sortby=null){      
+  /*  public function browseDetail($type=null,$sortby=null){      
 
     if($sortby == '')
     { $sortby = 'ASC'; }
@@ -434,215 +438,202 @@ class HomeController extends Controller
     }
 */
 
-  public function browseLight($sortby=null){ 
-    
-    $type = 'Light';     
+  public function browseLight($sortby = null)
+  {
 
-    if($sortby == '')
-    { $sortby = 'ASC'; }
-    else{
-     $sorting =  explode('_',$sortby);
-     $sortby = $sorting[1];
+    $type = 'Light';
+
+    if ($sortby == '') {
+      $sortby = 'ASC';
+    } else {
+      $sorting =  explode('_', $sortby);
+      $sortby = $sorting[1];
     }
 
-    
-     if(Auth::check())
-     {
-      $products = Product::where('product_weight_range',$type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
-     $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>4])->orderBy('id', 'DESC')->first();
-      }else{
-        $products = Product::where('product_weight_range',$type)->orderBy('product_weight', $sortby)->get();
-        $order_details = array();
-      }
-//dd($order_details);
 
-
-
-    return view('user.customer.browse-light',['products'=>$products,'type'=>$type,'sortby'=>$sortby,'order_details' => $order_details]);
-        
-
-
+    if (Auth::check()) {
+      $products = Product::where('product_weight_range', $type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+      $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status' => 4])->orderBy('id', 'DESC')->first();
+    } else {
+      $products = Product::where('product_weight_range', $type)->orderBy('product_weight', $sortby)->get();
+      $order_details = array();
     }
-
-  public function browseMedium($sortby=null){ 
-    
-    $type = 'Medium';     
-
-    if($sortby == '')
-    { $sortby = 'ASC'; }
-    else{
-     $sorting =  explode('_',$sortby);
-     $sortby = $sorting[1];
-    }
-
-    
-     if(Auth::check())
-     {
-      $products = Product::where('product_weight_range',$type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
-     $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>4])->orderBy('id', 'DESC')->first();
-      }else{
-        $products = Product::where('product_weight_range',$type)->orderBy('product_weight', $sortby)->get();
-        $order_details = array();
-      }
     //dd($order_details);
 
-    return view('user.customer.browse-medium',['products'=>$products,'type'=>$type,'sortby'=>$sortby,'order_details' => $order_details]);
-        
+
+
+    return view('user.customer.browse-light', ['products' => $products, 'type' => $type, 'sortby' => $sortby, 'order_details' => $order_details]);
+  }
+
+  public function browseMedium($sortby = null)
+  {
+
+    $type = 'Medium';
+
+    if ($sortby == '') {
+      $sortby = 'ASC';
+    } else {
+      $sorting =  explode('_', $sortby);
+      $sortby = $sorting[1];
     }
 
-  public function browseHeavy($sortby=null){ 
-    
-    $type = 'Heavy';     
 
-    if($sortby == '')
-    { $sortby = 'ASC'; }
-    else{
-     $sorting =  explode('_',$sortby);
-     $sortby = $sorting[1];
+    if (Auth::check()) {
+      $products = Product::where('product_weight_range', $type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+      $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status' => 4])->orderBy('id', 'DESC')->first();
+    } else {
+      $products = Product::where('product_weight_range', $type)->orderBy('product_weight', $sortby)->get();
+      $order_details = array();
     }
-
-    
-     if(Auth::check())
-     {
-      $products = Product::where('product_weight_range',$type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
-     $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status'=>4])->orderBy('id', 'DESC')->first();
-      }else{
-        $products = Product::where('product_weight_range',$type)->orderBy('product_weight', $sortby)->get();
-        $order_details = array();
-      }
     //dd($order_details);
 
-    return view('user.customer.browse-heavy',['products'=>$products,'type'=>$type,'sortby'=>$sortby,'order_details' => $order_details]);
-        
+    return view('user.customer.browse-medium', ['products' => $products, 'type' => $type, 'sortby' => $sortby, 'order_details' => $order_details]);
+  }
+
+  public function browseHeavy($sortby = null)
+  {
+
+    $type = 'Heavy';
+
+    if ($sortby == '') {
+      $sortby = 'ASC';
+    } else {
+      $sorting =  explode('_', $sortby);
+      $sortby = $sorting[1];
     }
-  
-  
-  public function verifyCustomerChoice(Request $request){
+
+
+    if (Auth::check()) {
+      $products = Product::where('product_weight_range', $type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+      $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status' => 4])->orderBy('id', 'DESC')->first();
+    } else {
+      $products = Product::where('product_weight_range', $type)->orderBy('product_weight', $sortby)->get();
+      $order_details = array();
+    }
+    //dd($order_details);
+
+    return view('user.customer.browse-heavy', ['products' => $products, 'type' => $type, 'sortby' => $sortby, 'order_details' => $order_details]);
+  }
+
+
+  public function verifyCustomerChoice(Request $request)
+  {
     $user = User::where('id', Auth::user()->id)->first();
 
     $subscription = Subscription::where('user_id', $user->id)->whereIn('status', [4])->first();
 
-    if($subscription)
-    {
-      if($subscription->choice =='Lend'){
-      $lent_darts = Product::where('user_id',$user->id)->first();
+    if ($subscription) {
+      if ($subscription->choice == 'Lend') {
+        $lent_darts = Product::where('user_id', $user->id)->first();
 
-        if($lent_darts)
-        {
-            return response()->json([
+        if ($lent_darts) {
+          return response()->json([
             'error' => false,
             'title' => 'Request barrels',
             'text' => 'Are you sure you want these?',
             'error_type' => 0
           ]);
-
-        }else{
-             return response()->json([
+        } else {
+          return response()->json([
             'error' => true,
             'title' => 'Error!',
             'text' => 'We have not received your lent darts yet. Please await confirmation via email.',
             'error_type' => 1
           ]);
         }
-      } 
-      
-      else if($subscription->choice =='Deposit'){
+      } else if ($subscription->choice == 'Deposit') {
         return response()->json([
-            'error' => false,
-            'title' => 'Request barrels',
-            'text' => 'Are you sure you want these?',
-            'error_type' => 0
-          ]);
-    }
-    }
-    else{
+          'error' => false,
+          'title' => 'Request barrels',
+          'text' => 'Are you sure you want these?',
+          'error_type' => 0
+        ]);
+      }
+    } else {
       return response()->json([
-      'error' => true,
-      'title' => 'Error!',
-      'text' => 'Supscription not found.',
-      'error_type' => 2
+        'error' => true,
+        'title' => 'Error!',
+        'text' => 'Supscription not found.',
+        'error_type' => 2
       ]);
     }
   }
 
-  public function shipOrderWhosePaymentIsDone(Request $request){
-        $error=false;
-        //1= Shipped, 2=Pending Shipped , 3=Cancelled ,4=Pending
+  public function shipOrderWhosePaymentIsDone(Request $request)
+  {
+    $error = false;
+    //1= Shipped, 2=Pending Shipped , 3=Cancelled ,4=Pending
 
-        $user = User::where('id', Auth::user()->id)->first();
-        $order_detail=Subscription::where('user_id', $user->id)->whereIn('status', [4])->first();
-        if($order_detail){
-            
-            //cheking of how many darts send in last 30 days...
-            //$invoice = $order_detail->getUser->subscription('default')->upcomingInvoice();
-            //dd($invoice);
+    $user = User::where('id', Auth::user()->id)->first();
+    $order_detail = Subscription::where('user_id', $user->id)->whereIn('status', [4])->first();
+    if ($order_detail) {
 
-            $per_month_limit = $order_detail->getProductDetail->getPackage->darts_set;
+      //cheking of how many darts send in last 30 days...
+      //$invoice = $order_detail->getUser->subscription('default')->upcomingInvoice();
+      //dd($invoice);
 
-            $subscription_billing=SubscriptionBilling::where('subscription_id',$order_detail->id)->orderBy('id','DESC')->first();
+      $per_month_limit = $order_detail->getProductDetail->getPackage->darts_set;
 
-            $current_month_count = ProductToCustomer::where('user_id',$order_detail->user_id)->where('subscription_billing_id',$subscription_billing->id)->whereIn('status',['Shipped','Returned','Sold'])->count();
+      $subscription_billing = SubscriptionBilling::where('subscription_id', $order_detail->id)->orderBy('id', 'DESC')->first();
 
-            if($current_month_count < $per_month_limit)
-            {    
+      $current_month_count = ProductToCustomer::where('user_id', $order_detail->user_id)->where('subscription_billing_id', $subscription_billing->id)->whereIn('status', ['Shipped', 'Returned', 'Sold'])->count();
 
-                $user_id = $order_detail->user_id;
+      if ($current_month_count < $per_month_limit) {
 
-                $product_to_customer=new ProductToCustomer;
-                $product_to_customer->subscription_id=$order_detail->id;
-                $product_to_customer->user_id=$order_detail->user_id;
-                $product_to_customer->product_id=$request['product_id'];
-                $product_to_customer->subscription_billing_id=$subscription_billing->id;
-                $product_to_customer->status='Shipped';
-                $product_to_customer->save();
+        $user_id = $order_detail->user_id;
 
-                $product=Product::where('id',$request['product_id'])->first();
-                $product->active_status = 2; //2 means product is now reserved
-                $product->save();
+        $product_to_customer = new ProductToCustomer;
+        $product_to_customer->subscription_id = $order_detail->id;
+        $product_to_customer->user_id = $order_detail->user_id;
+        $product_to_customer->product_id = $request['product_id'];
+        $product_to_customer->subscription_billing_id = $subscription_billing->id;
+        $product_to_customer->status = 'Shipped';
+        $product_to_customer->save();
 
-                $order_detail->status=2;   //2 means order is now pending shipped
-                $order_detail->save();
+        $product = Product::where('id', $request['product_id'])->first();
+        $product->active_status = 2; //2 means product is now reserved
+        $product->save();
 
-                $lent_darts = Product::where('user_id',$user_id)->where('active_status','!=',3)->get();
-                $need_to_set = false;
-                foreach($lent_darts as $lent_dart)
-                {
-                    if($lent_dart->product_price_type == 'not_for_sale')
-                    {
-                        $need_to_set = true;
-                    }
-                }
-                if($need_to_set)
-                {
-                    $set_price = "<br><br>If you wish to purchase the barrels, please check your ‘Current Darts’ section to see if they are for sale.<br><br>If you don’t like them, or wish to request the next set in your subscription, please return them in the included bottle and prepaid envelope. (Please use the bottle for returns, as it will protect the barrels in transit.)";
-                }else{
-                    $set_price = "";
-                }
+        $order_detail->status = 2;   //2 means order is now pending shipped
+        $order_detail->save();
 
-
-                $user=User::where('id',$user_id)->first();
-                $data = array(
-                'firstname'      => $user->first_name,
-                'lastname'       => $user->last_name,
-                'email'          => $user->email,
-                'message_body'   => 'Your dartsinabottle will be posted in the next 24 hours. <br> We hope you enjoy playing with them.'.$set_price,
-
-                ); 
-                Mail::send('emails.send-message-customer',  $data, function ($message) use ($data) {
-                $message->to($data['email'])
-                ->subject('Your dartsinabottle will be posted soon.');
-                });
-                return response()->json([
-                "error"=>'success'
-                ]);
-            }
-            return response()->json([
-                "error"=>'limit reached'
-                ]);
+        $lent_darts = Product::where('user_id', $user_id)->where('active_status', '!=', 3)->get();
+        $need_to_set = false;
+        foreach ($lent_darts as $lent_dart) {
+          if ($lent_dart->product_price_type == 'not_for_sale') {
+            $need_to_set = true;
+          }
         }
+        if ($need_to_set) {
+          $set_price = "<br><br>If you wish to purchase the barrels, please check your ‘Current Darts’ section to see if they are for sale.<br><br>If you don’t like them, or wish to request the next set in your subscription, please return them in the included bottle and prepaid envelope. (Please use the bottle for returns, as it will protect the barrels in transit.)";
+        } else {
+          $set_price = "";
+        }
+
+
+        $user = User::where('id', $user_id)->first();
+        $data = array(
+          'firstname'      => $user->first_name,
+          'lastname'       => $user->last_name,
+          'email'          => $user->email,
+          'message_body'   => 'Your dartsinabottle will be posted in the next 24 hours. <br> We hope you enjoy playing with them.' . $set_price,
+
+        );
+        Mail::send('emails.send-message-customer',  $data, function ($message) use ($data) {
+          $message->to($data['email'])
+            ->subject('Your dartsinabottle will be posted soon.');
+        });
         return response()->json([
-                "error"=>'no subscribtion'
-                ]);
+          "error" => 'success'
+        ]);
+      }
+      return response()->json([
+        "error" => 'limit reached'
+      ]);
+    }
+    return response()->json([
+      "error" => 'no subscribtion'
+    ]);
   }
 
 
@@ -692,7 +683,7 @@ class HomeController extends Controller
             </div>
                 <div class="price-value">
               <div class="value">
-                <span class="currency">£'.$array[0].'.'.$array[1].'</span>
+                <span class="currency">£' . $array[0] . '.' . $array[1] . '</span>
                 <span class="month">/month</span>
               </div>
             </div>
@@ -742,10 +733,10 @@ class HomeController extends Controller
     $cart->darts_set = $package->darts_set;
     $cart->darts_interval = $package->darts_interval;
     $cart->total_qty = 1;
-    if($request['choice_id'] == 'Lend')
-    $cart->deposit_cost = $website_setting->lend_deposit_cost;
+    if ($request['choice_id'] == 'Lend')
+      $cart->deposit_cost = $website_setting->lend_deposit_cost;
     else
-    $cart->deposit_cost = $website_setting->deposit_cost;
+      $cart->deposit_cost = $website_setting->deposit_cost;
 
     $cart->save();
     return redirect('cart');
@@ -816,27 +807,24 @@ class HomeController extends Controller
 
     $shipping_detail =  ShippingDetail::where('user_id', Auth::user()->id)->first();
 
-    return view('user.customer.add-shipping-detail', ['states' => $states, 'user' => $user,'shipping_detail'=>$shipping_detail]);
+    return view('user.customer.add-shipping-detail', ['states' => $states, 'user' => $user, 'shipping_detail' => $shipping_detail]);
   }
 
   public function addShippingDetailProcess(Request $request)
   {
     $postcode = $request['shipping_zip'];
 
-    $postcode = strtoupper(str_replace(' ','',$postcode));
-    if(preg_match("/(^[A-Z]{1,2}[0-9R][0-9A-Z]?[\s]?[0-9][ABD-HJLNP-UW-Z]{2}$)/i",$postcode) || preg_match("/(^[A-Z]{1,2}[0-9R][0-9A-Z]$)/i",$postcode))
-    {    
-        //return true;
-    }
-    else
-    {
+    $postcode = strtoupper(str_replace(' ', '', $postcode));
+    if (preg_match("/(^[A-Z]{1,2}[0-9R][0-9A-Z]?[\s]?[0-9][ABD-HJLNP-UW-Z]{2}$)/i", $postcode) || preg_match("/(^[A-Z]{1,2}[0-9R][0-9A-Z]$)/i", $postcode)) {
+      //return true;
+    } else {
       return back()->withInput($request->input())->with('errormessage', 'Please enter a valid zipcode!');
     }
 
     $shipping_detail =  ShippingDetail::where('user_id', Auth::user()->id)->first();
 
-    if(!$shipping_detail)
-    $shipping_detail = new ShippingDetail;
+    if (!$shipping_detail)
+      $shipping_detail = new ShippingDetail;
 
     $shipping_detail->user_id = Auth::user()->id;
     $shipping_detail->first_name = Auth::user()->first_name;
@@ -861,7 +849,7 @@ class HomeController extends Controller
     $user->save();
 
     if (isset($_COOKIE['user_cookie'])) {
-      return redirect('checkout') ;
+      return redirect('checkout');
     } else {
       return redirect('subscribe');
     }
@@ -1168,13 +1156,11 @@ class HomeController extends Controller
     if (!Auth::check()) {
 
       return redirect('login');
-    } 
-    else {
+    } else {
       $user = User::where('id', Auth::user()->id)->first();
       if ($user->shipping_detail_status == 0) {
         return redirect('add-shipping-detail');
-      } 
-      else {
+      } else {
         $check_cart = Cart::where('user_cookie', $_COOKIE['user_cookie'])->count();
         if ($check_cart < 1) {
 
@@ -1192,7 +1178,7 @@ class HomeController extends Controller
             $get_result_array = $this->getBill($_COOKIE["user_cookie"]);
 
 
-            $ordered_items = Cart::select('package_id', 'price', 'darts_set', 'darts_interval', 'sort_1', 'sort_2', 'sort_3','choice', 'total_qty')->where('user_cookie', $_COOKIE["user_cookie"])->first();
+            $ordered_items = Cart::select('package_id', 'price', 'darts_set', 'darts_interval', 'sort_1', 'sort_2', 'sort_3', 'choice', 'total_qty')->where('user_cookie', $_COOKIE["user_cookie"])->first();
 
             $payment_types = PaymentType::where('id', '<>', 2)->get();
             $customer_custom_payment_types = CustomerCustomPaymentType::where('user_id', Auth::user()->id)->where('payment_type_id', '<>', 2)->get();
@@ -1769,18 +1755,15 @@ class HomeController extends Controller
     $package             = Package::where('id', $request['package_id'])->first();
     $website_setting     = HomePageUrl::where('id', 1)->first();
 
-    if($request['choice'] == 'Lend')
-    {
+    if ($request['choice'] == 'Lend') {
       if ($package->id == 1) {
-       $oneTimeFee = 41.99;
+        $oneTimeFee = 41.99;
       } else {
         $oneTimeFee = 42.49;
       }
-    }
-    else{
+    } else {
       if ($package->id == 1) {
-       $oneTimeFee = 51.99;
-
+        $oneTimeFee = 51.99;
       } else {
         $oneTimeFee = 52.49;
       }
@@ -1811,15 +1794,14 @@ class HomeController extends Controller
         $paymentMethod      = $request->paymentMethod;
 
         try {
-          Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET')); 
+          Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET'));
           if (empty($user->stripe_id)) {
-            $stripeCustomer = $user->createAsStripeCustomer();  
-                     
+            $stripeCustomer = $user->createAsStripeCustomer();
           }
-          
+
           \Stripe\Customer::createSource($user->stripe_id, ['source' => $token]);
 
-       
+
           /* $stripe = new \Stripe\StripeClient('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
                     $stripe->subscriptions->create(
@@ -1831,22 +1813,18 @@ class HomeController extends Controller
                     ]
                     );*/
           $order_detail  = $user->newSubscription($payment_mode, $app_id)->create($paymentMethod, ['email' => $user->email]);
-          if($request['choice'] == 'Lend')
-          {
+          if ($request['choice'] == 'Lend') {
             if ($package->id == 1) {
-             $depositFee =  4199; //£40+£1.99= 41.99
-             $oneTimeFee = 41.99;
-
+              $depositFee =  4199; //£40+£1.99= 41.99
+              $oneTimeFee = 41.99;
             } else {
               $depositFee = 4249; //£40+£2.49 = 42.49
               $oneTimeFee = 42.49;
             }
-          }
-          else{
+          } else {
             if ($package->id == 1) {
-             $depositFee =  5199; //£50+£1.99= 41.99
-             $oneTimeFee = 51.99;
-
+              $depositFee =  5199; //£50+£1.99= 41.99
+              $oneTimeFee = 51.99;
             } else {
               $depositFee = 5249; //£50+£2.49 = 42.49
               $oneTimeFee = 52.49;
@@ -1882,50 +1860,39 @@ class HomeController extends Controller
 
         if ($payment_type_detail->active_account == 'test') {
           $payment_mode = 'test';
-          
 
-          if($request['choice'] == 'Lend')
-          {
+
+          if ($request['choice'] == 'Lend') {
             if ($package->id == 1) {
-             $plan_id = $package->paypal_test_plan_id;
-
+              $plan_id = $package->paypal_test_plan_id;
             } else {
               $plan_id = $package->paypal_test_plan_id;
             }
-          }
-          else{
+          } else {
             if ($package->id == 1) {
-             $plan_id = "PROD-4N425584YW1006331";
-
+              $plan_id = "PROD-4N425584YW1006331";
             } else {
-             $plan_id = "P-79E335870W187463FMPT6BSQ";
+              $plan_id = "P-79E335870W187463FMPT6BSQ";
             }
           }
 
           $email_address = $payment_type_detail->test_email;
-
-          
-        } 
-        elseif ($payment_type_detail->active_account == 'live') {
+        } elseif ($payment_type_detail->active_account == 'live') {
           $payment_mode = 'live';
-          
-          if($request['choice'] == 'Lend')
-          {
-            if ($package->id == 1) {
-             $plan_id = $package->paypal_live_plan_id;
 
+          if ($request['choice'] == 'Lend') {
+            if ($package->id == 1) {
+              $plan_id = $package->paypal_live_plan_id;
             } else {
               $plan_id = $package->paypal_live_plan_id;
             }
-          }
-          else{
+          } else {
             if ($package->id == 1) {
-             //$plan_id = "PROD-5VW259311F4711419";
-             $plan_id = "P-0EN64503J89360240MPT5DMI";
-
+              //$plan_id = "PROD-5VW259311F4711419";
+              $plan_id = "P-0EN64503J89360240MPT5DMI";
             } else {
-             //$plan_id = "PROD-7BC72928DP025612G";
-             $plan_id = "P-5MS96692BR076842BMPT5HNY";
+              //$plan_id = "PROD-7BC72928DP025612G";
+              $plan_id = "P-5MS96692BR076842BMPT5HNY";
             }
           }
 
@@ -1936,8 +1903,8 @@ class HomeController extends Controller
           "start_time" => date("Y-m-d") . "T23:20:50.52Z",
           "quantity" => "1",
           "shipping_amount" => array(
-          "currency_code" => "GBP",
-          "value" => "0"
+            "currency_code" => "GBP",
+            "value" => "0"
           ),
           "subscriber" => array(
             "name" => array(
@@ -1973,7 +1940,7 @@ class HomeController extends Controller
         );
         $payThroughPaypal = true;
         //dd($arrayObj);
-        $response = $this->paypalSend($arrayObj);        
+        $response = $this->paypalSend($arrayObj);
         $order_detail  = Subscription::create(['stripe_id' => $response->id, 'stripe_status' => "$response->status", 'payment_status' => '0', 'status' => '0', 'quantity' => 1]);
         $order_product = SubscriptionItem::create(['subscription_id' => $order_detail->id, 'stripe_id' => "$response->id", 'stripe_plan' => "$response->id", 'quantity' => 1]);
       }
@@ -1998,7 +1965,7 @@ class HomeController extends Controller
       $order_detail->order_note       = $request['order_note'];
       if ($request['payment_type_id'] == 5) {
         //Stripe
-        $order_detail->status           = 4;  
+        $order_detail->status           = 4;
         //means that the order will go directly to pending 
       }
 
@@ -2089,7 +2056,7 @@ class HomeController extends Controller
 
       Mail::send('emails.order-email',  $data, function ($message) use ($data) {
         $message->to($data['email'])
-          ->cc(['sales@dartsinabottle.com','dartsinabottle.com+1493fc9a1f@invite.trustpilot.com'])
+          ->cc(['sales@dartsinabottle.com', 'dartsinabottle.com+1493fc9a1f@invite.trustpilot.com'])
           ->subject('dartsinabottle Order Information');
       });
     }
@@ -2122,21 +2089,20 @@ class HomeController extends Controller
   public function paywithStripe()
   {
     return view('user.customer.pay-with-stripe');
-
   }
 
   public function postStripe(Request $request)
   {
-    
+
     $user                = auth()->user();
-    Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET')); 
+    Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET'));
 
-    $stripeuser = Cashier::findBillable($user->stripe_id);
-    if(empty($user->stripe_id)){
-    $stripeCustomer = $user->createAsStripeCustomer();
+   // $stripeuser = Cashier::findBillable($user->stripe_id);
+    if (empty($user->stripe_id)) {
+      $stripeCustomer = $user->createAsStripeCustomer();
     }
-    dd($stripeuser);
-
+    $balance = $user->balance();
+    dd($balance);
   }
 
   private function paypalSend($arrayObj)
@@ -2173,8 +2139,8 @@ class HomeController extends Controller
     $lines    = explode("\n", $result);
     if (config('paypal.mode') == 'sandbox') {
       $response = json_decode(end($lines));
-    }else{
-    $response = json_decode(end($lines));
+    } else {
+      $response = json_decode(end($lines));
     }
     return  $response; //['status'=>$response->status,'redirecUrl'=>$response->links[0]->href];
   }
@@ -2236,15 +2202,15 @@ class HomeController extends Controller
 
   public function orderThankYouPage(Request $request)
   {
-   if (!Auth::check()) {
+    if (!Auth::check()) {
       return redirect('login');
     } else {
       $content = Content::where('title', 'Thank You Page')->first();
       $subscription = Subscription::where('user_id', Auth::user()->id)->whereIn('status', [4])->orderBy('id', 'DESC')->first();
       if ($request['from_checkout'] == 'yes') {
-        if($subscription->choice == 'Lend'){
-        return view('user.customer.order-thankyou-page', ['content' => $content, 'subscription' => $subscription]);
-        }else{
+        if ($subscription->choice == 'Lend') {
+          return view('user.customer.order-thankyou-page', ['content' => $content, 'subscription' => $subscription]);
+        } else {
           return view('user.customer.thankyou-page', ['content' => $content, 'subscription' => $subscription]);
         }
       } else {
@@ -2280,23 +2246,19 @@ class HomeController extends Controller
       $billing_detail = BillingDetail::where('order_details_id', $subscription->id)->first();
 
 
-       if($subscription->choice == 'Lend')
-          {
-            if ($package->id == 1) {
-             $oneTimeFee = 41.99;
-
-            } else {
-              $oneTimeFee = 42.49;
-            }
-          }
-          else{
-            if ($package->id == 1) {
-             $oneTimeFee = 51.99;
-
-            } else {
-              $oneTimeFee = 52.49;
-            }
-          }
+      if ($subscription->choice == 'Lend') {
+        if ($package->id == 1) {
+          $oneTimeFee = 41.99;
+        } else {
+          $oneTimeFee = 42.49;
+        }
+      } else {
+        if ($package->id == 1) {
+          $oneTimeFee = 51.99;
+        } else {
+          $oneTimeFee = 52.49;
+        }
+      }
 
       $data = array(
         'firstname'            => $subscription->getUser->first_name,
@@ -2334,7 +2296,7 @@ class HomeController extends Controller
 
       Mail::send('emails.order-email',  $data, function ($message) use ($data) {
         $message->to($data['email'])
-          ->cc(['sales@dartsinabottle.com','dartsinabottle.com+1493fc9a1f@invite.trustpilot.com'])
+          ->cc(['sales@dartsinabottle.com', 'dartsinabottle.com+1493fc9a1f@invite.trustpilot.com'])
           ->subject('dartsinabottle Order Information');
       });
 
@@ -2369,12 +2331,12 @@ class HomeController extends Controller
     $product = Product::where('id', $request['product_id'])->first();
     if ($product) {
       if ($request['product_price_type'] == '') {
-          return response()->json([
-            'error' => true,
-            'title' => 'Error!',
-            'text' => 'Product price type cannot be null.',
-            'error_type' => 1
-          ]);
+        return response()->json([
+          'error' => true,
+          'title' => 'Error!',
+          'text' => 'Product price type cannot be null.',
+          'error_type' => 1
+        ]);
       }
       if ($request['product_price_type'] == 'for_sale') {
         if ($request['product_price'] == '') {
@@ -2397,50 +2359,49 @@ class HomeController extends Controller
         //User::where('id',  Auth::user()->id)->update(['paypal_email' =>  $request['paypal_email']]);
         $product->save();
         return response()->json([
-            'error' => false,
-            'title' => 'Price Set Successfully!',
-            'text' => 'Your lent darts are set to sell for £'.$request['product_price'].'.',
-            'error_type' => 0
-          ]);
+          'error' => false,
+          'title' => 'Price Set Successfully!',
+          'text' => 'Your lent darts are set to sell for £' . $request['product_price'] . '.',
+          'error_type' => 0
+        ]);
       } else {
         $product->product_price = NULL;
         $product->product_price_type = $request['product_price_type'];
         $product->save();
         return response()->json([
-            'error' => false,
-            'title' => 'Success!',
-            'text' => 'Your lent darts are not for sale.',
-            'error_type' => 0
-          ]);
+          'error' => false,
+          'title' => 'Success!',
+          'text' => 'Your lent darts are not for sale.',
+          'error_type' => 0
+        ]);
       }
       return response()->json([
-            'error' => false,
-            'title' => 'Error!',
-            'text' => 'Product not found.',
-            'error_type' => 1
-          ]);
+        'error' => false,
+        'title' => 'Error!',
+        'text' => 'Product not found.',
+        'error_type' => 1
+      ]);
     }
 
-    
 
-//    return redirect('lent-darts')->with('successmessage', 'Product price edited successfully');
+
+    //    return redirect('lent-darts')->with('successmessage', 'Product price edited successfully');
   }
 
   public function revertPriceProductTypeProcess(Request $request)
   {
     $product = Product::where('id', $request['product_id'])->first();
     if ($product) {
-      
-        $product->product_price = NULL;
-        $product->product_price_type = 'not_for_sale';
-        $product->save();
-        return response()->json([
-            'error' => false,
-            'title' => 'Success!',
-            'text' => 'Your lent darts are not for sale.',
-            'error_type' => 0
-          ]);
-      
+
+      $product->product_price = NULL;
+      $product->product_price_type = 'not_for_sale';
+      $product->save();
+      return response()->json([
+        'error' => false,
+        'title' => 'Success!',
+        'text' => 'Your lent darts are not for sale.',
+        'error_type' => 0
+      ]);
     }
   }
 
@@ -2449,23 +2410,23 @@ class HomeController extends Controller
     if (isset($_GET['paypal_email'])) {
       $paypal_email = $_GET['paypal_email'];
     }
-     if ($paypal_email == '') {
-          return response()->json([
-            'error' => true,
-            'title' => 'Error!',
-            'text' => 'Paypal Email cannot be null.',
-            'error_type' => 1
-          ]);
-        }
-        User::where('id',  Auth::user()->id)->update(['paypal_email' =>  $paypal_email]);
-
-        return response()->json([
-            'error' => false,
-            'title' => 'Paypal Email',
-            'text' => 'Paypal email set successfully!',
-            'error_type' => 0
-          ]);
+    if ($paypal_email == '') {
+      return response()->json([
+        'error' => true,
+        'title' => 'Error!',
+        'text' => 'Paypal Email cannot be null.',
+        'error_type' => 1
+      ]);
     }
+    User::where('id',  Auth::user()->id)->update(['paypal_email' =>  $paypal_email]);
+
+    return response()->json([
+      'error' => false,
+      'title' => 'Paypal Email',
+      'text' => 'Paypal email set successfully!',
+      'error_type' => 0
+    ]);
+  }
 
 
 
@@ -2509,21 +2470,21 @@ class HomeController extends Controller
       $product_name = $product->product_name;
       $product_weight = $product->product_weight;
       $product_price = $product->product_price;
-      $product_picture = asset('public/uploads/darts_img/'.$product->product_image);
+      $product_picture = asset('public/uploads/darts_img/' . $product->product_image);
       $product->save();
       //Paypal 
       //payment_type_id = 4
       $order_detail->status = 4;   //2 means order is in Pending Ship
       $order_detail->save();
-     //==================================================================================
+      //==================================================================================
 
       //Email to Seller who sell his darts..
       $seller_fee = 0;
       $seller_total = 0;
 
-      $seller_fee = (10/100)*$product_price;
-      $seller_total = $product_price - $seller_fee;       
-      
+      $seller_fee = (10 / 100) * $product_price;
+      $seller_total = $product_price - $seller_fee;
+
       $user = User::where('id', $darts_owner)->first();
 
       $data_seller = array(
@@ -2539,7 +2500,7 @@ class HomeController extends Controller
       );
       Mail::send('emails.email-to-seller',  $data_seller, function ($message) use ($data_seller) {
         $message->to($data_seller['email'])
-        ->cc(['sales@dartsinabottle.com'])
+          ->cc(['sales@dartsinabottle.com'])
           ->subject("You've sold some darts");
       });
       //==================================================================================
@@ -2547,13 +2508,13 @@ class HomeController extends Controller
       //Email to Buyer who buy the darts.
       $buyer_fee = 0;
       $buyer_total = 0;
-      
-      if($product_price >= 39.00){
-      $buyer_fee = 2.99;
-      $buyer_total = $product_price + $buyer_fee;
-      }else{
-      $buyer_fee = (($product_price*1.075)-$product_price);
-      $buyer_total  = $product_price+$buyer_fee;
+
+      if ($product_price >= 39.00) {
+        $buyer_fee = 2.99;
+        $buyer_total = $product_price + $buyer_fee;
+      } else {
+        $buyer_fee = (($product_price * 1.075) - $product_price);
+        $buyer_total  = $product_price + $buyer_fee;
       }
 
       $data_buyer = array(
@@ -2577,7 +2538,6 @@ class HomeController extends Controller
       return redirect()
         ->route('borrowedDarts')
         ->with('successmessage', 'Purchase complete.  We are pleased you found darts that talk to you!');
-
     }
   }
 
@@ -2607,11 +2567,11 @@ class HomeController extends Controller
       if ($product_price >= 39.00) {
         $product_price = $product_price + 2.99;
       } else {
-        $amount = (($product_price * 1.075)-$product_price);
+        $amount = (($product_price * 1.075) - $product_price);
         $product_price  = $product_price  + $amount;
       }
     }
-    
+
     $response = $provider->createOrder([
       "intent" => "CAPTURE",
       "application_context" => [
@@ -2658,8 +2618,7 @@ class HomeController extends Controller
       return response()->json([
         "error" => true
       ]);
-    } 
-    else {
+    } else {
       return response()->json([
         "error" => true
       ]);
@@ -2683,7 +2642,6 @@ class HomeController extends Controller
 
         ->route('createTransaction')
         ->with('success', 'Transaction complete.');
-
     } else {
       return redirect()
         ->route('createTransaction')
@@ -2757,22 +2715,19 @@ class HomeController extends Controller
     }
 
     $order_detail = Subscription::where('id', $order_id)->first();
-    
+
     $products = Product::where('user_id', Auth::user()->id)->get();
 
-    foreach($products as $product)
-    {
-     if($product->active_status == 0 || $product->active_status == 1  || $product->active_status == 2)
-     {
-      $has_lent_darts = true; 
-     } 
+    foreach ($products as $product) {
+      if ($product->active_status == 0 || $product->active_status == 1  || $product->active_status == 2) {
+        $has_lent_darts = true;
+      }
     }
 
     $has_current_darts = ProductToCustomer::where('subscription_id', $order_detail->id)->where('status', 'Shipped')->first();
 
     $deposit_cost = $order_detail->getUser->deposit_cost;
-    if($deposit_cost > 0)
-    {
+    if ($deposit_cost > 0) {
       $has_deposit = true;
     }
 
@@ -2780,49 +2735,49 @@ class HomeController extends Controller
 
 
     Subscription::where('id', $order_detail->id)->update(['isunsubscribe' => '1']);
-    Product::where('user_id', Auth::user()->id)->where('active_status','1')->update(['active_status' => '2']);
+    Product::where('user_id', Auth::user()->id)->where('active_status', '1')->update(['active_status' => '2']);
 
 
     //=========================================================================//
-    
+
     //1a and 1b - user has lent darts not sold, current darts and deposit / no deposit.
-    if($has_lent_darts && $has_current_darts && $has_deposit) {
-      $message_body ='<p>We have received your cancellation request.<br><br>Kindly return your current darts.<br><br>You have a deposit of £'.$deposit_cost.' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque. <br><br>When we have confirmed receipt of your current darts, we will return your deposit. Your lent darts* will then be posted back and your account closed.<br><br><p>';
+    if ($has_lent_darts && $has_current_darts && $has_deposit) {
+      $message_body = '<p>We have received your cancellation request.<br><br>Kindly return your current darts.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque. <br><br>When we have confirmed receipt of your current darts, we will return your deposit. Your lent darts* will then be posted back and your account closed.<br><br><p>';
       $message_body .= '<p>*Please note that your lent darts may be with another user at the moment, in which case they will be sent back to you as soon as they are returned to us.</p>';
-    } 
-    if($has_lent_darts && $has_current_darts && !$has_deposit) {
-      $message_body ='<p>We have received your cancellation request.<br><br>Kindly return your current darts.<br><br>When we have confirmed receipt, we will post your lent darts back, and close your account.*<br><br><p>';
+    }
+    if ($has_lent_darts && $has_current_darts && !$has_deposit) {
+      $message_body = '<p>We have received your cancellation request.<br><br>Kindly return your current darts.<br><br>When we have confirmed receipt, we will post your lent darts back, and close your account.*<br><br><p>';
       $message_body .= '<p>*Please note that your lent darts may be with another user at the moment, in which case they will be sent back to you as soon as they are returned to us.</p>';
-    } 
+    }
     //=========================================================================//
-    
+
     //2a and 2b – user has lent darts not sold, no current darts and deposit/no deposit.
-    if($has_lent_darts && !$has_current_darts && $has_deposit) {
-    $message_body ='<p>We have received your cancellation request.<br><br>You have a deposit of £'.$deposit_cost.' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque.<br><br>After the deposit has been returned, your lent darts will  be posted back and your account closed.*<br><br><p>';
-    $message_body .= '<p>*Please note that your lent darts may be with another user at the moment, in which case they will be sent back to you as soon as they are returned to us.</p>';
-    } 
-    if($has_lent_darts && !$has_current_darts && !$has_deposit) {
-    $message_body ='<p>We have received your cancellation request.<br><br>Your lent darts will be posted back to you as soon as possible.*<br><br>After they have been posted, we will close your account.<br><br><p>';
-    $message_body .= '<p>*Please note that your lent darts may be with another user at the moment, in which case they will be sent back to you as soon as they are returned to us.</p>';
-    } 
+    if ($has_lent_darts && !$has_current_darts && $has_deposit) {
+      $message_body = '<p>We have received your cancellation request.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque.<br><br>After the deposit has been returned, your lent darts will  be posted back and your account closed.*<br><br><p>';
+      $message_body .= '<p>*Please note that your lent darts may be with another user at the moment, in which case they will be sent back to you as soon as they are returned to us.</p>';
+    }
+    if ($has_lent_darts && !$has_current_darts && !$has_deposit) {
+      $message_body = '<p>We have received your cancellation request.<br><br>Your lent darts will be posted back to you as soon as possible.*<br><br>After they have been posted, we will close your account.<br><br><p>';
+      $message_body .= '<p>*Please note that your lent darts may be with another user at the moment, in which case they will be sent back to you as soon as they are returned to us.</p>';
+    }
     //=========================================================================//
 
     //3a and 3b – user has sold lent darts, has current darts and deposit/no deposit.
-    if(!$has_lent_darts && $has_current_darts && $has_deposit) {
-      $message_body ='<p>We have received your cancellation request.<br><br>Kindly return your current darts and when we have confirmed receipt, we will return your deposit and close your account.<br><br>You have a deposit of £'.$deposit_cost.' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque.<br><br><p>';
-    } 
-    if(!$has_lent_darts && $has_current_darts && !$has_deposit) {
-      $message_body ='<p>We have received your cancellation request.<br><br>Kindly return your current darts and when we have confirmed receipt, we will close your account.<br><br><p>';
-    } 
+    if (!$has_lent_darts && $has_current_darts && $has_deposit) {
+      $message_body = '<p>We have received your cancellation request.<br><br>Kindly return your current darts and when we have confirmed receipt, we will return your deposit and close your account.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque.<br><br><p>';
+    }
+    if (!$has_lent_darts && $has_current_darts && !$has_deposit) {
+      $message_body = '<p>We have received your cancellation request.<br><br>Kindly return your current darts and when we have confirmed receipt, we will close your account.<br><br><p>';
+    }
     //=========================================================================//
 
     //4a and 4b – user has sold lent darts, no current darts and deposit / no deposit.
-    if(!$has_lent_darts && !$has_current_darts && $has_deposit) {
-      $message_body ='<p>We have received your cancellation request.<br><br>You have a deposit of £'.$deposit_cost.' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque.<br><br><p>';
-    } 
-    if(!$has_lent_darts && !$has_current_darts && !$has_deposit) {
-      $message_body ='<p>We have received your cancellation request. We will process the request and close your account.<br><br>Thank you for being a member of dartsinabottle.<br><br>Good luck on the oche.<br><br><p>';
-    } 
+    if (!$has_lent_darts && !$has_current_darts && $has_deposit) {
+      $message_body = '<p>We have received your cancellation request.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque.<br><br><p>';
+    }
+    if (!$has_lent_darts && !$has_current_darts && !$has_deposit) {
+      $message_body = '<p>We have received your cancellation request. We will process the request and close your account.<br><br>Thank you for being a member of dartsinabottle.<br><br>Good luck on the oche.<br><br><p>';
+    }
     //=========================================================================//
 
 
