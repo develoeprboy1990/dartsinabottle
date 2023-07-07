@@ -174,7 +174,6 @@ class PaymentTypeController extends Controller
     private function updateConfigurations()
     {
       $stripe_detail = PaymentType::where('id', 5)->where('status', 1)->first();
-    
       $path = base_path('.env');
       if (file_exists($path)) {
         if ($stripe_detail->active_account == 'test') {
@@ -200,6 +199,8 @@ class PaymentTypeController extends Controller
           file_get_contents($path)
         ));
       }
+
+      Artisan::call('cache:clear');
     }
 
     public function choosePaymentAccountTypeProcess(Request $request){

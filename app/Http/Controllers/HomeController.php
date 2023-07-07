@@ -69,7 +69,6 @@ use Illuminate\Support\Facades\Redirect;
 use App\SubscriptionBilling;
 use Carbon\Carbon;
 use Laravel\Cashier\Cashier;
-use Illuminate\Support\Facades\Artisan;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class HomeController extends Controller
@@ -2117,8 +2116,7 @@ class HomeController extends Controller
   public function paywithStripe()
   {
     //echo config('app.STRIPE_SECRET');
-    $this->updateConfigurations();
-    Artisan::call('cache:clear');
+    //$this->updateConfigurations(); 
     dd(env('STRIPE_KEY'));
     return view('user.customer.pay-with-stripe');
   }
