@@ -1794,8 +1794,7 @@ class HomeController extends Controller
         $paymentMethod      = $request->paymentMethod;
 
         try {
-          Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET'));
-          dd(config('app.STRIPE_SECRET'));
+          Stripe\Stripe::setApiKey(config('app.STRIPE_SECRET')); 
           if (empty($user->stripe_id)) {
             $stripeCustomer = $user->createAsStripeCustomer();
           }
