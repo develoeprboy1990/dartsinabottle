@@ -2181,7 +2181,7 @@ $(document).ready(function(){
             $.ajax({
         url:full_path+"admin/confirm-return-darts",
         method:"get",
-        dataType:"json",  
+        dataType:"json",
         data:{order_detail_id:order_detail_id},
           success:function(data){
             if(data.error == false){

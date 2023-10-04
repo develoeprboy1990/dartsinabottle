@@ -374,6 +374,8 @@
 <script>
   Stripe.setPublishableKey("{{env('STRIPE_KEY')}}");
 
+        
+
 
  /*  paypal.Buttons({
             createSubscription: function(data, actions) {
