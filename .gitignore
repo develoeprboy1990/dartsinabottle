@@ -5,7 +5,6 @@
 /storage/*.key
 /vendor
 /develop
-/bootstrap/cache
 *.class
 *.py[cod]
 *.log
