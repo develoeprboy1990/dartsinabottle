@@ -7,6 +7,7 @@ status ->
 1= Order is Shipped
 2= Order is in pending shipped
 3= Order Cancelled
+4= Pedning Customer
 --}}  
 <div class="right_col" role="main">
   <!-- page content -->
@@ -26,7 +27,7 @@ status ->
               <a style="cursor: pointer;" class="btn btn-primary" data-toggle="modal" data-target="#ship_darts_order_whose_payment_is_done">Ship Darts</a>
                @endif -->
 
-              @if($order_detail->status == 2 && $order_detail->isunsubscribe ==1)
+              @if(($order_detail->status == 2 || $order_detail->status == 4) && $order_detail->isunsubscribe ==1)
               <a style="cursor: pointer;" class="btn cancel-order btn-primary" data-order_id="{{$order_detail->id}}">Cancel Order</a>
               @endif
 

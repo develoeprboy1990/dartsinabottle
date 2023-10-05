@@ -13,7 +13,7 @@
       <div class="col-md-9 right_col">
        <div class="x_panel">
         <div class="x_title">
-          <h2>Subscription Detailasdfasdf</h2>          
+          <h2>Subscription Detail</h2>          
           <div class="clearfix"></div>
           <div class="pull-right top_search panel-group">
             @if($order_detail->status==1 || $order_detail->status==2 || $order_detail->status==4)
