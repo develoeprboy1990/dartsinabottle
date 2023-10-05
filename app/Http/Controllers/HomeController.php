@@ -452,15 +452,17 @@ class HomeController extends Controller
 
     if (Auth::check()) {
       $products = Product::where('product_weight_range', $type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+
       $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status' => 4])->orderBy('id', 'DESC')->first();
     } else {
+      
       $products = Product::where('product_weight_range', $type)->orderBy('product_weight', $sortby)->get();
       $order_details = array();
     }
-    //dd($order_details);
+    
 
 
-
+    // dd($products);
     return view('user.customer.browse-light', ['products' => $products, 'type' => $type, 'sortby' => $sortby, 'order_details' => $order_details]);
   }
 
@@ -1755,15 +1757,21 @@ class HomeController extends Controller
     $website_setting     = HomePageUrl::where('id', 1)->first();
 
     if ($request['choice'] == 'Lend') {
+      // Lend
       if ($package->id == 1) {
+        //2 set
         $oneTimeFee = 41.99;
       } else {
+        //4 set
         $oneTimeFee = 42.49;
       }
     } else {
+      //desposit
       if ($package->id == 1) {
+        //2 set
         $oneTimeFee = 51.99;
       } else {
+        //4 set
         $oneTimeFee = 52.49;
       }
     }

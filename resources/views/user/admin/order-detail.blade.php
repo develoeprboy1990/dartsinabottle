@@ -366,6 +366,7 @@ status ->
        
       </div>
       @endif 
+
       @if($order_detail->order_type == 0)
       <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
@@ -427,6 +428,46 @@ status ->
               </div>
             </div>
       @endif  
+      <!-- ------------------------ -->
+      <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Billing Details</h2>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="x_content">
+                <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th>Subscription ID</th>
+                      <th>Plan Purchase Date</th>
+                      <th>Period Start</th>
+                      <th>Period End</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   
+                    <tr>
+                      <td>{{ $billing->subscription_id }}</td>
+                      <td>{{ $billing->plan_created }}</td>
+                      <td>{{ $billing->period_start }}</td>
+                      <td>{{ $billing->period_end }}</td>
+                      @if($billing->status == 1)
+                      <td>Active</td>
+                      @else
+                      <td>In-active</td>
+                      @endif
+                    </tr>
+                
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+          </div> 
     </div> 
   </div>
   {{-- Ship Order Whose  Payment is Done Modal Started --}}
@@ -631,7 +672,7 @@ status ->
         },
         error:function(){
 
-          alert("Error");
+          alert("Error1");
         }
 
       });
@@ -671,7 +712,7 @@ status ->
         }
       },
       error:function(){
-        alert("Error");
+        alert("Error2");
       }
 
 
@@ -721,7 +762,7 @@ status ->
         }
       },
       error:function(){
-        alert("Error");
+        alert("Error3");
       }
 
 
@@ -770,7 +811,7 @@ status ->
         }
       },
       error:function(){
-        alert("Error");
+        alert("Error4");
       }
 
 
