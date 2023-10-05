@@ -16,7 +16,7 @@
           <h2>Subscription Detail</h2>          
           <div class="clearfix"></div>
           <div class="pull-right top_search panel-group">
-            @if($order_detail->status==1 || $order_detail->status==2)
+            @if($order_detail->status==1 || $order_detail->status==2 || $order_detail->status==4)
               <div class="input-group">
                 <div class="dropdown">
                 @if($order_detail->isunsubscribe ==0)
