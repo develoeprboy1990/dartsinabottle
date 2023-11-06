@@ -441,7 +441,7 @@
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <form action="{{url('admin/update-customer-deposit')}}" method="post">
+      <form action="{{url('admin/send-message-to-customer')}}" method="post">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
