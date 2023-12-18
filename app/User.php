@@ -56,6 +56,20 @@ class User extends Authenticatable
       
     }
 
+    public  function  getShippingDetail(){
+        return $this->hasOne('App\ShippingDetail','user_id','id');
+    }
+
+    public  function  getCart(){
+        return $this->hasOne('App\Cart','user_id','id');
+    }
+
+    public  function  getSubscription(){
+    
+      return $this->belongsTo('App\Subscription','id','user_id');
+      
+    }
+
     public  function  check_deporit($user_id){
 
         $user_supcription = Subscription::where('user_id',$user_id)->orderBy('id', 'desc')->first();

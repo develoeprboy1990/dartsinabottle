@@ -48,6 +48,15 @@ use App\SubscriptionBilling;
 
 class AdminManagementController extends Controller
 {
+
+/*
+status ->
+0= Order is in pendind
+1= Order is Shipped
+2= Order is in pending shipped
+3= Order Cancelled
+4= Pedning Customer
+*/
 	public function __construct(){
 
         $this->middleware('adminlogin',['except' =>['login','processLogin','logout']]);
@@ -314,26 +323,42 @@ public function postedOrder(){
 
     }
 
-    public function viewCustomers($status){
-
-        if($status == "active")
-        {
-            $users=User::where(['status'=>1,'user_role_id'=>4,'user_status'=>1])->orderBy('id','DESC')->get();    
-        }
-        elseif($status =="pending"){
-
-            $users=User::where(['status'=>0,'user_role_id'=>4,'user_status'=>0])->orderBy('id','DESC')->get();    
-
-
-        }
-        elseif($status == "suspended"){
-            $users=User::where(['user_role_id'=>4,'user_status'=>2])->orderBy('id','DESC')->get();    
-
-        }
+    public function viewCustomers($status)
+    {
+        //User ->
         
+            //status
+            //0=Not activated email 1=Activated Email 
+
+            //user_status
+            //0=Not active User, 1=Active User ,2=Suspended, 3=Subscribe 
+
         $customer_groups=CustomerGroup::orderBy('id','DESC')->get();
         $countries=Country::get();
-        return view('user.admin.customers',['users'=>$users,'status'=>$status,'customer_groups'=>$customer_groups,'countries'=>$countries]);
+
+        if($status =="pending")
+        {
+            $users=User::where(['status'=>0,'user_role_id'=>4,'user_status'=>0])->orderBy('id','DESC')->get(); 
+            return view('user.admin.customers',['users'=>$users,'status'=>$status,'customer_groups'=>$customer_groups,'countries'=>$countries]);   
+        }
+        elseif($status =="address-pending")
+        {
+            $users=User::where(['status'=>1,'user_role_id'=>4,'user_status'=>1,'shipping_detail_status'=>0])->orderBy('id','DESC')->get(); 
+            return view('user.admin.customers',['users'=>$users,'status'=>$status,'customer_groups'=>$customer_groups,'countries'=>$countries]);   
+        }
+        elseif($status =="payment-pending"){
+            $users=User::where(['status'=>1,'user_role_id'=>4,'user_status'=>1,'shipping_detail_status'=>1])->orderBy('id','DESC')->get();
+            return view('user.admin.customers',['users'=>$users,'status'=>$status,'customer_groups'=>$customer_groups,'countries'=>$countries]);    
+        }
+        elseif($status == "active")
+        {
+            $users=User::where(['status'=>1,'user_role_id'=>4,'user_status'=>3])->orderBy('id','DESC')->get();
+            return view('user.admin.active-customers',['users'=>$users,'status'=>$status,'customer_groups'=>$customer_groups,'countries'=>$countries]);    
+        }
+        elseif($status == "suspended"){
+            $users=User::where(['user_role_id'=>4,'user_status'=>2])->orderBy('id','DESC')->get();   
+            return view('user.admin.active-customers',['users'=>$users,'status'=>$status,'customer_groups'=>$customer_groups,'countries'=>$countries]); 
+        }
 
     }
 
@@ -1544,8 +1569,8 @@ public function advanceSearchUser(Request $request){
 
         $subject_mail=$request['subject'];
         $message_body=$request['message'];
-        $from_email = 'customerservice@dartsinabottle.com';
-        $from_name = 'dartsinabottle';
+        //$from_email = 'customerservice@dartsinabottle.com';
+        //$from_name = 'dartsinabottle';
 
         $user_emails=explode(',',$request['user_email_arr']);
 
@@ -1563,9 +1588,14 @@ public function advanceSearchUser(Request $request){
                 'message_body'        => $message_body
             ); 
 
-            Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail,$from_email,$from_name) {
+           /* Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail,$from_email,$from_name) {
               $message->to($data['email'])
               ->from($from_email, $from_name)
+              ->subject($subject_mail);
+          });
+*/
+          Mail::send('emails.send-mail-to-users',  $data, function ($message) use ($data,$subject_mail) {
+              $message->to($data['email'])
               ->subject($subject_mail);
           });
 

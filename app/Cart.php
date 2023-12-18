@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
+
+    protected $fillable = [
+        'user_cookie', 'user_id', 'package_id','price','deposit_cost','darts_set','darts_interval','choice'
+    ];
+
+
     public function getSize(){
 
     	return $this->belongsTo('App\BadgeSize', 'badge_size_id', 'id');

@@ -219,6 +219,9 @@ class HomeController extends Controller
       $user_detail->user_id = $user->id;
       $user_detail->save();
 
+      if(isset($_COOKIE["user_cookie"]))
+      Cart::where('user_cookie', $_COOKIE["user_cookie"])->update(['user_id' =>  $user->id]);
+
       $data = array(
         'firstname'      => $request['first_name'],
         'lastname'       => $request['last_name'],
@@ -1846,6 +1849,10 @@ class HomeController extends Controller
                   ])->create($paymentMethod, ['email' => $user->email]);
                   */
           $order_detail->payment_status = 1; //means payment done because this is credit card
+
+          //Update User to Subscribe Customer
+          User::where('id',  Auth::user()->id)->update(['user_status' =>  3]);
+
         } catch (Exception $e) {
           return response()->json(['error' => true]);
         }
@@ -1862,6 +1869,7 @@ class HomeController extends Controller
 
 
       $payThroughPaypal = false;
+      // For PayPal
       if ($request['payment_type_id'] == 4) {
         $email_payment_type = "PayPal";
         //$order_detail->payment_status = 1; //means payment done because this is credit card
@@ -1952,6 +1960,7 @@ class HomeController extends Controller
         $order_detail  = Subscription::create(['stripe_id' => $response->id, 'stripe_status' => "$response->status", 'payment_status' => '0', 'status' => '0', 'quantity' => 1]);
         $order_product = SubscriptionItem::create(['subscription_id' => $order_detail->id, 'stripe_id' => "$response->id", 'stripe_plan' => "$response->id", 'quantity' => 1]);
       }
+      //End PayPal
 
       $order_detail->order_number     = $order_number;
       $order_detail->user_id          =  $user->id;
@@ -1971,8 +1980,9 @@ class HomeController extends Controller
       $order_detail->payment_type_id  = $request['payment_type_id'];
       $order_detail->customer_internal_reference_no = $request['customer_internal_reference_no'];
       $order_detail->order_note       = $request['order_note'];
-      if ($request['payment_type_id'] == 5) {
-        //Stripe
+
+      //Stripe
+      if ($request['payment_type_id'] == 5) {  
         $order_detail->status           = 4;
         //means that the order will go directly to pending 
       }
@@ -2061,7 +2071,7 @@ class HomeController extends Controller
     );
 
     if ($request['payment_type_id'] == 5) {
-
+      //Stripe
       Mail::send('emails.order-email',  $data, function ($message) use ($data) {
         $message->to($data['email'])
           ->cc(['sales@dartsinabottle.com', 'dartsinabottle.com+1493fc9a1f@invite.trustpilot.com'])
@@ -2328,10 +2338,17 @@ class HomeController extends Controller
       );
 
       if (!empty($subscription)) {
+
+        //Update User to Subscribe Customer
+        User::where('id',  $subscription->getUser->id)->update(['user_status' =>  3]);
+
+        //Update Subscription Status
         $subscription->status = 4;
         $subscription->payment_status = 1;
         $subscription->save();
       }
+
+
 
       Mail::send('emails.order-email',  $data, function ($message) use ($data) {
         $message->to($data['email'])

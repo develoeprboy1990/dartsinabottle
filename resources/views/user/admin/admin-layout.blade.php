@@ -110,8 +110,10 @@
                 </li>
                 <li><a><i class="fa fa-table"></i> Customers <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
+                    <li><a href="{{url('admin/customers/pending')}}">Pending Email Customers</a></li>
+                    <li><a href="{{url('admin/customers/address-pending')}}">Pending Address Customers</a></li>
+                    <li><a href="{{url('admin/customers/payment-pending')}}">Pending Payment Customers</a></li>
                     <li><a href="{{url('admin/customers/active')}}">Active Customers</a></li>
-                    <li><a href="{{url('admin/customers/pending')}}">Pending Customers</a></li>
                     <li><a href="{{url('admin/customers/suspended')}}">Suspended Customers</a></li>
                   </ul>
                 </li>

@@ -21,4 +21,9 @@ class ShippingDetail extends Model
 
     	return $this->belongsTo('App\State','state_id','id');
     }
+
+    public function getPackage(){
+
+        return $this->belongsTo('App\Package','package_id','id');
+    }
 }

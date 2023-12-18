@@ -172,9 +172,9 @@
                               <th></th>
                               <th>Name</th>
                               <th>Email</th>
-                              <th>Set</th>
+                              <th>PayPal Email</th>
+                              <th>SET</th> 
                               <th>Deposit</th> 
-                              <th>Email Verified</th>
                               <th>Shipping Country</th>
                               <th>City</th>
                               <th>Postal Code</th>
@@ -193,28 +193,10 @@
                               </td>
                               <td>{{$user->first_name}}  {{$user->last_name}}</td>
                               <td>{{$user->email}}</td>
-                              <td>{{@$user->getCart->darts_set}}</td>
-                              @if(@$user->getCart->deposit_cost !='' )
-                              <td>£{{@$user->getCart->deposit_cost}}</td>
-                              @else
-                              <td></td>
-                              @endif
-                           
+                              <td>{{$user->paypal_email}}</td>
 
-                             @if($user->status ==0)
-                                
-                                  @php
-                                    $email_status="No";
-                                  @endphp
-
-                               @elseif($user->status ==1)
-                                  
-                                  @php
-                                    $email_status="Yes";
-                                  @endphp
-                               
-                              @endif 
-                              <td>{{$email_status}}</td>
+                              <td>{{@$user->getSubscription->getProductDetail->getPackage->darts_set}}</td>
+                              <td>£{{@$user->check_deporit($user->id)}}</td>
 
                               <td>{{(@$user->getCountry->name=="")?"Not provided yet":@$user->getCountry->name}}</td>
                               <td>{{(@$user->getShippingDetail->city_id=="")?"Not provided yet":@$user->getShippingDetail->city_id}}</td>
@@ -238,7 +220,15 @@
                                     $user_status="Suspended";
                                   @endphp   
                                
+                               @elseif($user->user_status == 3 )
+                                  
+                                  @php
+                                    $user_status="Subscribed";
+                                  @endphp   
+                               
+                              
                               @endif  
+
                               <td>{{$user_status}}</td>
                               
                               <td>{{$user->created_at}}</td>
