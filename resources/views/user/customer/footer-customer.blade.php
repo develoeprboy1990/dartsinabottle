@@ -64,9 +64,11 @@ padding: 6px;
             <div class="col-sm-4 col-xs-12 contact-us footer-links">
                 <h3>Contact Us</h3>
                 <p>DARTSINABOTTLE LIMITED <br>
-                128 CITY ROAD<br>
-                LONDON<br>
-                EC1V 2NX<br>
+                Unit A<br>
+                82 James Carter Road<br>
+                Mildenhall<br>
+                Suffolk<br>
+                IP28 7DE<br>
                 UNITED KINGDOM<br><br>
                 <ul>
                 <li> <span>Email: </span> <a class="footer_email" href="mailto:customerservice@dartsinabottle.com">customerservice@dartsinabottle.com</a></li>
