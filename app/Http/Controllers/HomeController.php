@@ -445,24 +445,55 @@ class HomeController extends Controller
 
     $type = 'Light';
 
-    if ($sortby == '') {
-      $sortby = 'ASC';
-    } else {
-      $sorting =  explode('_', $sortby);
-      $sortby = $sorting[1];
-    }
+
+$query = Product::query();
+$query->where('product_weight_range', $type);
+
+
 
 
     if (Auth::check()) {
-      $products = Product::where('product_weight_range', $type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+
+      $query->where('user_id', '<>', Auth::user()->id);
+
+      //$products = Product::where('product_weight_range', $type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
 
       $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status' => 4])->orderBy('id', 'DESC')->first();
     } else {
       
-      $products = Product::where('product_weight_range', $type)->orderBy('product_weight', $sortby)->get();
+      //$products = Product::where('product_weight_range', $type)->orderBy('product_weight', $sortby)->get();
       $order_details = array();
     }
+
+
+
+    if ($sortby == '') {
+      $sortby = 'ASC';
+    } else {
+      $sorting =  explode('_', $sortby);
+      if($sorting[1]=='W')
+      {
+        $query->orderBy('product_weight', $sorting[2]);
+      }
+
+      if($sorting[1]=='L')
+      {
+        $query->orderBy('product_length', $sorting[2]);
+      }
+
+      if($sorting[1]=='N')
+      {
+        $query->orderBy('product_width', $sorting[2]);
+      }
+
+      $sortby = $sorting[1].'_'.$sorting[2];
+    }
+
+
+
+
     
+    $products = $query->get();
 
 
     // dd($products);
@@ -474,22 +505,43 @@ class HomeController extends Controller
 
     $type = 'Medium';
 
+    $query = Product::query();
+    $query->where('product_weight_range', $type);
+
+
+    if (Auth::check()) {
+
+       $query->where('user_id', '<>', Auth::user()->id);
+      //$products = Product::where('product_weight_range', $type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+      $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status' => 4])->orderBy('id', 'DESC')->first();
+    } else {
+      //$products = Product::where('product_weight_range', $type)->orderBy('product_weight', $sortby)->get();
+      $order_details = array();
+    }
+
     if ($sortby == '') {
       $sortby = 'ASC';
     } else {
       $sorting =  explode('_', $sortby);
-      $sortby = $sorting[1];
-    }
+      if($sorting[1]=='W')
+      {
+        $query->orderBy('product_weight', $sorting[2]);
+      }
 
+      if($sorting[1]=='L')
+      {
+        $query->orderBy('product_length', $sorting[2]);
+      }
 
-    if (Auth::check()) {
-      $products = Product::where('product_weight_range', $type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
-      $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status' => 4])->orderBy('id', 'DESC')->first();
-    } else {
-      $products = Product::where('product_weight_range', $type)->orderBy('product_weight', $sortby)->get();
-      $order_details = array();
+      if($sorting[1]=='N')
+      {
+        $query->orderBy('product_width', $sorting[2]);
+      }
+
+      $sortby = $sorting[1].'_'.$sorting[2];
     }
-    //dd($order_details);
+    
+    $products = $query->get();
 
     return view('user.customer.browse-medium', ['products' => $products, 'type' => $type, 'sortby' => $sortby, 'order_details' => $order_details]);
   }
@@ -499,22 +551,44 @@ class HomeController extends Controller
 
     $type = 'Heavy';
 
+  
+
+    $query = Product::query();
+    $query->where('product_weight_range', $type);
+
+    if (Auth::check()) {
+      $query->where('user_id', '<>', Auth::user()->id);
+      //$products = Product::where('product_weight_range', $type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
+      $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status' => 4])->orderBy('id', 'DESC')->first();
+    } else {
+      //$products = Product::where('product_weight_range', $type)->orderBy('product_weight', $sortby)->get();
+      $order_details = array();
+    }
+
     if ($sortby == '') {
       $sortby = 'ASC';
     } else {
       $sorting =  explode('_', $sortby);
-      $sortby = $sorting[1];
-    }
+      if($sorting[1]=='W')
+      {
+        $query->orderBy('product_weight', $sorting[2]);
+      }
 
+      if($sorting[1]=='L')
+      {
+        $query->orderBy('product_length', $sorting[2]);
+      }
 
-    if (Auth::check()) {
-      $products = Product::where('product_weight_range', $type)->where('user_id', '<>', Auth::user()->id)->orderBy('product_weight', $sortby)->get();
-      $order_details = Subscription::where(['user_id' => Auth::user()->id])->where(['status' => 4])->orderBy('id', 'DESC')->first();
-    } else {
-      $products = Product::where('product_weight_range', $type)->orderBy('product_weight', $sortby)->get();
-      $order_details = array();
+      if($sorting[1]=='N')
+      {
+        $query->orderBy('product_width', $sorting[2]);
+      }
+
+      $sortby = $sorting[1].'_'.$sorting[2];
     }
-    //dd($order_details);
+    
+    $products = $query->get();
+    
 
     return view('user.customer.browse-heavy', ['products' => $products, 'type' => $type, 'sortby' => $sortby, 'order_details' => $order_details]);
   }

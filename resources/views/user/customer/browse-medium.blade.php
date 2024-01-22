@@ -21,8 +21,15 @@
                 <label class="col-md-4 col-md-4 col-sm-4 custom-label" style="text-align:right;padding: 11px 0px;">Sort by:</label>
                 <div class="col-md-8 col-md-8 col-sm-8 pull-right">
                     <select name="sorting" id="sorting" class="form-control form-control-sm">
-                      <option value="ASC" @if($sortby == 'ASC') selected @endif>Weight: light to heavy</option>
-                      <option value="DESC" @if($sortby == 'DESC') selected @endif>Weight: heavy to light</option>
+                      <option value="W_ASC" @if($sortby == 'W_ASC') selected @endif>Weight: light to heavy</option>
+                      <option value="W_DESC" @if($sortby == 'W_DESC') selected @endif>Weight: heavy to light</option>
+
+                      <option value="L_ASC" @if($sortby == 'L_ASC') selected @endif>Dimensions : long to short</option>
+                      <option value="L_DESC" @if($sortby == 'L_DESC') selected @endif>Dimensions : short to long</option>
+
+                      <option value="N_ASC" @if($sortby == 'N_ASC') selected @endif>Dimensions : narrow to wide</option>
+                      <option value="N_DESC" @if($sortby == 'N_DESC') selected @endif>Dimensions : wide to narrow</option>
+                      
                     </select>
                 </div>
               </div>
