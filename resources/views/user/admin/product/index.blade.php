@@ -43,6 +43,7 @@
                               <th>Title</th>
                               <th>Weight Range</th>
                               <th>Weight</th>
+                              <th>Length*Width</th>
                               <th>Price Type</th>
                               <th>Price</th>
                               <th>Description</th>
@@ -59,8 +60,8 @@
                               <td>{{$product->product_name}}</td>
                               <td>{{$product->product_weight_range}}</td>
                               <td>{{$product->product_weight}}</td>
+                              <td>{{@$product->product_length}}*{{@$product->product_width}}</td>
                               <td>
-                                
                                 @php
                                 $product_price_type = '';
                                 if($product->product_price_type == "for_sale")
@@ -151,8 +152,20 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="price">Weight:</label>
+                        <label for="price">Weight(g):</label>
                         <input type="text" class="form-control" id="product_weight" placeholder="Enter Weight" name="product_weight" required="true">
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="length">Length(mm):</label>
+                        <input type="text" class="form-control" id="product_length" placeholder="Edit Length" name="product_length" required="true">
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="width">Width(mm):</label>
+                        <input type="text" class="form-control" id="product_width" placeholder="Edit Width" name="product_width" required="true">
                       </div>
 
                       <div class="form-group">
@@ -224,6 +237,19 @@
                         <label for="price">Weight:</label>
                         <input type="text" class="form-control" id="e_weight" placeholder="Edit Weight" name="e_weight" required="true">
                       </div>
+
+                      <div class="form-group">
+                        <label for="length">Length:</label>
+                        <input type="text" class="form-control" id="e_length" placeholder="Edit Length" name="e_length" required="true">
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="width">Width:</label>
+                        <input type="text" class="form-control" id="e_width" placeholder="Edit Width" name="e_width" required="true">
+                      </div>
+
+
                       <div class="form-group">
                         <label for="price">Price Type:</label>
                          <select class="a_badge_size form-control" name="e_price_type"  id="e_price_type" >

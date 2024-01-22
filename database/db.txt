@@ -27,3 +27,8 @@ ALTER TABLE `subscriptions` ADD `choice` VARCHAR(255) NULL DEFAULT NULL AFTER `s
 
 
 
+22/01/2024
+ALTER TABLE `products` ADD `product_length` VARCHAR(255) NULL DEFAULT NULL AFTER `product_weight`, ADD `product_width` VARCHAR(255) NULL DEFAULT NULL AFTER `product_length`; 
+
+
+

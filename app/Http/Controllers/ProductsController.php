@@ -66,6 +66,8 @@ class ProductsController extends Controller
         $product->product_description = $request->description;
         $product->product_weight_range = $request->weight_range;
         $product->product_weight  = $request->product_weight;
+        $product->product_length  = $request->product_length;
+        $product->product_width  = $request->product_width;
         $product->save();
 
         $product_picture = asset('public/uploads/darts_img/'.$filename);
@@ -86,6 +88,7 @@ class ProductsController extends Controller
             'email'           => $user->email,
             'product_name'    => $request->title,
             'product_weight'  => $request->product_weight,
+            'product_length'  => $request->product_length.'*'.$request->product_width,
             'product_price'   => $product_price,
             'product_picture' => $product_picture
             );
@@ -150,6 +153,8 @@ class ProductsController extends Controller
         $product->product_price_type = $request->e_price_type;
         $product->product_description = $request->e_description;
         $product->product_weight = $request->e_weight;
+        $product->product_length  = $request->e_length;
+        $product->product_width  = $request->e_width;
         
         $product->user_id = $request->e_user_id;
         $product->product_weight_range = $request->e_weight_range;

@@ -73,6 +73,8 @@ $(document).ready(function(){
             $("#e_price_type  option[value="+data.product.product_price_type+"]").prop("selected", true);
             $("#e_price").val(data.product.product_price);
             $("#e_weight").val(data.product.product_weight);
+            $("#e_length").val(data.product.product_length);
+            $("#e_width").val(data.product.product_width);
             $("#e_weight_range  option[value="+data.product.product_weight_range+"]").prop("selected", true);
             $("#e_user_id  option[value="+data.product.user_id+"]").prop("selected", true);
             $("#e_description").jqteVal(data.product.product_description);

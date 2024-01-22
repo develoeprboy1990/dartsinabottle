@@ -42,6 +42,9 @@
                     <img src="{{url('public/uploads/darts_img/'.$product->product_image)}}" height="300px" width="300px" alt="Heavy Darts for Rent" ></a></br>
                   {!!@ $product->product_description!!}<br>
                   {{@$product->product_weight}} g<br>
+                  @if($product->product_length != '')
+                  {{@$product->product_length}}mm * {{@$product->product_width}}mm<br>
+                  @endif
                   
                     @if(@$order_details->status == 4)
                       @if($product->active_status == '1')
