@@ -2872,7 +2872,7 @@ $query->where('product_weight_range', $type);
 
     //1a and 1b - user has lent darts not sold, current darts and deposit / no deposit.
     if ($has_lent_darts && $has_current_darts && $has_deposit) {
-      $message_body = '<p>We have received your cancellation request.<br><br>Kindly return your current darts.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque. <br><br>When we have confirmed receipt of your current darts, we will return your deposit. Your lent darts* will then be posted back and your account closed.<br><br><p>';
+      $message_body = '<p>We have received your cancellation request.<br><br>Kindly return your current darts.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits through bank transfer, PayPal or cheque. <br><br>When we have confirmed receipt of your current darts, we will return your deposit. Your lent darts* will then be posted back and your account closed.<br><br><p>';
       $message_body .= '<p>*Please note that your lent darts may be with another user at the moment, in which case they will be sent back to you as soon as they are returned to us.</p>';
     }
     if ($has_lent_darts && $has_current_darts && !$has_deposit) {
@@ -2883,7 +2883,7 @@ $query->where('product_weight_range', $type);
 
     //2a and 2b – user has lent darts not sold, no current darts and deposit/no deposit.
     if ($has_lent_darts && !$has_current_darts && $has_deposit) {
-      $message_body = '<p>We have received your cancellation request.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque.<br><br>After the deposit has been returned, your lent darts will  be posted back and your account closed.*<br><br><p>';
+      $message_body = '<p>We have received your cancellation request.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits through bank transfer, PayPal or cheque.<br><br>After the deposit has been returned, your lent darts will  be posted back and your account closed.*<br><br><p>';
       $message_body .= '<p>*Please note that your lent darts may be with another user at the moment, in which case they will be sent back to you as soon as they are returned to us.</p>';
     }
     if ($has_lent_darts && !$has_current_darts && !$has_deposit) {
@@ -2894,7 +2894,7 @@ $query->where('product_weight_range', $type);
 
     //3a and 3b – user has sold lent darts, has current darts and deposit/no deposit.
     if (!$has_lent_darts && $has_current_darts && $has_deposit) {
-      $message_body = '<p>We have received your cancellation request.<br><br>Kindly return your current darts and when we have confirmed receipt, we will return your deposit and close your account.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque.<br><br><p>';
+      $message_body = '<p>We have received your cancellation request.<br><br>Kindly return your current darts and when we have confirmed receipt, we will return your deposit and close your account.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits through bank transfer, PayPal or cheque.<br><br><p>';
     }
     if (!$has_lent_darts && $has_current_darts && !$has_deposit) {
       $message_body = '<p>We have received your cancellation request.<br><br>Kindly return your current darts and when we have confirmed receipt, we will close your account.<br><br><p>';
@@ -2903,7 +2903,7 @@ $query->where('product_weight_range', $type);
 
     //4a and 4b – user has sold lent darts, no current darts and deposit / no deposit.
     if (!$has_lent_darts && !$has_current_darts && $has_deposit) {
-      $message_body = '<p>We have received your cancellation request.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits though PayPal or cheque.<br><br><p>';
+      $message_body = '<p>We have received your cancellation request.<br><br>You have a deposit of £' . $deposit_cost . ' remaining. Please contact us at customerservice@dartsinabottle.com to advise us of your preferred payment method. We can refund deposits through bank transfer, PayPal or cheque.<br><br><p>';
     }
     if (!$has_lent_darts && !$has_current_darts && !$has_deposit) {
       $message_body = '<p>We have received your cancellation request. We will process the request and close your account.<br><br>Thank you for being a member of dartsinabottle.<br><br>Good luck on the oche.<br><br><p>';

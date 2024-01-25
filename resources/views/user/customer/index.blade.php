@@ -413,7 +413,7 @@
                     </div>
                     <hr>
                      <div class="text-content col-12 col-xs-12 copyright">
-                        <p>© 2023 dartsinabottle. All Rights Reserved.</p>
+                        <p>© 2024 dartsinabottle. All Rights Reserved.</p>
                     </div>        
                 </div>
             </div>
