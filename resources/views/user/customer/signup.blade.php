@@ -151,6 +151,22 @@
 
 
 <script>
+        // Extend jQuery Validate with a custom method
+        $.validator.addMethod("uniqueName", function(value, element) {
+          // Retrieve the value of the last name field
+          var lastNameValue = $("#last_name").val();
+
+          // Check if the first name and last name are identical
+          if (value === lastNameValue) {
+              // Return false if identical
+              return false;
+          } else {
+              // Return true if not identical
+              return true;
+          }
+        }, "First name and last name cannot be identical.");
+
+
         $(document).ready(function(){
           $("#signup_form").validate({
 
@@ -159,6 +175,7 @@
 
               'first_name':{
                   required:true,
+                  uniqueName: true
               },
               'last_name':{
                   required:true,
@@ -218,7 +235,7 @@
 
                     if(data.error == true)
                     {
-                      swal('User with email already exists');
+                      swal(data.message);
                     }
                     else
                     {

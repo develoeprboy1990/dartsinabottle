@@ -203,7 +203,14 @@ class HomeController extends Controller
     if ($check_existing_user > 0) {
 
       $error = true;
-    } else {
+      $message = 'User with email already exists';
+
+    }else if($request['first_name'] === $request['last_name']){
+
+      $error = true;
+      $message = 'First name and last name cannot be identical.';
+    }
+    else {
       $activation_code = md5(uniqid());
 
       $user = new User;
@@ -237,10 +244,12 @@ class HomeController extends Controller
       });
 
       $error = false;
+      $message = 'success';
     }
 
     return response()->json([
-      'error' => $error
+      'error' => $error,
+      'message' => $message
 
     ]);
   }
