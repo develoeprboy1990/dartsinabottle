@@ -351,7 +351,7 @@
                         <div class="mbr-text mbr-fonts-style display-7">
                             <ul>
                                 <li>Try different barrels to find the best weight, shape, grip and dimensions for your throw</li>
-                                <li>Over 50 sets to choose from ranging from 12g-48g</li>
+                                <li>Over 70 sets to choose from ranging from 12g-48g</li>
                                 <li>All postage is covered by subscription and sent 1st class (excluding additional lent sets)</li>
                                 <li>Set a price for your lent barrels easily – there are no listing fees</li>
                                 <li>No more ‘buyers regret’ – if you don’t like what you feel, send them back! </li>

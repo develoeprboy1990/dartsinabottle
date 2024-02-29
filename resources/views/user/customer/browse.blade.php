@@ -24,7 +24,7 @@
             <div class="row badges-row">              
               <div class="col-xs-12 badges-sizes text-center">
                  <p class="about-page">At Dartsinabottle, we offer a wide selection of darts available for rent. Our darts are made from high-quality materials that ensure durability and accuracy. We have a variety of light, medium, and heavy darts that cater to all skill levels. Browse our website to find the perfect dart/sets for your next game. We are committed to providing quality darts at affordable prices.</p>
-                <a href="browse/Light">
+                <a href="browse/Light/sortby_W_ASC">
                   <div class="col-md-4 col-sm-12 " data-weight_id="Light" >
                   <div class="single-weight light-choice">
                   <div class="price-header"><h3 class="title"></h3></div>
@@ -38,7 +38,7 @@
                 </div>
                 </a>
 
-                <a href="browse/Medium">
+                <a href="browse/Medium/sortby_W_ASC">
                   <div class="col-md-4 col-sm-12 " data-weight_id="Medium">
                   <div class="single-weight medium-choice">
                   <div class="price-header"><h3 class="title"></h3></div>
@@ -52,7 +52,7 @@
                 </div>
                 </a>
 
-                <a href="browse/Heavy">
+                <a href="browse/Heavy/sortby_W_ASC">
                 <div class="col-md-4 col-sm-12 " data-weight_id="Heavy">
                   <div class="single-weight heavy-choice">
                   <div class="price-header"><h3 class="title"></h3></div>
